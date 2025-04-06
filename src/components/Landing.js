@@ -10,10 +10,10 @@ export default function Landing() {
     return (
         <div className="landing">
             <div className='hero'>
-
+                <h1 className='title'>Explore.</h1>
             </div>
             <div className='content'>
-                
+
             </div>
         </div>
     );
