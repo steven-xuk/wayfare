@@ -2,11 +2,11 @@ import { useDispatch } from 'react-redux';
 import { login } from '../redux/slices/AuthSlice';
 import { NavLink } from 'react-router-dom';
 
-//importing other stuff
-import Button from './parts/Button'
 
 //importing images
 import hikingdude from '../imgs/pexels-ozgomz-868097 (1).jpg'
+import TrialPreview from './parts/TrailPreview';
+import testImg from '../imgs/pexels-adrien-olichon-1257089-3709402.jpg'
 
 export default function Landing() {
     const dispatch = useDispatch();
@@ -34,12 +34,16 @@ export default function Landing() {
                     <div className='section-content-container'>
                         <h2 className='section-header'>what is wayfare?</h2>
                         <p className='section-content'>Wayfare is a social media app designed for hikers, adventurers, and nature lovers who want to connect, share, and explore the great outdoors together. Whether you're scaling rugged peaks, strolling through forest trails, or just discovering a new walk in your neighborhood, Wayfare makes it easy to track your journey, post photos, and find new hiking spots recommended by the community. Users can log their hikes with GPS, upload trail conditions in real-time, and leave helpful tips or reviews for others. The app includes custom profiles, leaderboards, group challenges, and even badges for milestones like “100km Club” or “Sunrise Seeker.” </p>
-                        <Button type='primary' content='start now'/>
+                        <a type='primary'>start now</a>
                     </div>
                     <div className='section-image-container'>
                         <img className='section-image' src={hikingdude}/>
                     </div>
+                </div>
 
+                <div>
+                    <h2 className='header'>todays top trail</h2>
+                    <TrialPreview title='wellington waterfront' description='Wellington’s waterfront is a vibrant blend of urban life and stunning natural scenery. Stretching along the harbor, it features bustling cafés, art galleries, and picturesque parks. ' image={testImg} likes={1305} creatorName='steven xu'/>
                 </div>
             </div>
         </div>

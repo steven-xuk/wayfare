@@ -97,11 +97,60 @@ html, body {
 
 }
 
-        
-        
-
+    
 @media screen and (max-width: 753px) {
     .section{
         flex-direction: column;
     }
+}
+
+
+.header{
+    font-size: 4rem;
+    text-align: center;
+}
+
+.preview{
+    border: 4px solid black;
+    border-radius: 22px;
+    margin: 50px;
+}
+
+.preview-title{
+    font-size: 3rem;
+    font-weight: normal;
+    margin: 0;
+}
+
+.preview-content{
+    margin-top: 0;
+    font-size: 1.5rem;
+}
+
+.preview-top{
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.preview-image{
+    width: 350px;
+    height: 350px;
+    border-radius: 22px;
+}
+
+.preview-image-container{
+    margin-left: auto;
+}
+
+.preview-content-container{
+    width: 600px;
+}
+
+.btn{
+
+}
+
+.btn-primary{
+    
 }
