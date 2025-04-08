@@ -4,13 +4,20 @@ html, body {
     font-family: Arial, sans-serif;
 }
 
+/* making everything the font for some reason the code above doesn't do it */
+
+*{
+    font-family: "Alegreya Sans SC", sans-serif;
+}
+
 /* Landing.js */
 
-.landing a {
+/* SORRY!!! I just had to comment this out because it applied to all the links on the page and I didn't know how to fix it */
+/* .landing a {
     font-size: 24px;
     text-decoration: none;
     position: fixed;
-}
+} */
 
 .landing .hero {
     background-image: url('./imgs/hero-image.jpg');
@@ -47,4 +54,54 @@ html, body {
     color: white;
     text-align: center;
     font-size: 2em;
+}
+
+/* section */
+
+.section{
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.section-header{
+    font-size: 4rem;
+}
+
+.section-content{
+    font-size: 1.2rem;
+}
+
+.section-content-container{
+    padding: 30px;
+}
+
+.section-image{
+    width: 100%;
+    border-radius: 22px;
+}
+
+.section-image-container{
+    padding: 50px 100px;
+    min-height: 505px;
+}
+
+
+/* STEVEEEEENNN these do NOT work, bruh nothing works */
+
+@media screen and (max-width: 1135px) {
+    .section-image-container{
+        padding: 70px 20px;
+    }
+
+}
+
+        
+        
+
+@media screen and (max-width: 753px) {
+    .section{
+        flex-direction: column;
+    }
 }
