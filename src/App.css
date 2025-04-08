@@ -1,2 +1,50 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
 /* Landing.js */
 
+.landing a {
+    font-size: 24px;
+    text-decoration: none;
+    position: fixed;
+}
+
+.landing .hero {
+    background-image: url('./imgs/hero-image.jpg');
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.landing .hero .hero-text {
+    position: absolute;
+    top: 28%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    margin: 0;
+}
+
+.landing .hero .hero-text .title {
+    font-family: "Alegreya Sans SC", sans-serif;
+    font-weight: 400;
+    margin: 0;
+    color: white;
+    text-align: center;
+    font-size: 110px;
+    padding: 0;
+    line-height: 0.6em;
+}
+
+.landing .hero .hero-text .subtitle {
+    font-family: "Alegreya Sans SC", sans-serif;
+    padding: 0;
+    font-weight: 400;
+    margin: 0;
+    color: white;
+    text-align: center;
+    font-size: 2em;
+}
