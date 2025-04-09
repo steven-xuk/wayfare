@@ -1,27 +1,44 @@
 import { useDispatch } from 'react-redux';
 import { login } from '../redux/slices/AuthSlice';
 import { NavLink } from 'react-router-dom';
+import logo from '../imgs/logo.png';
+import { useState } from 'react';
 
 
 //importing images
 import hikingdude from '../imgs/pexels-ozgomz-868097 (1).jpg'
 import TrialPreview from './parts/TrailPreview';
 import testImg from '../imgs/pexels-adrien-olichon-1257089-3709402.jpg'
+import { useEffect } from 'react';
 
 export default function Landing() {
+
+    const [isOnTop, setIsOnTop] = useState(true);
+
     const dispatch = useDispatch();
     const handleLogin = () => {
         dispatch(login());
     };
 
+    useEffect(() => {
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY;
+            if (scrollPosition > 10) {
+                setIsOnTop(false);
+            } else {
+                setIsOnTop(true);;
+            }
+        })
+    }, [])
+
     return (
         <div className="landing">
-            <nav>
-                <NavLink to="/" className="">Home</NavLink>
-                <NavLink to="/" className="logo">Home</NavLink>
-                <NavLink to="/" className="logo">Home</NavLink>
-                <NavLink to="/" className="logo">Home</NavLink>
-                <NavLink to="/" className="logo">Home</NavLink>
+            <nav style={{backgroundColor: isOnTop ? 'rgba(255, 255, 255, 0)' : 'rgba(255, 255, 255, 1)', color: isOnTop === false ? 'rgba(0, 0, 0, 1)' : 'rgba(255, 255, 255, 1)'}} className='nav'>
+                <NavLink to="/"><img src={logo}/></NavLink>
+                <NavLink to="/">Home</NavLink>
+                <NavLink to="/">About Us</NavLink>
+                <NavLink to="/">Explore</NavLink>
+                <NavLink to="/">Home</NavLink>
             </nav>
             <div className='hero'>
                 <div className='hero-text'>

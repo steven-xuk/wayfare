@@ -1,23 +1,44 @@
-html, body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-}
+/* everything */
 
-/* making everything the font for some reason the code above doesn't do it */
-
-*{
+* {
     font-family: "Alegreya Sans SC", sans-serif;
 }
 
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+/* making everything the font for some reason the code above doesn't do it */
 /* Landing.js */
 
-/* SORRY!!! I just had to comment this out because it applied to all the links on the page and I didn't know how to fix it */
-/* .landing a {
+.landing nav {
+    display: flex;
+    position: fixed;
+    justify-content: right;
+    align-items: center;
+    height: 65px;
+    width: 100%;
+    transition: 0.5s;
+}
+
+.landing nav a {
     font-size: 24px;
     text-decoration: none;
-    position: fixed;
-} */
+    padding: 20px;
+    color: inherit;
+}
+
+.landing nav a:first-child {
+    margin-right: auto;
+    padding: 12.5px;
+}
+
+.landing nav a:first-child img {
+    margin-right: auto;
+    height: 35px;
+    color: violet;
+}
 
 .landing .hero {
     background-image: url('./imgs/hero-image.jpg');
@@ -28,7 +49,7 @@ html, body {
 
 .landing .hero .hero-text {
     position: absolute;
-    top: 28%;
+    top: 27.5%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
