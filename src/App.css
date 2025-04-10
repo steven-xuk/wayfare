@@ -275,3 +275,11 @@ html, body {
         transform: rotate(45deg) translate(10px, 10px);
     }
 }
+
+
+.signup{
+    background-image: url(./imgs/pexels-lastly-1022479.jpg);
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

@@ -3,6 +3,7 @@ import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } 
 import Landing from './components/Landing';
 import Home from './components/Home';
 import { useSelector } from 'react-redux';
+import Signup from './components/Signup';
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
     <>
       <Route path='/' element={ <Landing />}/>
       <Route path='/home' element={ <Home /> }/>
+      <Route path='/signup' element={ <Signup /> }/>
     </>
   ));
   console.log(isLoggedIn);
