@@ -19,11 +19,11 @@ function TrialPreview({title, description, image, likes, creatorName}) {
             </div>
             <div className='preview-bottom'>
                 <div className='border'>
-                    <p>trail by <bold>{creatorName}</bold></p>
+                    <p className='info'>trail by <strong>{creatorName}</strong></p>
                 </div>
                 <div className='border likes-container'>
                     <img src={likesIMG} className='likes-image'/>
-                    <p>{likes}</p>
+                    <p className='info'>{likes}</p>
                 </div>
             </div>
         </div>
