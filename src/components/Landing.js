@@ -38,7 +38,7 @@ export default function Landing() {
                 <NavLink to="/">Home</NavLink>
                 <NavLink to="/">About Us</NavLink>
                 <NavLink to="/">Explore</NavLink>
-                <NavLink to="/">Home</NavLink>
+                <NavLink to="/">Sign in</NavLink>
             </nav>
             <div className='hero'>
                 <div className='hero-text'>
