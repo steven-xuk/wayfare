@@ -23,7 +23,7 @@ export default function Landing() {
     useEffect(() => {
         window.addEventListener('scroll', () => {
             const scrollPosition = window.scrollY;
-            if (scrollPosition > 10) {
+            if (scrollPosition > 15) {
                 setIsOnTop(false);
             } else {
                 setIsOnTop(true);;
@@ -33,8 +33,8 @@ export default function Landing() {
 
     return (
         <div className="landing">
-            <nav style={{backgroundColor: isOnTop ? 'rgba(255, 255, 255, 0)' : 'rgba(255, 255, 255, 1)', color: isOnTop === false ? 'rgba(0, 0, 0, 1)' : 'rgba(255, 255, 255, 1)'}} className='nav'>
-                <NavLink to="/"><img src={logo}/></NavLink>
+            <nav style={{backgroundColor: isOnTop ? 'rgba(255, 255, 255, 0)' : 'rgba(255, 255, 255, 1)', color: isOnTop === false ? 'rgba(0, 0, 0, 1)' : 'rgba(255, 255, 255, 1)', boxShadow: `0px 0px 12px ${isOnTop ? 'rgba(0, 0, 0, 0)' : 'rgba(0, 0, 0, 0.5)'}`}} className='nav'>
+                <NavLink to="/"><img src={logo} style={{filter: isOnTop ? 'brightness(100)' : 'brightness(0)'}}/></NavLink>
                 <NavLink to="/">Home</NavLink>
                 <NavLink to="/">About Us</NavLink>
                 <NavLink to="/">Explore</NavLink>

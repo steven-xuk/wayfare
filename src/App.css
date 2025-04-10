@@ -17,9 +17,9 @@ html, body {
     position: fixed;
     justify-content: right;
     align-items: center;
-    height: 65px;
+    height: 60px;
     width: 100%;
-    transition: 0.5s;
+    transition: 0.35s;
 }
 
 .landing nav a {
@@ -31,13 +31,12 @@ html, body {
 
 .landing nav a:first-child {
     margin-right: auto;
-    padding: 12.5px;
+    padding: 15px 10px 10px 15px;
 }
 
 .landing nav a:first-child img {
     margin-right: auto;
     height: 35px;
-    color: violet;
 }
 
 .landing .hero {
