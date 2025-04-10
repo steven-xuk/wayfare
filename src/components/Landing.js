@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom';
 import logo from '../imgs/logo.png';
 import { useState } from 'react';
 
-
 //importing images
 import hikingdude from '../imgs/pexels-ozgomz-868097 (1).jpg'
 import TrialPreview from './parts/TrailPreview';
@@ -14,6 +13,7 @@ import { useEffect } from 'react';
 export default function Landing() {
 
     const [isOnTop, setIsOnTop] = useState(true);
+    const [opacityText, setOpacityText] = useState(100);
 
     const dispatch = useDispatch();
     const handleLogin = () => {
@@ -23,10 +23,14 @@ export default function Landing() {
     useEffect(() => {
         window.addEventListener('scroll', () => {
             const scrollPosition = window.scrollY;
+            if (scrollPosition < window.innerHeight){
+                setOpacityText((scrollPosition / window.innerHeight) / 100)
+                console.log(((scrollPosition / window.innerHeight) - window.innerHeight) * 100)
+            }
             if (scrollPosition > 15) {
                 setIsOnTop(false);
             } else {
-                setIsOnTop(true);;
+                setIsOnTop(true);
             }
         })
     }, [])
@@ -45,7 +49,7 @@ export default function Landing() {
                     <h1 className='title'>Explore.</h1>
                     <h2 className='subtitle'>that's our purpose</h2>
                 </div>
-                <div className='scrollToExplore-container'>
+                <div className='scrollToExplore-container' style={{opacity: opacityText}}>
                     <p className='scrollToExplore-text'>scroll to explore</p>
                     <div className='arrow'>
                         <span></span>
