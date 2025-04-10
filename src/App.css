@@ -222,7 +222,7 @@ html, body {
 .scrollToExplore-container{
     position: absolute;
     left: 50%;
-    top: 550%;
+    top: 80%;
     transform: translateX(-50%);
     text-align: center;
 }

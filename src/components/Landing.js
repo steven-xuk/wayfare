@@ -44,14 +44,13 @@ export default function Landing() {
                 <div className='hero-text'>
                     <h1 className='title'>Explore.</h1>
                     <h2 className='subtitle'>that's our purpose</h2>
-
-                    <div className='scrollToExplore-container'>
-                        <p className='scrollToExplore-text'>scroll to explore</p>
-                        <div className='arrow'>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
+                </div>
+                <div className='scrollToExplore-container'>
+                    <p className='scrollToExplore-text'>scroll to explore</p>
+                    <div className='arrow'>
+                        <span></span>
+                        <span></span>
+                        <span></span>
                     </div>
                 </div>
             </div>
