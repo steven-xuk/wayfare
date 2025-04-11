@@ -1,4 +1,12 @@
+import { useDispatch } from "react-redux";
+import { login } from "../redux/userSlice";
+
 export default function Login() {
+    const dispatch = useDispatch();
+    const handleLogin = () => {
+        dispatch(login());
+    };
+
     return (
         <div className="login">
             <h1>Login Page</h1>

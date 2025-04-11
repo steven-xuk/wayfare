@@ -1,5 +1,3 @@
-import { useDispatch } from 'react-redux';
-import { login } from '../redux/slices/AuthSlice';
 import { NavLink } from 'react-router-dom';
 import logo from '../imgs/logo.png';
 import { useState } from 'react';
@@ -14,11 +12,6 @@ export default function Landing() {
 
     const [isOnTop, setIsOnTop] = useState(true);
     const [opacityText, setOpacityText] = useState(100);
-
-    const dispatch = useDispatch();
-    const handleLogin = () => {
-        dispatch(login());
-    };
 
     useEffect(() => {
         window.addEventListener('scroll', () => {
@@ -35,8 +28,8 @@ export default function Landing() {
 
     return (
         <div className="landing">
-            <nav style={{backgroundColor: isOnTop ? 'rgba(255, 255, 255, 0)' : 'rgba(255, 255, 255, 1)', color: isOnTop === false ? 'rgba(0, 0, 0, 1)' : 'rgba(255, 255, 255, 1)', boxShadow: `0px 0px 12px ${isOnTop ? 'rgba(0, 0, 0, 0)' : 'rgba(0, 0, 0, 0.5)'}`}} className='nav'>
-                <NavLink to="/"><img src={logo} style={{filter: isOnTop ? 'brightness(100)' : 'brightness(0)'}}/></NavLink>
+            <nav className={`nav ${isOnTop ? 'on-top' : 'scrolled'}`}>
+                <NavLink to="/"><img src={logo} className={isOnTop ? '' : 'dark'} /></NavLink>
                 <NavLink to="/">Home</NavLink>
                 <NavLink to="/">About Us</NavLink>
                 <NavLink to="/">Explore</NavLink>
