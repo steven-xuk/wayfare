@@ -4,10 +4,17 @@ import Landing from './components/Landing';
 import Home from './components/Home';
 import { useSelector } from 'react-redux';
 import Signup from './components/Signup';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { login } from './redux/slices/AuthSlice.js';
 
 function App() {
-
-  const isLoggedIn = useSelector((state) => state.auth);
+  // i think this is the correct way to use redux
+  // const isLoggedIn = useSelector((state) => state.auth);
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(login());
+  // }, []);
 
   const appRouter = createBrowserRouter(createRoutesFromElements(
     <>
@@ -16,7 +23,7 @@ function App() {
       <Route path='/signup' element={ <Signup /> }/>
     </>
   ));
-  console.log(isLoggedIn);
+  // console.log(isLoggedIn);
 
   return (
     <div className="App">
