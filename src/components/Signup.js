@@ -18,7 +18,7 @@ export default function Signup() {
         //checking for blank values
         if (formData.name != '' && formData.email != '' && formData.password != ''){
             //submit new user to supabase
-            const { data, error } = await supabase
+            const { error } = await supabase
                 .from('Users')
                 .insert([formData])
     
