@@ -14,16 +14,22 @@ export default function Signup() {
     async function submitUser(e){
         e.preventDefault()
 
-        //submit new user to supabase
-        const { data, error } = await supabase
-            .from('Users')
-            .insert([formData])
-
-        if (error) {
-            console.error(error)
-            console.log('Failed to sign up.')
-        } else {
-            console.log('Signed up successfully!')
+        //checking for blank values
+        if (formData.name != '' && formData.email != '' && formData.password != ''){
+            //submit new user to supabase
+            const { data, error } = await supabase
+                .from('Users')
+                .insert([formData])
+    
+            if (error) {
+                console.error(error)
+                console.log('Failed to sign up.')
+            } else {
+                console.log('Signed up successfully!')
+            }
+        }
+        else{
+            alert('please provide values for everything')
         }
 
     }
