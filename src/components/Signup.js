@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { supabase } from '../SupabaseClient'
 import React, { useState } from 'react';
 
@@ -52,7 +53,7 @@ export default function Signup() {
                 <input placeholder='create a password' name='password' type='password' value={formData.password} onChange={e => handleChange(e)}/>
                 <button type='submit'>sign up!</button>
             </form>
-
+            <p>Already have an account? <Link to='/login'>Login</Link></p>
         </div>
     );
 }

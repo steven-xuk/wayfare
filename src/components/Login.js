@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { login } from "../redux/userSlice";
+import { login } from "../redux/slices/AuthSlice.js";
 
 export default function Login() {
     const dispatch = useDispatch();

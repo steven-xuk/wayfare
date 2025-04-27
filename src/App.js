@@ -7,6 +7,7 @@ import Signup from './components/Signup';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { login } from './redux/slices/AuthSlice.js';
+import Login from './components/Login.js';
 
 function App() {
   // i think this is the correct way to use redux
@@ -21,6 +22,7 @@ function App() {
       <Route path='/' element={ <Landing />}/>
       <Route path='/home' element={ <Home /> }/>
       <Route path='/signup' element={ <Signup /> }/>
+      <Route path='/login' element={ <Login /> }/>
     </>
   ));
   // console.log(isLoggedIn);
