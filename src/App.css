@@ -98,31 +98,31 @@ html, body {
 
 /* section */
 
-.section{
+.landing .section{
     padding: 20px;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
 }
 
-.section-header{
+.landing .section-header{
     font-size: 4rem;
 }
 
-.section-content{
+.landing .section-content{
     font-size: 1.2rem;
 }
 
-.section-content-container{
+.landing .section-content-container{
     padding: 30px;
 }
 
-.section-image{
+.landing .section-image{
     width: 100%;
     border-radius: 22px;
 }
 
-.section-image-container{
+.landing .section-image-container{
     padding: 50px 100px;
     min-height: 505px;
 }
@@ -133,7 +133,7 @@ html, body {
 /* STEVEEEEENNN these do NOT work, bruh nothing works */
 
 @media screen and (max-width: 1135px) {
-    .section-image-container{
+    .landing .section-image-container{
         padding: 70px 20px;
     }
 
@@ -141,67 +141,67 @@ html, body {
 
     
 @media screen and (max-width: 753px) {
-    .section{
+    .landing .section{
         flex-direction: column;
     }
 }
 
 
-.header{
+.landing .header{
     font-size: 4rem;
     text-align: center;
 }
 
-.preview{
+.landing .preview{
     border: 4px solid black;
     border-radius: 22px;
     margin: auto;
     max-width: 1000px;
 }
 
-.preview-title{
+.landing .preview-title{
     font-size: 3rem;
     font-weight: normal;
     margin: 0;
 }
 
-.preview-content{
+.landing .preview-content{
     margin-top: 0;
     font-size: 1.5rem;
 }
 
-.preview-top{
+.landing .preview-top{
     padding: 20px;
     display: flex;
     flex-direction: row;
 }
 
-.preview-image{
+.landing .preview-image{
     width: 300px;
     height: 300px;
     border-radius: 22px;
 }
 
-.preview-image-container{
+.landing .preview-image-container{
     margin-left: auto;
 }
 
-.preview-content-container{
+.landing .preview-content-container{
     width: 600px;
 }
 
-.likes-image{
+.landing .likes-image{
     width: 30px;
     height: 30px;
     margin: auto 10px;
 }
 
-.info{
+.landing .info{
     font-size: 1.5rem;
     margin: 0;
 }
 
-.border{
+.landing .border{
     border: 3px solid black;
     border-radius: 8px;
     padding: 14px;
@@ -209,24 +209,24 @@ html, body {
     
 }
 
-.likes-container{
+.landing .likes-container{
     display: flex;
     flex-direction: row;
 }
 
-.preview-bottom{
+.landing .preview-bottom{
     display: flex;
     flex-direction: row;
 }
 
 
-.btn{
+.landing .btn{
     padding: 10px 30px;
     font-size: 1.2rem;
     border-radius: 8px;
 }
 
-.btn-primary{
+.landing .btn-primary{
     color: white;
     background-color: var(--primary-color);
 }
@@ -234,23 +234,23 @@ html, body {
 
 /* scroll to explore section */
 
-.scrollToExplore-container{
+.landing .scrollToExplore-container{
     position: absolute;
     left: 50%;
-    top: 80vh;
+    top: 82vh;
     transform: translateX(-50%);
     text-align: center;
 }
 
 
-.scrollToExplore-text{
+.landing .scrollToExplore-text{
     color: white;
-    font-size: 1.2rem;
-
+    font-size: 21px;
+    padding-bottom: 5px;
 }
 
 
-.arrow {
+.landing .arrow {
     position: absolute;
     top: 100%;
     left: 50%;
@@ -258,36 +258,36 @@ html, body {
     cursor: pointer;
 }
 
-.arrow span {
+.landing .arrow span {
     display: block;
-    width: 1vw;
-    height: 1vw;
-    border-bottom: 3px solid white;
-    border-right: 3px solid white;
+    width: 12px;
+    height: 12px;
+    border-bottom: 2px solid white;
+    border-right: 2px solid white;
     transform: rotate(135deg);
-    margin: -10px;
-    animation: animate 4s infinite;
+    margin: -6px;
+    animation: landing-arrow-animation 3s infinite;
 }
 
-.arrow span:nth-child(2) {
-    animation-delay: -0.4s;
+.landing .arrow span:nth-child(2) {
+    animation-delay: -0.3s;
 }
 
-.arrow span:nth-child(3) {
-    animation-delay: -0.8s;
+.landing .arrow span:nth-child(3) {
+    animation-delay: -0.6s;
 }
 
-@keyframes animate {
+@keyframes landing-arrow-animation {
     0% {
         opacity: 0;
-        transform: rotate(45deg) translate(-10px, -10px);
+        transform: rotate(45deg) translate(-11px, -11px);
     }
     50% {
         opacity: 1;
     }
     100% {
         opacity: 0;
-        transform: rotate(45deg) translate(10px, 10px);
+        transform: rotate(45deg) translate(2px, 2px);
     }
 }
 
@@ -297,4 +297,10 @@ html, body {
     height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
+    padding: 0;
+    margin: 0;
+}
+
+.signup h1{
+    margin: 0;
 }

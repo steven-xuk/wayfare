@@ -17,7 +17,7 @@ export default function Landing() {
         window.addEventListener('scroll', () => {
             const scrollPosition = window.scrollY;
             console.log(1 - (scrollPosition / window.innerHeight))
-            setOpacityText(1 - (scrollPosition / window.innerHeight))
+            setOpacityText(1 - (1.38 * scrollPosition / window.innerHeight))
             if (scrollPosition > 15) {
                 setIsOnTop(false);
             } else {
