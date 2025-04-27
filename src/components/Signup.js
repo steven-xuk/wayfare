@@ -1,15 +1,31 @@
+import { supabase } from '../SupabaseClient'
 import React, { useState } from 'react';
+
 
 export default function Signup() {
     const [formData, setFormData] = useState({
         name: '',
-        age: '',
         email: '',
         password: '',
+        friends: [],
+        kilometers: 0
     })
 
-    function submitUser(){
-        //no
+    async function submitUser(e){
+        e.preventDefault()
+
+        //submit new user to supabase
+        const { data, error } = await supabase
+            .from('Users')
+            .insert([formData])
+
+        if (error) {
+            console.error(error)
+            console.log('Failed to sign up.')
+        } else {
+            console.log('Signed up successfully!')
+        }
+
     }
 
     function handleChange(e) {
@@ -24,11 +40,11 @@ export default function Signup() {
             <h1>Signup Page</h1>
             <p>Welcome to the signup page!</p>
 
-            <form onSubmit={submitUser()}>
+            <form onSubmit={e => submitUser(e)}>
                 <input placeholder='name' name='name' value={formData.name} onChange={e => handleChange(e)}/>
                 <input placeholder='email' name='email' type='email' value={formData.email} onChange={e => handleChange(e)}/>
-                <input placeholder='age' name='age' type='number' value={formData.age} onChange={e => handleChange(e)}/>
                 <input placeholder='create a password' name='password' type='password' value={formData.password} onChange={e => handleChange(e)}/>
+                <button type='submit'>sign up!</button>
             </form>
 
         </div>
