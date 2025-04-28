@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
 import { supabase } from '../SupabaseClient'
 import React, { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid'; 
 
 
 export default function Signup() {
     const [formData, setFormData] = useState({
-        name: '',
+        username: '',
         email: '',
         password: '',
         friends: [],
@@ -17,21 +18,57 @@ export default function Signup() {
 
         //checking for blank values
         if (formData.name != '' && formData.email != '' && formData.password != ''){
-            //submit new user to supabase
-            const { error } = await supabase
-                .from('Users')
-                .insert([formData])
-    
+        
+            //generate a UUID for the user
+            const UUID = uuidv4()
+
+            //signing the user up in the auth section
+            const { user, userError } = await supabase.auth.signUp({
+                email: formData.email,
+                password: formData.password,
+                //using the displayname for a UUID
+                options: {
+                    data: {
+                        display_name: UUID,  // Store the display name here
+                    }
+                }
+            })
+            
+            if (userError) {
+                console.log(userError.message)
+            } else {
+                console.log('Check your email for the confirmation link!')
+            }
+
+
+            //storing user data
+            const { data, error } = await supabase
+            .from('Users')
+            .insert([
+              {
+                kilometers: 0,
+                friends: [],
+                username: formData.username,
+                UID: UUID
+              }
+            ])
+      
             if (error) {
                 console.error(error)
                 console.log('Failed to sign up.')
             } else {
+                console.log(data)
                 console.log('Signed up successfully!')
+
+            /////////////// GO TO DASHBOARD NOW ///////////////////////////////////////////
             }
+
         }
         else{
             alert('please provide values for everything')
         }
+
+
 
     }
 
@@ -48,7 +85,7 @@ export default function Signup() {
             <p>Welcome to the signup page!</p>
 
             <form onSubmit={e => submitUser(e)}>
-                <input placeholder='name' name='name' value={formData.name} onChange={e => handleChange(e)}/>
+                <input placeholder='username' name='username' value={formData.username} onChange={e => handleChange(e)}/>
                 <input placeholder='email' name='email' type='email' value={formData.email} onChange={e => handleChange(e)}/>
                 <input placeholder='create a password' name='password' type='password' value={formData.password} onChange={e => handleChange(e)}/>
                 <button type='submit'>sign up!</button>

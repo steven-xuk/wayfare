@@ -11,7 +11,7 @@ export default function Login() {
     };
 
     const [formData, setFormData] = useState({
-        name: '',
+        email: '',
         password: ''
     })
 
@@ -20,20 +20,20 @@ export default function Login() {
     async function loginToSupabase(e) {
         e.preventDefault()
 
-        const { data, error } = await supabase
-            .from('Users') 
-            .select('*')
+        const email = formData.email
+        const password = formData.password
 
-        if (error) {
-            console.error('Error fetching users:', error)
-            console.log('Failed to fetch users')
+        const { user, error: loginError } = await supabase.auth.signInWithPassword({
+            email,
+            password
+        });
+
+        if (loginError) {
+            // Display error message
+            console.log(loginError.message);
         } else {
-            for (let i = 0; i < data.length; i++) {
-                const element = data[i];
-                if (element.name == formData.name && element.password == formData.password){
-                    console.log('logged in sucsessfully!!')
-                }                
-            }
+            console.log('Logged in successfully!', user);
+            /////////////////// GO TO DASHBOARD NOW ////////////////////
         }
     }
 
@@ -49,7 +49,7 @@ export default function Login() {
             <h1>Login Page</h1>
             <p>Welcome to the login page!</p>
             <form onSubmit={e => loginToSupabase(e)}>
-                <input placeholder='name' name='name' value={formData.name} onChange={e => handleChange(e)}/>
+                <input placeholder='email' name='email' value={formData.email} onChange={e => handleChange(e)}/>
                 <input placeholder='password' name='password' type='password' value={formData.password} onChange={e => handleChange(e)}/>
                 <button type='submit'>login</button>
             </form>
