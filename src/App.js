@@ -2,11 +2,7 @@ import './App.css';
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
 import Landing from './components/Landing';
 import Home from './components/Home';
-import { useSelector } from 'react-redux';
 import Signup from './components/Signup';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { login } from './redux/slices/AuthSlice.js';
 import Login from './components/Login.js';
 
 function App() {
@@ -23,6 +19,7 @@ function App() {
       <Route path='/home' element={ <Home /> }/>
       <Route path='/signup' element={ <Signup /> }/>
       <Route path='/login' element={ <Login /> }/>
+      <Route path='/home' element={ <Home /> }/>
     </>
   ));
   // console.log(isLoggedIn);

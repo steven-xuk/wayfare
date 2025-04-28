@@ -81,14 +81,16 @@ export default function Signup() {
     
     return (
         <div className="signup">
-            <h1 className='input-title'>sign up</h1>
+            <h1>Signup Page</h1>
+            <p>Welcome to the signup page!</p>
+
             <form onSubmit={e => submitUser(e)}>
-                <input className="input-primary" placeholder='username' name='username' value={formData.username} onChange={e => handleChange(e)}/>
-                <input className="input-primary" placeholder='email' name='email' type='email' value={formData.email} onChange={e => handleChange(e)}/>
-                <input className="input-primary" placeholder='create a password' name='password' type='password' value={formData.password} onChange={e => handleChange(e)}/>
+                <input placeholder='username' name='username' value={formData.username} onChange={e => handleChange(e)}/>
+                <input placeholder='email' name='email' type='email' value={formData.email} onChange={e => handleChange(e)}/>
+                <input placeholder='create a password' name='password' type='password' value={formData.password} onChange={e => handleChange(e)}/>
                 <button type='submit'>sign up!</button>
             </form>
-            <p className='centre'>Already have an account? <Link to='/login'>Login</Link></p>
+            <p>Already have an account? <Link to='/login'>Login</Link></p>
         </div>
     );
 }

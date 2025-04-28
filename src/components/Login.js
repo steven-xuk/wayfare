@@ -2,10 +2,12 @@ import { useDispatch } from "react-redux";
 import { login } from "../redux/slices/AuthSlice.js";
 import { supabase } from '../SupabaseClient'
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 export default function Login() {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const handleLogin = () => {
         dispatch(login());
     };
@@ -32,9 +34,11 @@ export default function Login() {
             // Display error message
             console.log(loginError.message);
         } else {
+            handleLogin();
             console.log('Logged in successfully!', user);
             /////////////////// GO TO DASHBOARD NOW ////////////////////
-        }
+            navigate('/home');
+        } 
     }
 
     function handleChange(e){
@@ -46,10 +50,11 @@ export default function Login() {
 
     return (
         <div className="login">
-            <h1 className="input-title">Login</h1>
+            <h1>Login Page</h1>
+            <p>Welcome to the login page!</p>
             <form onSubmit={e => loginToSupabase(e)}>
-                <input className="input-primary" placeholder='email' name='email' value={formData.email} onChange={e => handleChange(e)}/>
-                <input className="input-primary" placeholder='password' name='password' type='password' value={formData.password} onChange={e => handleChange(e)}/>
+                <input placeholder='email' name='email' value={formData.email} onChange={e => handleChange(e)}/>
+                <input placeholder='password' name='password' type='password' value={formData.password} onChange={e => handleChange(e)}/>
                 <button type='submit'>login</button>
             </form>
         </div>
