@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { supabase } from '../SupabaseClient.js';
 import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 
 export default function Home() {
 
@@ -60,6 +61,8 @@ export default function Home() {
             <p>Welcome to the home page, {userDataObj != undefined && userDataObj.username}</p>
             <p>{isLoggedIn === true ? 'logged in' : 'not logged in'}</p>
             <button onClick={handleLogout}>Logout</button>
+            <NavLink to='/createPost'>Create a post!</NavLink>
+            <NavLink to='/createWalk'>Create a walk!</NavLink>
         </div>
 
     );

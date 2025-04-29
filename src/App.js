@@ -8,6 +8,8 @@ import Home from './components/Home';
 import { useDispatch } from 'react-redux';
 import Signup from './components/Signup';
 import Login from './components/Login.js';
+import CreatePost from './components/CreatePost.jsx';
+import CreateWalk from './components/CreateWalk.jsx';
 
 function App() {
   const dispatch = useDispatch();
@@ -49,6 +51,8 @@ function App() {
       <Route path='/signup' element={ <Signup /> }/>
       <Route path='/login' element={ <Login /> }/>
       <Route path='/home' element={ <Home /> }/>
+      <Route path='/createPost' element={ <CreatePost /> }/>
+      <Route path='/createWalk' element={ <CreateWalk /> }/>
     </>
   ));
   // console.log(isLoggedIn);
