@@ -16,8 +16,7 @@ export default function Landing() {
     useEffect(() => {
         window.addEventListener('scroll', () => {
             const scrollPosition = window.scrollY;
-            console.log(1 - (scrollPosition / window.innerHeight))
-            setOpacityText(1 - (1.38 * scrollPosition / window.innerHeight))
+            setOpacityText(1 - (1.28 * scrollPosition / window.innerHeight))
             if (scrollPosition > 15) {
                 setIsOnTop(false);
             } else {
@@ -30,10 +29,11 @@ export default function Landing() {
         <div className="landing">
             <nav className={`nav ${isOnTop ? 'on-top' : 'scrolled'}`}>
                 <NavLink to="/"><img src={logo} className={isOnTop ? '' : 'dark'} /></NavLink>
-                <NavLink to="/">Home</NavLink>
-                <NavLink to="/">About Us</NavLink>
+                <NavLink to="/home">Home</NavLink>
+                {/* <NavLink to="/">About Us</NavLink> */}
                 <NavLink to="/">Explore</NavLink>
-                <NavLink to="/signup">Sign in</NavLink>
+                <NavLink to="/signup">Sign Up</NavLink>
+                <NavLink to="/login">Log In</NavLink>
             </nav>
             <div className='hero'>
                 <div className='hero-text'>

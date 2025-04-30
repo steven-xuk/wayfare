@@ -5,6 +5,8 @@ import { HashLink } from 'react-router-hash-link';
 
 
 export default function Signup() {
+    const [hasSignedUp, setHasSignedUp] = useState(false)
+
     const [formData, setFormData] = useState({
         username: '',
         email: '',
@@ -37,7 +39,7 @@ export default function Signup() {
             if (userError) {
                 console.log(userError.message)
             } else {
-                console.log('Check your email for the confirmation HashLink!')
+                console.log('Check your email for the confirmation email!')
             }
 
 
@@ -59,6 +61,8 @@ export default function Signup() {
             } else {
                 console.log(data)
                 console.log('Signed up successfully!')
+                setHasSignedUp(true)
+
 
             /////////////// GO TO DASHBOARD NOW ///////////////////////////////////////////
             }
@@ -78,18 +82,31 @@ export default function Signup() {
             [e.target.name]: e.target.value
         }));
     }
-    
-    return (
-        <div className="signup">
-            <form onSubmit={e => submitUser(e)}>
-                <h1>Sign Up:</h1>
-                <input placeholder='username' name='username' value={formData.username} onChange={e => handleChange(e)}/>
-                <input placeholder='email' name='email' type='email' value={formData.email} onChange={e => handleChange(e)}/>
-                <input placeholder='create a password' name='password' type='password' value={formData.password} onChange={e => handleChange(e)}/>
-                <button type='submit'>Sign Up!</button>
-                <p>Already have an account? <HashLink to='/login'>Log in here!</HashLink></p>
-                <p className='policies'><HashLink to='/policies#privacy-policy'>Privacy Policy</HashLink>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<HashLink to='/policies'>Terms of Service</HashLink></p>
-            </form>
-        </div>
-    );
+
+    if (hasSignedUp) {
+        return (
+            <div className="signup">
+                <form onSubmit={e => submitUser(e)}>
+                    <h2>Please check your mailbox for a confirmation email.</h2>
+                    <h3>Thanks for signing up!</h3>
+                    <p>Already have an account? <HashLink to='/login'>Log in here!</HashLink></p>
+                    <p className='policies'><HashLink to='/policies#privacy-policy'>Privacy Policy</HashLink>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<HashLink to='/policies'>Terms of Service</HashLink></p>
+                </form>
+            </div>
+        )
+    } else {
+        return (
+            <div className="signup">
+                <form onSubmit={e => submitUser(e)}>
+                    <h1>Sign Up:</h1>
+                    <input placeholder='username' name='username' value={formData.username} onChange={e => handleChange(e)}/>
+                    <input placeholder='email' name='email' type='email' value={formData.email} onChange={e => handleChange(e)}/>
+                    <input placeholder='create a password' name='password' type='password' value={formData.password} onChange={e => handleChange(e)}/>
+                    <button type='submit'>Sign Up!</button>
+                    <p>Already have an account? <HashLink to='/login'>Log in here!</HashLink></p>
+                    <p className='policies'><HashLink to='/policies#privacy-policy'>Privacy Policy</HashLink>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<HashLink to='/policies'>Terms of Service</HashLink></p>
+                </form>
+            </div>
+        );
+    }
 }

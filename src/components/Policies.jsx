@@ -1,20 +1,112 @@
 import React from 'react';
 
 export default function Policies() {
-    return (
-        <div className='policies'>
-            <h1>Policies</h1>
-            <p>We are not responsible for any injuries or damages that occur while using this app.</p>
-            <p>By using this app, you agree to our terms and conditions.</p>
-            <p>We reserve the right to change these policies at any time.</p>
-            <p>If you have any questions, please contact us.</p>
+  return (
+    <div>
+      <h1>Policies</h1>
+      <p>We are not responsible for any injuries or damages that occur while using this app.</p>
+      <p>By using this app, you agree to our terms and conditions.</p>
+      <p>We reserve the right to change these policies at any time.</p>
+      <p>If you have any questions, please contact us.</p>
 
-            <h1 id='privacy-policy'>Policies2</h1>
-            <p>We are not responsible for any injuries or damages that occur while using this app.</p>
-            <p>By using this app, you agree to our terms and conditions.</p>
-            <p>We reserve the right to change these policies at any time.</p>
-            <p>If you have any questions, please contact us.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus fugit quia vero explicabo, velit, incidunt eius qui aperiam quaerat labore est voluptas rerum doloribus! Quasi quibusdam assumenda numquam quia totam debitis placeat exercitationem at cum officia aliquid laborum quos adipisci dolores itaque minima quam sed quae accusamus consectetur voluptates repudiandae, eum expedita. Perferendis odit, temporibus quam quos tempora unde natus, facilis distinctio eligendi cumque quae impedit, nulla possimus. Dicta ea consequatur nulla magnam eligendi laborum aspernatur nesciunt ratione consectetur vero praesentium harum distinctio esse sit omnis expedita eveniet, repellat voluptates exercitationem, provident illo? Ducimus vero vitae repudiandae nisi alias officiis ad quibusdam? Ab saepe facilis voluptates perferendis alias sunt soluta ea corrupti, dolorem itaque nobis ex beatae repellendus laboriosam repellat odio fugiat! Perspiciatis consequatur quia similique soluta quasi suscipit quas ipsam earum. Nostrum numquam cupiditate deleniti tempore labore, veniam impedit. Explicabo magni alias molestias ducimus debitis. Dolor inventore atque, ex culpa fugiat, perferendis, esse molestiae corporis fuga tempora odio aliquam praesentium saepe eum asperiores! Quod unde non error. Nostrum maxime non voluptate ipsa quod obcaecati voluptates culpa corporis incidunt accusamus hic, vero ut doloribus reprehenderit consequatur voluptatem veniam cum nihil deserunt vel. Nulla quae animi repellendus! Consequatur, corporis perferendis. Dolore totam placeat enim quidem fugit velit voluptatibus quam adipisci quasi cupiditate nemo a, necessitatibus consequuntur repudiandae unde ut tempore? Dignissimos sapiente suscipit consequatur ut, obcaecati velit excepturi qui? Rem iste quam quidem sunt, ut, vero officia at similique aspernatur adipisci ad reprehenderit, commodi excepturi quisquam? Tempora cum fugit quasi laboriosam perferendis totam beatae vel autem, expedita iure, quos est, porro animi hic? At sed aliquid minima pariatur quis velit tempore nulla nisi adipisci hic, eaque doloremque cumque dignissimos illum magnam modi eveniet placeat assumenda quo totam ullam. In consequuntur deleniti quae, accusamus deserunt illo mollitia ratione quo nihil, ut distinctio corporis dolor nam eaque voluptatem! Provident harum amet commodi placeat recusandae, repellat iste, officia quo eaque, saepe fugiat id quis nihil at ea. Nisi accusamus fugiat earum quia, velit, ipsa, quis repudiandae iusto itaque voluptatibus placeat beatae non delectus ab. Amet voluptatem possimus consequuntur fuga velit voluptate doloremque ipsam, sint odio, quod officia et atque dolorum alias exercitationem dignissimos illo, beatae optio ex! Impedit blanditiis consequuntur, nesciunt mollitia recusandae perferendis at adipisci? Fugit temporibus, ab tempore amet, hic repudiandae excepturi ducimus, ipsum corporis illum sunt magni dolor autem! Quod eaque nemo nesciunt impedit rem sit error voluptate dolorem ab, vitae quisquam reprehenderit consequuntur id mollitia laudantium doloremque soluta ex fugit, dicta repudiandae sed aut exercitationem quos. Nihil libero cumque quasi id ullam, esse aut ducimus aperiam quam rem reiciendis dolorem voluptate quas recusandae vitae sequi necessitatibus dolor eius facere fuga inventore voluptatem iusto quaerat soluta. Omnis repellendus temporibus molestiae facilis maiores, dolor qui odit, dolorem dignissimos deleniti, adipisci voluptas! Possimus enim vero quisquam consequuntur dolorum quis illum facere, doloremque fugit dolorem non iusto? Exercitationem, quae nostrum laboriosam est dolore voluptatum veritatis recusandae nihil. Provident ducimus sed eum est distinctio totam hic, sapiente eligendi nesciunt amet illum nulla vel magni. Enim, ipsum deserunt? Magni laudantium iusto molestiae soluta alias necessitatibus perspiciatis autem similique quasi, ratione ea maiores officiis consequatur incidunt repellat saepe expedita quos dicta voluptatibus iure perferendis. Amet, quisquam rerum nam iure ducimus esse repellat adipisci pariatur eaque ipsam dolor ipsum doloribus consectetur laboriosam dicta ullam sequi soluta, numquam at quas, obcaecati ad? Nesciunt quis quo dolor sint voluptas ea doloribus beatae cumque laboriosam? Atque laudantium, architecto, praesentium magnam repudiandae, aspernatur perspiciatis quisquam itaque veniam labore sit iusto beatae saepe a cupiditate. Officiis, sequi iusto reprehenderit asperiores vel eum quisquam explicabo, iste reiciendis delectus possimus corporis, ratione porro fugiat commodi! Placeat error dolorem, dicta suscipit optio quo iure dolores eum sed nesciunt perferendis blanditiis, incidunt iste culpa, animi aliquam sapiente distinctio consectetur cupiditate unde ipsa! Ipsa cumque soluta veniam nam et, pariatur sint voluptatem iste mollitia accusantium expedita quia odio quibusdam tempora provident. Ratione quo aut vero eaque ad asperiores veniam magnam voluptatum facere eligendi unde dignissimos optio numquam placeat veritatis, at quisquam? Repellendus, fugit. Voluptatem provident optio, illum quia voluptatum dolorem aliquam? Impedit voluptatum pariatur excepturi officiis neque ex quasi aperiam? Ipsum, fugiat. Dignissimos quo hic expedita a incidunt aut commodi deleniti illo! Voluptas numquam necessitatibus aspernatur natus rem alias cumque repudiandae deleniti doloribus dignissimos velit qui, rerum assumenda, quaerat nihil officia sit itaque id porro nam consectetur error sequi modi. Natus dignissimos nesciunt odit dolores dolor. Consectetur saepe et rerum dolorum repellat iure ducimus in! Ratione placeat nostrum eum animi aut nulla doloribus mollitia dicta ducimus veniam ea quaerat nobis velit sit, excepturi maxime assumenda. Esse voluptatem facilis nam enim quos. Maxime veritatis nemo optio voluptatum totam quam quis, maiores minima voluptatem! Saepe incidunt veritatis itaque assumenda dicta? Porro qui cumque tenetur iure voluptates. Vero qui sequi possimus nostrum dignissimos quia amet hic aliquam iusto unde, eius nihil optio at impedit quo architecto autem dolor numquam facilis vel sunt. Est, eligendi, veritatis laborum, illo nesciunt voluptas illum sit vero odio delectus blanditiis! Dolorem a enim minus quaerat laboriosam quos at excepturi ullam animi, neque, ratione aliquid quisquam molestiae possimus voluptate. Ex non quia, incidunt dolores laudantium obcaecati eaque quasi natus illo qui unde eos cupiditate! Eaque quod temporibus ex totam nisi. Illum eligendi impedit temporibus id quam laboriosam. Incidunt maiores eos a repudiandae facilis sed, explicabo eveniet quam est molestiae doloribus accusamus? Iste, quam maxime? Dolor rem vero, nisi officia fugiat aliquid possimus. Libero quod maxime facilis accusamus quaerat. Commodi sunt ipsum harum voluptatem doloribus quis perferendis voluptatum, quos placeat eligendi pariatur dolores non vel voluptatibus ipsam nobis deleniti aliquid quam provident debitis officia. Dignissimos assumenda reiciendis optio, et minima corrupti quidem, cum voluptate, dolore deleniti ipsa praesentium? Amet culpa aperiam dolor, reiciendis expedita odio sed quidem, illo pariatur, nulla inventore commodi dicta temporibus ea provident iure repudiandae corporis! Maxime soluta eos dolorem voluptas provident veritatis, similique maiores cupiditate ipsam, distinctio quidem dolores eligendi eum aliquid iste, iure odit repellat iusto. Id similique error beatae totam. Dignissimos alias commodi quibusdam ab rerum expedita, tempora maiores laudantium tenetur maxime!</p>
-        </div>
-    );
+      <h1 id="privacy-policy">Privacy Policy</h1>
+      <p><strong>Effective Date:</strong> April 30, 2025</p>
+
+      <h2>1. Introduction</h2>
+      <p>
+        Welcome to Wayfare (“we,” “our,” or “us”). Wayfare is committed to protecting your privacy and personal information.
+        This Privacy Policy explains how we collect, use, disclose, and safeguard your data when you visit our website
+        at https://www.wayfare.com, use our mobile or web applications, or interact with us offline.
+      </p>
+
+      <h2>2. Definitions</h2>
+      <p><strong>Personal Data:</strong> Information that identifies you as an individual (e.g., name, email address).</p>
+      <p><strong>Usage Data:</strong> Information about how you access and use our services (e.g., pages viewed, time spent).</p>
+      <p><strong>Cookies:</strong> Small text files stored on your device to recognize preferences.</p>
+      <p><strong>Service Providers:</strong> Third parties who perform services on our behalf (e.g., payment processors, hosting providers).</p>
+
+      <h2>3. Information We Collect</h2>
+      <h3>3.1 Information You Provide</h3>
+      <p><strong>Account Registration:</strong> Name, email address, phone number, password.</p>
+      <p><strong>Profile Details:</strong> User preferences, profile picture, biography.</p>
+      <p><strong>Communications:</strong> Support inquiries, feedback, and messages.</p>
+      <p><strong>Payment Information:</strong> Billing address, credit/debit card details (processed by secure third-party payment processors).</p>
+
+      <h3>3.2 Information Collected Automatically</h3>
+      <p><strong>Device & Usage Data:</strong> IP address, browser type/version, operating system, pages visited, referral URLs.</p>
+      <p><strong>Location Data:</strong> Approximate geolocation derived from IP address (where permitted by law).</p>
+      <p><strong>Cookies & Similar Technologies:</strong> First- and third-party cookies, web beacons, local storage.</p>
+
+      <h2>4. How We Use Your Information</h2>
+      <p>
+        <strong>Service Delivery & Improvement:</strong> Operate, maintain, and personalize our services; diagnose and fix technical issues.
+      </p>
+      <p>
+        <strong>Communications:</strong> Respond to inquiries and support requests; send transactional messages such as confirmations and receipts;
+        deliver marketing materials if you opt in.
+      </p>
+      <p>
+        <strong>Security & Compliance:</strong> Detect and prevent fraud or unauthorized activity; enforce our terms, policies, and applicable laws.
+      </p>
+      <p>
+        <strong>Business Operations:</strong> Conduct internal analytics and reporting; manage mergers, acquisitions, or asset sales (subject to confidentiality commitments).
+      </p>
+
+      <h2>5. Sharing and Disclosure</h2>
+      <p>We may share your information with:</p>
+      <p><strong>Service Providers:</strong> Under contract to perform services such as hosting, payment processing, and email delivery.</p>
+      <p><strong>Affiliates:</strong> Companies under common ownership.</p>
+      <p><strong>Legal Authorities:</strong> When required by law or to protect our rights.</p>
+      <p><strong>Business Transfers:</strong> In connection with mergers or asset sales (you will be notified).</p>
+      <p>We do <strong>not</strong> sell your personal data to third parties.</p>
+
+      <h2>6. Cookies and Tracking Technologies</h2>
+      <p>
+        Wayfare and our partners use cookies, web beacons, and similar technologies to remember your preferences and settings,
+        analyze site usage and performance, and deliver targeted advertising (where applicable).
+      </p>
+      <p>
+        You can control cookies through your browser settings or opt out via industry tools at https://www.youradchoices.com.
+      </p>
+
+      <h2>7. Third-Party Services</h2>
+      <p>
+        Our applications may link to third-party websites or services. We are not responsible for their privacy practices.
+        Please review their policies before providing any information.
+      </p>
+
+      <h2>8. Data Security</h2>
+      <p>
+        We implement reasonable administrative, technical, and physical safeguards to protect your personal data
+        against unauthorized access, alteration, and disclosure. However, no method of transmission over the Internet
+        or electronic storage is 100% secure.
+      </p>
+
+      <h2>9. International Data Transfers</h2>
+      <p>
+        Your information may be processed and stored in countries other than your own. When transferring data across
+        borders, we use mechanisms such as Standard Contractual Clauses to ensure adequate protection in compliance
+        with applicable laws.
+      </p>
+
+      <h2>10. Your Rights and Choices</h2>
+      <p>
+        Depending on your jurisdiction, you may have the right to access, correct, or delete your personal data; object
+        to or restrict processing; withdraw consent; request portability; or opt out of marketing communications.
+        To exercise these rights, please contact us. We may need to verify your identity before responding.
+      </p>
+
+      <h2>11. Children’s Privacy</h2>
+      <p>
+        Our services are not intended for individuals under the age of 16. We do not knowingly collect personal data
+        from children. If you believe we have inadvertently done so, please contact us to request deletion.
+      </p>
+
+      <h2>12. Changes to This Privacy Policy</h2>
+      <p>
+        We may update this policy to reflect changes in our practices or legal requirements. We will notify you by
+        posting the new Effective Date at the top and, where appropriate, via direct communication.
+      </p>
+    </div>
+  );
 }
