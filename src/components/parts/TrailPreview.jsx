@@ -6,12 +6,10 @@ function TrialPreview({title, description, image, likes, creatorName}) {
     return (
         <div className='preview'>
             <div className='preview-top'>
-                <div>
-                    <div className='preview-content-container'>
-                        <h3 className='preview-title'>{title}</h3>
-                        <p className='preview-content'>{description}</p>
-                        <a className='btn btn-primary'>EXPLORE</a>
-                    </div>
+                <div className='preview-content-container'>
+                    <h3 className='preview-title'>{title}</h3>
+                    <p className='preview-content'>{description}</p>
+                    <a className='btn btn-primary'>EXPLORE</a>
                 </div>
                 <div className='preview-image-container'>
                     <img className='preview-image' src={image}/>
