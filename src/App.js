@@ -10,6 +10,7 @@ import Signup from './components/Signup';
 import Login from './components/Login.js';
 import CreatePost from './components/CreatePost.jsx';
 import CreateWalk from './components/CreateWalk.jsx';
+import Policies from './components/Policies.jsx';
 
 function App() {
   const dispatch = useDispatch();
@@ -53,6 +54,7 @@ function App() {
       <Route path='/home' element={ <Home /> }/>
       <Route path='/createPost' element={ <CreatePost /> }/>
       <Route path='/createWalk' element={ <CreateWalk /> }/>
+      <Route path='/policies' element={ <Policies /> }/>
     </>
   ));
   // console.log(isLoggedIn);
