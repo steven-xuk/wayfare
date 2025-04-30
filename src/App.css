@@ -4,14 +4,13 @@
     --primary-color: #9cb3be
 }
 
-
-* {
-    font-family: "Alegreya Sans SC", sans-serif;
-}
-
 html, body {
     margin: 0;
     padding: 0;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 /* making everything the font for some reason the code above doesn't do it */
@@ -22,6 +21,7 @@ html, body {
     position: fixed;
     justify-content: right;
     align-items: center;
+    font-family: 'Alegreya Sans SC', sans-serif;
     height: 60px;
     width: 100%;
     transition: 0.35s;
@@ -98,51 +98,99 @@ html, body {
 
 /* section */
 
+.landing .content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .landing .section{
-    padding: 20px;
+    font-family: 'Instrument Sans', sans-serif;
+    padding: 24px;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    align-items: center;
+    max-width: 1440px;
 }
 
 .landing .section-header{
-    font-size: 4rem;
+    font-size: 64px;
+    margin: 0px 0px 24px 0px;
 }
 
-.landing .section-content{
-    font-size: 1.2rem;
+.landing .section-content {
+    font-size: 20px;
 }
 
 .landing .section-content-container{
     padding: 30px;
 }
 
+.landing .section-content-container a {
+    display: inline-block;
+    padding: 20px;
+    background-color: rgb(230, 230, 230);
+    border-radius: 8px;
+    font-size: 22px;
+    color: black;
+    text-decoration: none;
+}
+
 .landing .section-image{
-    width: 100%;
     border-radius: 22px;
+    width: clamp(397.2px, calc(570px - 12vw), 570px);
+    margin: 30px 30px 30px 0px;
 }
 
-.landing .section-image-container{
-    padding: 50px 100px;
-    min-height: 505px;
-}
-
-
-
-
-/* STEVEEEEENNN these do NOT work, bruh nothing works */
-
-@media screen and (max-width: 1135px) {
-    .landing .section-image-container{
-        padding: 70px 20px;
+@media screen and (max-width: 1150px) {
+    .landing .section-header{
+        font-size: 56px;
+        margin: 0px 0px 15px 0px;
     }
-
+    
+    .landing .section-content {
+        font-size: 20px;
+        line-height: 24px;
+    }
+    
+    .landing .section-image{
+        margin: 20px 20px 20px 0px;
+    }
+    
+    .landing .section-content-container{
+        padding: 20px;
+    }
+    
+    .landing .section-image{
+        border-radius: 22px;
+        width: 360px;
+        height: 450px;
+        object-fit: cover;
+        margin: 30px 30px 30px 0px;
+    }
 }
 
-    
-@media screen and (max-width: 753px) {
+@media screen and (max-width: 955px) {
     .landing .section{
         flex-direction: column;
+    }
+
+    .landing .section-content-container{
+        padding: 36px;
+    }
+
+    .landing .section-image{
+        border-radius: 22px;
+        width: 100%;
+        height: 450px;
+        object-fit: cover;
+        margin: 0px;
+    }
+
+    .landing .section-image-container{
+        width: 100%;
+        padding: 0px 36px 36px 36px;
     }
 }
 
@@ -235,6 +283,7 @@ html, body {
 /* scroll to explore section */
 
 .landing .scrollToExplore-container{
+    font-family: 'Alegreya Sans SC', sans-serif;
     position: absolute;
     left: 50%;
     top: 82vh;
@@ -291,6 +340,7 @@ html, body {
     }
 }
 
+/* Signup.js */
 
 .signup{
     background-image: url(./imgs/pexels-lastly-1022479.jpg);

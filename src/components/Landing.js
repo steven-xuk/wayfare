@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logo from '../imgs/logo.png';
 import { useState } from 'react';
 
@@ -52,9 +52,9 @@ export default function Landing() {
             <div className='content'>
                 <div className='section'>
                     <div className='section-content-container'>
-                        <h2 className='section-header'>what is wayfare?</h2>
+                        <h2 className='section-header'>What is Wayfare?</h2>
                         <p className='section-content'>Wayfare is a social media app designed for hikers, adventurers, and nature lovers who want to connect, share, and explore the great outdoors together. Whether you're scaling rugged peaks, strolling through forest trails, or just discovering a new walk in your neighborhood, Wayfare makes it easy to track your journey, post photos, and find new hiking spots recommended by the community. Users can log their hikes with GPS, upload trail conditions in real-time, and leave helpful tips or reviews for others. The app includes custom profiles, leaderboards, group challenges, and even badges for milestones like “100km Club” or “Sunrise Seeker.” </p>
-                        <a type='primary'>start now</a>
+                        <Link to='/signup'>Start Now</Link>
                     </div>
                     <div className='section-image-container'>
                         <img className='section-image' src={hikingdude}/>
@@ -62,7 +62,7 @@ export default function Landing() {
                 </div>
 
                 <div>
-                    <h2 className='header'>todays top trail</h2>
+                    <h2 className='header'>Todays Top Trail</h2>
                     <TrialPreview title='wellington waterfront' description='Wellington’s waterfront is a vibrant blend of urban life and stunning natural scenery. Stretching along the harbor, it features bustling cafés, art galleries, and picturesque parks. ' image={testImg} likes={1305} creatorName='steven xu'/>
                 </div>
             </div>
