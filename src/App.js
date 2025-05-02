@@ -1,6 +1,6 @@
 import './App.css';
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
-import { use, useEffect } from 'react';
+import { useEffect } from 'react';
 import { login, logout } from './redux/slices/AuthSlice';
 import { supabase } from './SupabaseClient.js';
 import Landing from './components/Landing';
@@ -12,6 +12,8 @@ import CreatePost from './components/CreatePost.jsx';
 import CreateWalk from './components/CreateWalk.jsx';
 import Policies from './components/Policies.jsx';
 import NotFound from './components/NotFound.jsx';
+import Friends from './components/Friends.jsx';
+import Explore from './components/Explore.jsx';
 
 function App() {
   const dispatch = useDispatch();
@@ -55,6 +57,8 @@ function App() {
       <Route path='/create-post' element={ <CreatePost /> }/>
       <Route path='/create-walk' element={ <CreateWalk /> }/>
       <Route path='/policies' element={ <Policies /> }/>
+      <Route path='/friends' element={ <Friends /> }/>
+      <Route path='/explore' element={ <Explore /> }/>
       <Route path="*" element={ <NotFound/> }/> {/* leave this at the end of the routes */}
     </>
   ));
