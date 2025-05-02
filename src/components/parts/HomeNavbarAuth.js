@@ -8,7 +8,7 @@ import logo from '../../imgs/logo.png';
 import profile from '../../imgs/profile.png';
 import mountain from '../../imgs/mountain.png';
 
-export default function HomeNavbarAuth() {
+export default function HomeNavbarAuth({shadow}) {
 
   const [userDataObj, setUserDataObj] = useState()
   const [isAccountMenuOpen, setIsAccountMenuOpen] = useState(false);
@@ -76,7 +76,7 @@ export default function HomeNavbarAuth() {
   console.log(authState);
   return (
       <div className="home-navbar-auth">
-        <nav>
+        <nav style={{ boxShadow: shadow === true ? '0px 4px 4px rgba(0, 0, 0, 0.25)' : 'none'}}>
           <NavLink to="/"><img src={logo}/></NavLink>
           <p className='welcome-user'>Welcome back, {userDataObj != undefined && userDataObj.username}</p>
           <div><img src={mountain}/><p>503 KM</p></div>

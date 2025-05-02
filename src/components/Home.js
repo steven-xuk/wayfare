@@ -4,7 +4,7 @@ import HomeNavbarAuth from './parts/HomeNavbarAuth.js';
 export default function Home() {
   return (
       <div className="home">
-        <HomeNavbarAuth />
+        <HomeNavbarAuth shadow={false} />
         <div className='content'>
           <div className='grid'>
             <Link to='/explore' className='card'>
