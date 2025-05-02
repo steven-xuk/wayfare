@@ -2,6 +2,8 @@ import { supabase } from '../SupabaseClient'
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid'; 
 import { HashLink } from 'react-router-hash-link';
+import back from '../imgs/back.png';
+import { Link } from 'react-router-dom';
 
 
 export default function Signup() {
@@ -87,6 +89,7 @@ export default function Signup() {
         return (
             <div className="signup">
                 <form onSubmit={e => submitUser(e)}>
+                    <Link to='/' className="home-link"><img src={back}/><p>Home</p></Link>
                     <h2>Please check your mailbox for a confirmation email.</h2>
                     <h3>Thanks for signing up!</h3>
                     <p>Already have an account? <HashLink to='/login'>Log in here!</HashLink></p>
@@ -98,6 +101,7 @@ export default function Signup() {
         return (
             <div className="signup">
                 <form onSubmit={e => submitUser(e)}>
+                    <Link to='/' className="home-link"><img src={back}/><p>Back</p></Link>
                     <h1>Sign Up:</h1>
                     <input placeholder='username' name='username' value={formData.username} onChange={e => handleChange(e)}/>
                     <input placeholder='email' name='email' type='email' value={formData.email} onChange={e => handleChange(e)}/>

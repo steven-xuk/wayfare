@@ -11,6 +11,7 @@ import Login from './components/Login.js';
 import CreatePost from './components/CreatePost.jsx';
 import CreateWalk from './components/CreateWalk.jsx';
 import Policies from './components/Policies.jsx';
+import NotFound from './components/NotFound.jsx';
 
 function App() {
   const dispatch = useDispatch();
@@ -29,7 +30,6 @@ function App() {
 
     checkSession();
 
-    // Optional: Subscribe to future auth changes (advanced)
     const { data: listener } = supabase.auth.onAuthStateChange((event, session) => {
       if (session) {
         dispatch(login());
@@ -55,6 +55,7 @@ function App() {
       <Route path='/create-post' element={ <CreatePost /> }/>
       <Route path='/create-walk' element={ <CreateWalk /> }/>
       <Route path='/policies' element={ <Policies /> }/>
+      <Route path="*" element={ <NotFound/> }/> {/* leave this at the end of the routes */}
     </>
   ));
   // console.log(isLoggedIn);
