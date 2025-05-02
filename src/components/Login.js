@@ -3,6 +3,8 @@ import { login } from "../redux/slices/AuthSlice.js";
 import { supabase } from '../SupabaseClient'
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 
 export default function Login() {
@@ -50,12 +52,13 @@ export default function Login() {
 
     return (
         <div className="login">
-            <h1>Login Page</h1>
-            <p>Welcome to the login page!</p>
             <form onSubmit={e => loginToSupabase(e)}>
-                <input placeholder='email' name='email' value={formData.email} onChange={e => handleChange(e)}/>
-                <input placeholder='password' name='password' type='password' value={formData.password} onChange={e => handleChange(e)}/>
-                <button type='submit'>login</button>
+                <h1>Login:</h1>
+                <input placeholder='email' name='email' value={formData.email} onChange={e => handleChange(e)} required/>
+                <input placeholder='password' name='password' type='password' value={formData.password} onChange={e => handleChange(e)} required/>
+                <button type="submit">Login</button>
+                <p>Don't have an account? <Link to='/signup'>Sign up here!</Link></p>
+                <p className='policies'><HashLink to='/policies#privacy-policy'>Privacy Policy</HashLink>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<HashLink to='/policies'>Terms of Service</HashLink></p>
             </form>
         </div>
     );

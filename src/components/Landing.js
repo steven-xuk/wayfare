@@ -1,6 +1,7 @@
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../imgs/logo.png';
 import { useState } from 'react';
+import hamburger from '../imgs/hamburger.png';
 
 //importing images
 import hikingdude from '../imgs/pexels-ozgomz-868097 (1).jpg'
@@ -12,6 +13,8 @@ export default function Landing() {
 
     const [isOnTop, setIsOnTop] = useState(true);
     const [opacityText, setOpacityText] = useState(100);
+    const [navbarIsOpen, setNavbarIsOpen] = useState(false);
+    const [navbarIsVisible, setNavbarIsVisible] = useState(false);
 
     useEffect(() => {
         window.addEventListener('scroll', () => {
@@ -27,13 +30,16 @@ export default function Landing() {
 
     return (
         <div className="landing">
-            <nav className={`nav ${isOnTop ? 'on-top' : 'scrolled'}`}>
+            <nav className={`nav ${isOnTop ? 'on-top' : 'scrolled'} ${navbarIsOpen ? 'open' : ''}`}>
                 <NavLink to="/"><img src={logo} className={isOnTop ? '' : 'dark'} /></NavLink>
                 <NavLink to="/home">Home</NavLink>
                 {/* <NavLink to="/">About Us</NavLink> */}
                 <NavLink to="/">Explore</NavLink>
                 <NavLink to="/signup">Sign Up</NavLink>
                 <NavLink to="/login">Log In</NavLink>
+                <button onClick={() => {setNavbarIsOpen(!navbarIsOpen);}}>
+                    <img className={isOnTop ? '' : 'dark'} src={hamburger} />
+                </button>
             </nav>
             <div className='hero'>
                 <div className='hero-text'>
