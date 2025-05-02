@@ -1,9 +1,12 @@
-import { logout } from "../redux/slices/AuthSlice";
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { supabase } from '../SupabaseClient.js';
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { NavLink } from "react-router-dom";
+import logo from '../imgs/logo.png';
+import profile from '../imgs/profile.png';
+import mountain from '../imgs/mountain.png';
 
 export default function Home() {
 
@@ -56,14 +59,32 @@ export default function Home() {
 
     console.log(isLoggedIn);
     return (
-        <div className="Home">
-            <h1>Home Page</h1>
-            <p>Welcome to the home page, {userDataObj != undefined && userDataObj.username}</p>
-            <p>{isLoggedIn === true ? 'logged in' : 'not logged in'}</p>
-            <button onClick={handleLogout}>Logout</button>
-            <NavLink to='/createPost'>Create a post!</NavLink>
-            <NavLink to='/createWalk'>Create a walk!</NavLink>
-        </div>
+        <div className="home">
+          <nav>
+            <NavLink to="/"><img src={logo}/></NavLink>
+            <p className='welcome-user'>Welcome back, {userDataObj != undefined && userDataObj.username}</p>
+            <div><img src={mountain}/><p>503 KM</p></div>
+            <NavLink to="/"><img src={profile}/></NavLink>
+          </nav>
+          <div className='content'>
+            {/* <p>{isLoggedIn === true ? 'logged in' : 'not logged in'}</p>
+            <button onClick={handleLogout}>Logout</button> */}
+            <div className='grid'>
+              <Link to='/explore' className='card'>
+                <p>Explore Walks</p>
+              </Link>
+              <Link to='/friends' className='card'>
+                <p>Friends</p>
+              </Link>
+              <Link to='/create-post' className='card'>
+                <p>Create a Post</p>
+              </Link>
+              <Link to='/create-walk' className='card'>
+                <p>Create a Walk</p>
+              </Link>
+            </div>
+          </div>
+      </div>
 
     );
 }

@@ -1,6 +1,7 @@
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logo from '../imgs/logo.png';
 import { useState } from 'react';
+import hamburger from '../imgs/hamburger.png';
 
 //importing images
 import hikingdude from '../imgs/pexels-ozgomz-868097 (1).jpg'
@@ -12,12 +13,13 @@ export default function Landing() {
 
     const [isOnTop, setIsOnTop] = useState(true);
     const [opacityText, setOpacityText] = useState(100);
+    const [navbarIsOpen, setNavbarIsOpen] = useState(false);
+    const [navbarIsVisible, setNavbarIsVisible] = useState(false);
 
     useEffect(() => {
         window.addEventListener('scroll', () => {
             const scrollPosition = window.scrollY;
-            console.log(1 - (scrollPosition / window.innerHeight))
-            setOpacityText(1 - (1.38 * scrollPosition / window.innerHeight))
+            setOpacityText(1 - (1.28 * scrollPosition / window.innerHeight))
             if (scrollPosition > 15) {
                 setIsOnTop(false);
             } else {
@@ -28,12 +30,16 @@ export default function Landing() {
 
     return (
         <div className="landing">
-            <nav className={`nav ${isOnTop ? 'on-top' : 'scrolled'}`}>
+            <nav className={`nav ${isOnTop ? 'on-top' : 'scrolled'} ${navbarIsOpen ? 'open' : ''}`}>
                 <NavLink to="/"><img src={logo} className={isOnTop ? '' : 'dark'} /></NavLink>
-                <NavLink to="/">Home</NavLink>
-                <NavLink to="/">About Us</NavLink>
+                <NavLink to="/home">Home</NavLink>
+                {/* <NavLink to="/">About Us</NavLink> */}
                 <NavLink to="/">Explore</NavLink>
-                <NavLink to="/signup">Sign in</NavLink>
+                <NavLink to="/signup">Sign Up</NavLink>
+                <NavLink to="/login">Log In</NavLink>
+                <button onClick={() => {setNavbarIsOpen(!navbarIsOpen);}}>
+                    <img className={isOnTop ? '' : 'dark'} src={hamburger} />
+                </button>
             </nav>
             <div className='hero'>
                 <div className='hero-text'>
@@ -52,18 +58,18 @@ export default function Landing() {
             <div className='content'>
                 <div className='section'>
                     <div className='section-content-container'>
-                        <h2 className='section-header'>what is wayfare?</h2>
+                        <h2 className='section-header'>What's Wayfare?</h2>
                         <p className='section-content'>Wayfare is a social media app designed for hikers, adventurers, and nature lovers who want to connect, share, and explore the great outdoors together. Whether you're scaling rugged peaks, strolling through forest trails, or just discovering a new walk in your neighborhood, Wayfare makes it easy to track your journey, post photos, and find new hiking spots recommended by the community. Users can log their hikes with GPS, upload trail conditions in real-time, and leave helpful tips or reviews for others. The app includes custom profiles, leaderboards, group challenges, and even badges for milestones like “100km Club” or “Sunrise Seeker.” </p>
-                        <a type='primary'>start now</a>
+                        <Link to='/signup'>Start Now</Link>
                     </div>
                     <div className='section-image-container'>
                         <img className='section-image' src={hikingdude}/>
                     </div>
                 </div>
 
-                <div>
-                    <h2 className='header'>todays top trail</h2>
-                    <TrialPreview title='wellington waterfront' description='Wellington’s waterfront is a vibrant blend of urban life and stunning natural scenery. Stretching along the harbor, it features bustling cafés, art galleries, and picturesque parks. ' image={testImg} likes={1305} creatorName='steven xu'/>
+                <div className='section2'>
+                    <h2 className='section-header'>Today's Top Trails:</h2>
+                    <TrialPreview title='Wellington Waterfront' description='Wellington’s waterfront is a vibrant and dynamic area where the energy of urban life meets the beauty of nature. Stretching along the edge of the harbor, it offers a scenic promenade that invites both locals and visitors to stroll, cycle, or simply relax while taking in panoramic views of the water and surrounding hills.' image={testImg} likes={1305} creatorName='steven xu'/>
                 </div>
             </div>
         </div>
