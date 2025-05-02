@@ -15,13 +15,14 @@ export default function Home() {
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
-  const isLoggedIn = useSelector((state) => state.auth.value);
+  const authState = useSelector((state) => state.auth);
 
   useEffect(() => {
-    if (!isLoggedIn) {
+    if (authState.isLoggedIn === false && authState.updated === true) {
       navigate('/login')
+      console.log('User not logged in, redirecting to login page1231');
     }
-  }, [isLoggedIn])
+  }, [authState])
 
   async function handleLogout() {
       const { error } = await supabase.auth.signOut();
@@ -34,8 +35,9 @@ export default function Home() {
   }
 
   async function getTokenData() {
-    if (!isLoggedIn ) {
+    if (authState.isLoggedIn === false && authState.updated === true) {
       navigate('/login')
+      console.log('User not logged in, redirecting to login page1231');
       return
     }
 
@@ -71,7 +73,7 @@ export default function Home() {
   }, [])
 
 
-  console.log(isLoggedIn);
+  console.log(authState);
   return (
       <div className="home">
         <nav>
