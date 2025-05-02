@@ -36,39 +36,48 @@ function CreateWalk() {
         tip: '',
         pin: '',
         help: '',
-        img: '',
     })
 
     const [stepImg, setStepIMG] = useState(null)
 
 
-    function addStep(e){
+    async function addStep(e, finish){
         e.preventDefault()
-
         const fileExt = stepImg.name.split('.').pop()
         const fileName = `${Date.now()}.${fileExt}-${ID}`
         const filePath = `walks/${ID}/${fileName}`;
 
-        supabase
+        let path = ''
+       
+        const { data: uploadData, error: uploadError } = await supabase
             .storage
-            .from('wayfare') // replace with your bucket name
-            .upload(filePath, stepImg)
-            .then(({ data, error }) => {
-                if (error) {
-                    console.error('Upload error:', error.message);
-                } else {
-                    console.log('Uploaded to:', data.path);
-                }
-            });
+            .from('wayfare') // Your bucket name
+            .upload(filePath, stepImg);
 
+        if (uploadError) {
+            console.error('Upload error:', uploadError.message);
+            return;
+        }
+        if (uploadData){
+            console.log('sucsessfully uploaded: ', uploadData.path)
+            path = uploadData.path
+        }
 
-        
+        console.log(path)
 
-    
+        setWalk(prev => ({
+            ...prev,
+            steps: [...prev.steps, stepFormData]
+        }))
+
+        if(finish){
+            console.log('publishing walk...')
+            publishWalk()
+        }
     }
 
     function publishWalk(){
-
+        console.log(walk)
     }
 
     function handleChange(e){
