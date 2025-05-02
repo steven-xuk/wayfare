@@ -750,6 +750,7 @@ html, body {
     height: 36px;
     filter: brightness(0);
     padding-left: 5px;
+    margin-right: 3px;
 }
 
 .home-navbar-auth .account-menu {
@@ -757,8 +758,8 @@ html, body {
     position: absolute;
     right: 15px;
     top: 60px;
+    width: 204px;
     background-color: white;
-    border-radius: 8px;
     box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
 }
 
@@ -769,7 +770,7 @@ html, body {
 
 .home-navbar-auth .account-menu.open button {
     border: none;
-    padding: 10px 20px;
+    padding: 10px;
     font-size: 24px;
     font-family: 'Alegreya Sans SC', sans-serif;
     background-color: white;
@@ -840,7 +841,7 @@ html, body {
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 630px) {
     .home nav p.welcome-user {
         display: none;
     }
