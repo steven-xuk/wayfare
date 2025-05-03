@@ -777,6 +777,24 @@ html, body {
     cursor: pointer;
 }
 
+.home-navbar-auth .account-menu.open button:hover {
+    background-color: #f0f0f0;
+}
+
+.home-navbar-auth .account-menu.open button:active {
+    background-color: #e0e0e0;
+}
+
+@media screen and (max-width: 630px) {
+    .home-navbar-auth nav p.welcome-user {
+        display: none;
+    }
+
+    .home-navbar-auth nav a:first-child {
+        margin-right: auto;
+    }
+}
+
 /* Home.js */
 
 .home {
@@ -838,15 +856,5 @@ html, body {
     .home .content .grid {
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr 1fr 1fr;
-    }
-}
-
-@media screen and (max-width: 630px) {
-    .home nav p.welcome-user {
-        display: none;
-    }
-
-    .home nav a:first-child {
-        margin-right: auto;
     }
 }
