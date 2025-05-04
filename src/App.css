@@ -85,7 +85,7 @@ nav {
     filter: brightness(0);
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 800px) {
     .landing nav {
         transition: none;
     }

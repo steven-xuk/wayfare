@@ -32,10 +32,9 @@ export default function Landing() {
         <div className="landing">
             <nav className={`nav ${isOnTop ? 'on-top' : 'scrolled'} ${navbarIsOpen ? 'open' : ''}`}>
                 <NavLink to="/"><img src={logo} className={isOnTop ? '' : 'dark'} /></NavLink>
-                <NavLink to="/home">Home</NavLink>
-                {/* <NavLink to="/">About Us</NavLink> */}
-                <NavLink to="/">Explore</NavLink>
-                <NavLink to="/signup">Sign Up</NavLink>
+                <NavLink to="/">Home</NavLink>
+                <NavLink to="/download">Download</NavLink>
+                <NavLink to="/explore">Explore</NavLink>
                 <NavLink to="/login">Log In</NavLink>
                 <button onClick={() => {setNavbarIsOpen(!navbarIsOpen);}}>
                     <img className={isOnTop ? '' : 'dark'} src={hamburger} />

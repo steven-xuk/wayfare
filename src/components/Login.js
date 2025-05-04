@@ -1,7 +1,7 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { login } from "../redux/slices/AuthSlice.js";
 import { supabase } from '../SupabaseClient'
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
@@ -11,6 +11,8 @@ import back from '../imgs/back.png';
 export default function Login() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const authState = useSelector((state) => state.auth);
+
     const handleLogin = () => {
         dispatch(login());
     };
@@ -21,6 +23,11 @@ export default function Login() {
     })
 
 
+    useEffect(() => {
+      if (authState.isLoggedIn === true && authState.updated === true) {
+        navigate('/home')
+      }
+    }, [authState])
 
     async function loginToSupabase(e) {
         e.preventDefault()
