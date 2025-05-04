@@ -76,7 +76,7 @@ export default function HomeNavbarAuth({shadow}) {
   console.log(authState);
   return (
       <div className="home-navbar-auth">
-        <nav style={{ boxShadow: shadow === true ? '0px 4px 4px rgba(0, 0, 0, 0.25)' : 'none'}}>
+        <nav style={{ boxShadow: shadow === true ? '0px 4px 4px rgba(0, 0, 0, 0.1)' : 'none'}}>
           <NavLink to="/"><img src={logo}/></NavLink>
           <p className='welcome-user'>Welcome back, {userDataObj != undefined && userDataObj.username}</p>
           <div><img src={mountain}/><p>503 KM</p></div>

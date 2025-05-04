@@ -130,7 +130,7 @@ nav {
 }
 
 .landing .hero {
-    background-image: url('./imgs/hero-image.jpg');
+    background-image: url('./imgs/hero-image.png');
     height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
@@ -152,7 +152,7 @@ nav {
     margin: 0;
     color: white;
     text-align: center;
-    font-size: 110px;
+    font-size: 115px;
     padding: 0;
     line-height: 0.6em;
 }
@@ -164,7 +164,18 @@ nav {
     margin: 0;
     color: white;
     text-align: center;
-    font-size: 2em;
+    font-size: 32px;
+}
+
+@media screen and (max-width: 620px) {
+
+    .landing .hero .hero-text .title {
+        font-size: clamp(96px, calc(70px + 8vw), 115px);
+    }   
+
+    .landing .hero .hero-text .subtitle {
+        font-size: clamp(29px, calc(28px + 1vw), 32px);
+    }
 }
 
 /* section */
@@ -187,7 +198,7 @@ nav {
 }
 
 .landing .section-header{
-    font-size: 64px;
+    font-size: 63px;
     margin: 0px 0px 24px 0px;
 }
 
@@ -483,7 +494,7 @@ nav {
     font-size: 45px;
     line-height: 45px;
     text-align: center;
-    margin: 0px 0px 24px 0px;
+    margin: 0px 0px 26px 0px;
     color: #2d3748;
 } 
 
