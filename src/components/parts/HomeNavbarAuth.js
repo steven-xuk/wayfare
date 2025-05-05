@@ -77,7 +77,7 @@ export default function HomeNavbarAuth({shadow}) {
   return (
       <div className="home-navbar-auth">
         <nav style={{ boxShadow: shadow === true ? '0px 4px 4px rgba(0, 0, 0, 0.1)' : 'none'}}>
-          <NavLink to="/"><img src={logo}/></NavLink>
+          <NavLink to="/home"><img src={logo}/></NavLink>
           <p className='welcome-user'>Welcome back, {userDataObj != undefined && userDataObj.username}</p>
           <div><img src={mountain}/><p>503 KM</p></div>
           <NavLink onClick={() => {if (isAccountMenuOpen) {setIsAccountMenuOpen(false);} else {setIsAccountMenuOpen(true);}}}><img src={profile}/></NavLink>
