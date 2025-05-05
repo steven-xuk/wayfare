@@ -1,45 +1,27 @@
 import { Link, NavLink } from 'react-router-dom';
-import logo from '../imgs/logo.png';
-import { useState } from 'react';
-import hamburger from '../imgs/hamburger.png';
+import { useState, useEffect } from 'react';
 
 //importing images
 import hikingdude from '../imgs/pexels-ozgomz-868097 (1).jpg'
 import TrialPreview from './parts/TrailPreview';
 import testImg from '../imgs/pexels-adrien-olichon-1257089-3709402.jpg'
-import { useEffect } from 'react';
+import LandingNavbar from './parts/LandingNavbar';
 
 export default function Landing() {
-
-    const [isOnTop, setIsOnTop] = useState(true);
     const [opacityText, setOpacityText] = useState(100);
-    const [navbarIsOpen, setNavbarIsOpen] = useState(false);
-    const [navbarIsVisible, setNavbarIsVisible] = useState(false);
 
-    useEffect(() => {
-        window.addEventListener('scroll', () => {
-            const scrollPosition = window.scrollY;
-            setOpacityText(1 - (1.28 * scrollPosition / window.innerHeight))
-            if (scrollPosition > 15) {
-                setIsOnTop(false);
-            } else {
-                setIsOnTop(true);
-            }
-        })
-    }, [])
+
+        useEffect(() => {
+            window.addEventListener('scroll', () => {
+                const scrollPosition = window.scrollY;
+                setOpacityText(1 - (1.28 * scrollPosition / window.innerHeight))
+            })
+        }, [])
+
 
     return (
         <div className="landing">
-            <nav className={`nav ${isOnTop ? 'on-top' : 'scrolled'} ${navbarIsOpen ? 'open' : ''}`}>
-                <NavLink to="/"><img src={logo} className={isOnTop ? '' : 'dark'} /></NavLink>
-                <NavLink to="/">Home</NavLink>
-                <NavLink to="/download">Download</NavLink>
-                <NavLink to="/explore">Explore</NavLink>
-                <NavLink to="/login">Log In</NavLink>
-                <button onClick={() => {setNavbarIsOpen(!navbarIsOpen);}}>
-                    <img className={isOnTop ? '' : 'dark'} src={hamburger} />
-                </button>
-            </nav>
+            <LandingNavbar isMainPage={true}/>
             <div className='hero'>
                 <div className='hero-text'>
                     <h1 className='title'>Explore.</h1>

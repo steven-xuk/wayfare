@@ -1,5 +1,6 @@
 {
   "short_name": "Wayfare",
+  "description": "Wayfare is a social media app designed for hikers, adventurers, and nature lovers who want to connect, share, and explore the great outdoors together. Whether you're scaling rugged peaks, strolling through forest trails, or just discovering a new walk in your neighborhood, Wayfare makes it easy to track your journey, post photos, and find new hiking spots recommended by the community.",
   "name": "Wayfare",
   "icons": [
     {
@@ -18,7 +19,7 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "/home",
+  "start_url": "/login",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"
