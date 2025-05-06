@@ -30,7 +30,7 @@ export default function Download() {
         <div className="download-instructions android">
             <h2>Download for Android</h2>
             <p>The process for installing this app may vary with your phone model and current browser. We will provide a rough outline as to what to do to install this app, but note that the process may vary based on your current phone and browser.</p>
-            <p>Tap the <strong>menu icon</strong> (three dots or lines). It is usually loated in the top-right corner of the browser.</p>
+            <p>Tap the <strong>menu icon</strong> (three dots or lines). It is usually located in the top-right corner of the browser.</p>
             <p>From the menu, tap <strong>“Add to Home screen”</strong> or <strong>“Install app”</strong> (the wording may vary by browser).</p>
             <p>You can edit the app name if you like. Then tap <strong>“Add”</strong> to confirm.</p>
             <p>The app is now installed. You can now view it on your home screen.</p>

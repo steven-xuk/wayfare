@@ -14,7 +14,6 @@ export default function HomeNavbarAuth({shadow}) {
   const [isAccountMenuOpen, setIsAccountMenuOpen] = useState(false);
   const navigate = useNavigate();
 
-  const dispatch = useDispatch();
   const authState = useSelector((state) => state.auth);
 
   useEffect(() => {
@@ -60,12 +59,16 @@ export default function HomeNavbarAuth({shadow}) {
       // console.log('Fetched row:', userData);
     }
     
-    setUserDataObj({
-      ...userData,
-      date_joined: userData.created_at,
-      email: data.session?.user.email,
-      isAuthenticated: data.session?.user.email_confirmed_at
-    })
+    if (userData) {
+      setUserDataObj({
+        ...userData,
+        date_joined: userData.created_at,
+        email: data.session?.user.email,
+        isAuthenticated: data.session?.user.email_confirmed_at
+      });
+    } else {
+      console.warn('userData is null — check UID or Users table data');
+    }
   }
   
   useEffect(() => {

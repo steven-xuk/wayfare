@@ -2,12 +2,10 @@ import React from 'react';
 
 import likesIMG from '../../imgs/like.png'
 
-function TrialPreview({kilometers}) {
-
-    console.log(kilometers)
+function TrialPreview({title, description, image, likes, creatorName}) {
     return (
         <div className='preview'>
-            {/* <div className='preview-top'>
+            <div className='preview-top'>
                 <div className='preview-content-container'>
                     <h3 className='preview-title'>{title}</h3>
                     <p className='preview-content'>{description}</p>
@@ -25,7 +23,7 @@ function TrialPreview({kilometers}) {
                     <img src={likesIMG} className='likes-image'/>
                     <p className='info'>{likes}</p>
                 </div>
-            </div> */}
+            </div>
         </div>
     );
 }

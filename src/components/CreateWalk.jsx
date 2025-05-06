@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid'; 
 import { supabase } from '../SupabaseClient';
+import HomeNavbarAuth from './parts/HomeNavbarAuth';
 
 
 function CreateWalk() {
@@ -34,8 +35,6 @@ function CreateWalk() {
           isAuthenticated: data.session?.user.email_confirmed_at
         })
       }
-
-
 
     const [walk, setWalk] = useState({
         steps: [],
@@ -162,7 +161,8 @@ function CreateWalk() {
 
 
     return (
-        <div>
+        <div className='create-walk'>
+            <HomeNavbarAuth shadow={true}/>
             <p>create a walk!</p>
 
             {currentStep == 'making steps' && <div>

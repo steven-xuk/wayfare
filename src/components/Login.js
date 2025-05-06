@@ -34,9 +34,9 @@ export default function Login() {
 
 
     useEffect(() => {
-      if (authState.isLoggedIn === true && authState.updated === true) {
-        navigate('/home')
-      }
+        if (authState.isLoggedIn === true && authState.updated === true) {
+            navigate('/home')
+        }
     }, [authState])
 
     async function loginToSupabase(e) {
