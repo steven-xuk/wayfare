@@ -16,14 +16,14 @@ html, body {
 
 nav {
     z-index: 10;
+    position: relative;
 }
 
 /* making everything the font for some reason the code above doesn't do it */
 /* Landing.js */
 
-.landing nav {
+.landing-navbar nav {
     display: flex;
-    position: fixed;
     justify-content: right;
     align-items: center;
     font-family: 'Alegreya Sans SC', sans-serif;
@@ -36,13 +36,13 @@ nav {
     padding: 0px calc(50vw - 720px);
 }
 
-.landing .nav.scrolled {
+.landing-navbar nav.scrolled {
     background-color: rgba(255, 255, 255, 1);
     color: rgba(0, 0, 0, 1);
     box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.5);
 }
 
-.landing nav a {
+.landing-navbar nav a {
     height: 60px;
     font-size: 24px;
     line-height: 24px;
@@ -51,21 +51,22 @@ nav {
     color: inherit;
 }
 
-.landing nav a:first-child {
+.landing-navbar nav a:first-child {
     margin-right: auto;
-    padding: 12px 15px 12px 15px;
+    padding: 11px 15px 11px 15px;
 }
 
-.landing nav a:first-child img {
+.landing-navbar nav a:first-child img {
     margin-right: auto;
-    height: 36px;
+    height: 38px;
+    padding-bottom: 1px;
 }
 
-.landing nav a:first-child img.dark {
+.landing-navbar nav a:first-child img.dark {
     filter: brightness(0);
 }
 
-.landing nav button {
+.landing-navbar nav button {
     background-color: transparent;
     border: none;
     color: inherit;
@@ -77,54 +78,54 @@ nav {
     display: none;
 }
 
-.landing nav button img {
+.landing-navbar nav button img {
     height: 40px;
 }
 
-.landing nav button img.dark {
+.landing-navbar nav button img.dark {
     filter: brightness(0);
 }
 
-@media screen and (max-width: 720px) {
-    .landing nav {
+@media screen and (max-width: 800px) {
+    .landing-navbar nav {
         transition: none;
     }
 
-    .landing nav button {
+    .landing-navbar nav button {
         display: flex;
         align-items: center;
         justify-content: center;
     }
 
-    .landing nav.open a:first-child img {
+    .landing-navbar nav.open a:first-child img {
         filter: brightness(0);
     }
 
-    .landing nav.open button {
+    .landing-navbar nav.open button {
         background-color: rgba(255, 255, 255, 1);
         width: 100%;
         justify-content: flex-start;
         padding-left: 15px;
     }
 
-    .landing nav.open button img {
+    .landing-navbar nav.open button img {
         filter: brightness(0);
     }
 
-    .landing nav a:not(:first-child) {
+    .landing-navbar nav a:not(:first-child) {
         display: none;
         background-color: rgba(255, 255, 255, 1);
         width: 100%;
     }
 
-    .landing nav.open {
+    .landing-navbar nav.open {
         flex-direction: column;
         background-color: rgba(255, 255, 255, 1);
         color: rgba(0, 0, 0, 1);
         transition: none;
     }
 
-    .landing nav.open a:not(:first-child) {
+    .landing-navbar nav.open a:not(:first-child) {
         display: block;
     }
 }
@@ -472,6 +473,87 @@ nav {
     }
 }
 
+/* Download.js */
+
+.download {
+    font-family: 'Instrument Sans', sans-serif;
+}
+
+.download .download-title h1 {
+    font-size: clamp(48px, calc(16px + 10vw), 90px);
+    line-height: 1.07em;
+    font-weight: 700;
+    text-align: center;
+    margin: clamp(40px, calc(20px + 8vw), 85px) 0px 0px 0px;
+}
+
+.download .download-title h2 {
+    font-size: clamp(16px, calc(8px + 3vw), 33px);;
+    font-weight: 500;
+    text-align: center;
+    margin: 0px 0px 15px 0px;
+}
+
+.download .download-instructions-container {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+    margin: 0px calc(7vw - 48px) calc(7vw - 52px) calc(7vw - 48px);
+}
+
+.download .download-instructions-container .download-instructions {
+    flex-grow: 1;
+    width: 100%;
+    margin: 15px;
+    border-radius: 18px;
+    padding: 24px 28px;
+}
+
+.download .download-instructions-container .download-instructions h2 {
+    font-size: 42px;
+    font-weight: 500;
+    margin: 0px;
+}
+
+.download .download-instructions-container .download-instructions p {
+    font-size: 21px;
+    font-weight: 450;
+    margin: 18px 0px;
+}
+
+.download .download-instructions-container .download-instructions p:last-child {
+    margin: 0px;
+}
+
+.download .download-instructions-container .download-instructions.ios {
+    background-color: #e1efff;
+}
+
+.download .download-instructions-container .download-instructions.android {
+    background-color: #d9f6dc;
+}
+
+@media screen and (max-width: 1111px) {
+    .download .download-instructions-container {
+        flex-direction: column;
+        margin: 0px calc(8vw - 23px) calc(6vw - 16px) calc(8vw - 23px);
+    }
+
+    .download .download-instructions-container .download-instructions {
+        flex-grow: 1;
+        width: calc(100% - 30px);
+        margin: 15px;
+        border-radius: 18px;
+    }
+
+    .download .download-instructions-container .download-instructions h2 {
+        font-size: clamp(30px, calc(16px + 5vw), 42px);
+        font-weight: 500;
+        margin: 0px;
+    }
+}
+
 /* Signup.js */
 
 .signup{
@@ -618,6 +700,7 @@ nav {
 
 .login form h1 {
     font-size: 45px;
+    line-height: 45px;
     text-align: center;
     margin: 0px 0px 24px 0px;
     color: #2d3748;
@@ -714,6 +797,39 @@ nav {
 
 .login a:hover {
     text-decoration: underline;
+}
+
+/* PWA login/signup */
+
+.login.pwa, .signup.pwa {
+    background-color: rgb(246, 246, 246);
+    background-image: none;
+}
+
+.login.pwa .title, .signup.pwa .title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 12px 30px 30px 30px;
+}
+
+.login.pwa .title img, .signup.pwa .title img {
+    filter: brightness(0);
+    width: 60px;
+}
+
+.login.pwa h1.name, .signup.pwa h1.name {
+    font-size: clamp(48px, calc(36px + 5vw), 72px);
+    margin: 0px;
+}
+
+.login.pwa form h1, .signup.pwa form h1 {
+    font-size: 38px;
+}
+
+.login.pwa form, .signup.pwa form {
+    margin-bottom: 24px;
 }
 
 /* HomeNavbarAuth.js */

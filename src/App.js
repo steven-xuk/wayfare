@@ -14,6 +14,7 @@ import Policies from './components/Policies.jsx';
 import NotFound from './components/NotFound.jsx';
 import Friends from './components/Friends.jsx';
 import Explore from './components/Explore.jsx';
+import Download from './components/Download.jsx';
 
 function App() {
   const dispatch = useDispatch();
@@ -52,6 +53,7 @@ function App() {
       <Route path='/' element={ <Landing />}/>
       <Route path='/home' element={ <Home /> }/>
       <Route path='/signup' element={ <Signup /> }/>
+      <Route path='/download' element={ <Download /> }/>
       <Route path='/login' element={ <Login /> }/>
       <Route path='/home' element={ <Home /> }/>
       <Route path='/create-post' element={ <CreatePost /> }/>
