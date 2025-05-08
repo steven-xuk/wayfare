@@ -1,0 +1,109 @@
+.trail-preview {
+    border: 4px solid black;
+    border-radius: 22px;
+    margin: auto;
+    max-width: 1100px;
+}
+
+.trail-preview .preview-title{
+    font-size: 42px;
+    font-weight: normal;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.trail-preview .preview-content{
+    margin-top: 0;
+    font-size: 24px;
+}
+
+.trail-preview .preview-top{
+    padding: 24px;
+    display: flex;
+    flex-direction: row;
+}
+
+.trail-preview .preview-image{
+    max-height: 500px;
+    width: 100%;
+    height: 100%;
+    border-radius: 22px;
+    object-fit: cover;
+}
+
+.trail-preview .preview-image-container{
+    margin-left: auto;
+    height: auto;
+    flex-grow: 1;
+}
+
+.trail-preview .preview-content-container{
+    width: 90%;
+    flex-grow: 1;
+    margin-right: 24px;
+}
+
+.trail-preview .likes-image{
+    width: 30px;
+    height: 30px;
+    margin: auto 10px;
+}
+
+.trail-preview .info{
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.trail-preview .border{
+    border: 3px solid black;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 20px;
+    
+}
+
+.trail-preview .likes-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.trail-preview .preview-bottom{
+    display: flex;
+    flex-direction: row;
+}
+
+
+.trail-preview .btn{
+    padding: 10px 30px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+}
+
+.trail-preview .btn-primary{
+    color: white;
+    background-color: var(--primary-color);
+}
+
+@media screen and (max-width: 955px) {
+    .trail-preview .preview-top{
+        flex-direction: column;
+    }
+
+    .trail-preview .preview-content-container{
+        width: 100%;
+        margin-right: 0px;
+    }
+
+    .trail-preview .preview-image-container{
+        margin-left: 0px;
+        margin-top: 35px;
+        flex-grow: 0;
+    }
+
+    .trail-preview .preview-image{
+        width: 100%;
+        height: 270px;
+        border-radius: 22px;
+        object-fit: cover;
+    }
+}

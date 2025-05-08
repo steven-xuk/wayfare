@@ -1,0 +1,150 @@
+
+.login {
+    background-image: url(../imgs/pexels-lastly-1022479.jpg);
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Instrument Sans', sans-serif;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    color: #1a202c;
+}
+
+.login form h1 {
+    font-size: 45px;
+    line-height: 45px;
+    text-align: center;
+    margin: 0px 0px 24px 0px;
+    color: #2d3748;
+}
+
+.login form h2 {
+    margin: 0;
+    text-align: center;
+    font-size: 30px;
+}
+
+.login p {
+    font-size: 15px;
+    margin: 28px 0px 0px 0px;
+    text-align: center;
+    color: #4a5568;
+}
+
+.login p.policies {
+    font-size: 15px;
+    margin: 16px 0px 0px 0px;
+    color: #4a5568;
+}
+
+.login form {
+    display: flex;
+    flex-direction: column;
+    width: 82vw;
+    max-width: 500px;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.login form a.home-link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 20px;
+    margin-bottom: 3px;
+}
+
+.login form a.home-link img {
+    height: 15px;
+}
+
+.login form a.home-link p {
+    margin: 0px 0px 0px 5px;
+}
+
+.login form input {
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #cbd5e0;
+    border-radius: 0.375rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.login form input:focus {
+    outline: none;
+    border-color: #63b3ed;
+    box-shadow: 0 0 0 3px rgba(99, 179, 237, 0.3);
+}
+
+.login form button {
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    margin-top: 0.5rem;
+    background-color: #3182ce;
+    color: #fff;
+    border: none;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.login form button:hover {
+    background-color: #2b6cb0;
+    transform: translateY(-1px);
+}
+
+.login form button:active {
+    background-color: #2c5282;
+    transform: translateY(0);
+}
+
+.login a {
+    color: #3182ce;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.login a:hover {
+    text-decoration: underline;
+}
+
+/* PWA login/signup */
+
+.login.pwa, .signup.pwa {
+    background-color: rgb(246, 246, 246);
+    background-image: none;
+}
+
+.login.pwa .title, .signup.pwa .title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 12px 30px 30px 30px;
+}
+
+.login.pwa .title img, .signup.pwa .title img {
+    filter: brightness(0);
+    width: 60px;
+}
+
+.login.pwa h1.name, .signup.pwa h1.name {
+    font-size: clamp(48px, calc(36px + 5vw), 72px);
+    margin: 0px;
+}
+
+.login.pwa form h1, .signup.pwa form h1 {
+    font-size: 38px;
+}
+
+.login.pwa form, .signup.pwa form {
+    margin-bottom: 24px;
+}

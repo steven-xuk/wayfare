@@ -1,4 +1,18 @@
 import './App.css';
+import './CSS/CreatePost.css'
+import './CSS/CreateWalk.css'
+import './CSS/Download.css'
+import './CSS/Explore.css'
+import './CSS/Friends.css'
+import './CSS/Home.css'
+import './CSS/HomeNavbarAuth.css'
+import './CSS/Landing.css'
+import './CSS/LandingNavbar.css'
+import './CSS/Login.css'
+import './CSS/NotFound.css'
+import './CSS/Policies.css'
+import './CSS/Signup.css'
+import './CSS/TrailPreview.css'
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
 import { useEffect } from 'react';
 import { login, logout } from './redux/slices/AuthSlice';
