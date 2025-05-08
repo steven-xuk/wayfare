@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid'; 
 import { supabase } from '../SupabaseClient';
 import HomeNavbarAuth from './parts/HomeNavbarAuth';
+import { Link } from 'react-router-dom';
 
 
 function CreateWalk() {
@@ -139,9 +140,7 @@ function CreateWalk() {
     
 
     async function finishWalkAndSendItToSupabaseIReallyLikeFunctions(){
-
-        console.log(walk)
-
+        console.log('uploading...')
         const walkDataToUpload = {
             MetaData: {
                 ...finishingForm,
@@ -156,9 +155,12 @@ function CreateWalk() {
         const { data, error } = await supabase
         .from('trails')
         .insert(walkDataToUpload)
-    
+        .select()
+        
         if (data){
             console.log(data)
+            setCurrentStep('walk uploaded')
+            console.log('walk uploaded')
         }
         if (error){
             console.log(error)
@@ -184,8 +186,7 @@ function CreateWalk() {
                         <input name='help' type="text" value={stepFormData.help} placeholder="add a some 'help' text" onChange={e => handleChangeSteps(e)}/>
                         <button type='submit'>create step</button>
                     </form>
-                    <button onClick={() => setCurrentStep('double check')}>finish</button>
-                
+                    {walk.steps.length > 0 && <button onClick={() => setCurrentStep('double check')}>finish</button>}
                 </div>}
 
             {currentStep == 'finishing' && <div>
@@ -206,6 +207,11 @@ function CreateWalk() {
             {currentStep == 'double check' && <div>
                     <button onClick={() => finishWalkAndSendItToSupabaseIReallyLikeFunctions()}>publish walk</button>
                 
+                </div>}
+
+            {currentStep == 'walk uploaded' && <div>
+                    <h1>YOU HAVE SUCSESSFULLY UPLOADED YOUR WALK!!!!! YEESSS</h1>
+                    <Link to='/home'>Home</Link>
                 </div>}
         </div>
     );
