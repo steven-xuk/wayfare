@@ -1,6 +1,6 @@
 /* Base styles */
 .create-walk {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
     padding: 2rem;
     max-width: 800px;
     margin: auto;
@@ -8,6 +8,10 @@
     color: #333;
     border-radius: 10px;
 
+  }
+
+  *{
+    font-family: 'Alegreya Sans SC', sans-serif;
   }
   
   /* Headings and text */
