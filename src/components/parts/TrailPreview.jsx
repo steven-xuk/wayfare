@@ -4,7 +4,7 @@ import likesIMG from '../../imgs/like.png'
 
 function TrialPreview({title, description, image, likes, creatorName}) {
     return (
-        <div className='preview'>
+        <div className='trail-preview'>
             <div className='preview-top'>
                 <div className='preview-content-container'>
                     <h3 className='preview-title'>{title}</h3>

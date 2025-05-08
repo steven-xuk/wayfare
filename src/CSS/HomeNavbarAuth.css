@@ -1,0 +1,91 @@
+.home-navbar-auth nav {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    /* background-color: #2c5282; */
+    padding-top: 1px;
+}
+
+.home-navbar-auth nav a {
+    height: 63px;
+    text-decoration: none;
+    padding: 12px 15px 12px 15px;
+    color: black;
+    font-family: 'Alegreya Sans SC', sans-serif;
+}
+
+.home-navbar-auth nav p.welcome-user {
+    margin: 0;
+    padding: 0px 0px 0px 0px;
+    font-size: 30px;
+    font-family: 'Alegreya Sans SC', sans-serif;
+    margin-right: auto;
+}
+
+.home-navbar-auth nav div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    margin-right: 5px;
+}
+
+.home-navbar-auth nav div img {
+    height: 24px;
+}
+
+.home-navbar-auth nav div p {
+    font-size: 24px;
+    margin: 0px 0px 0px 5px;
+    font-family: 'Instrument Sans', sans-serif;
+    padding: 0;
+}
+
+.home-navbar-auth nav a img {
+    height: 36px;
+    filter: brightness(0);
+    padding: 2px 0px 0px 3px;
+    margin-right: 3px;
+}
+
+.home-navbar-auth .account-menu {
+    display: none;
+    position: absolute;
+    right: 15px;
+    top: 60px;
+    width: 204px;
+    background-color: white;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
+}
+
+.home-navbar-auth .account-menu.open {
+    display: flex;
+    flex-direction: column;
+}
+
+.home-navbar-auth .account-menu.open button {
+    border: none;
+    padding: 10px;
+    font-size: 24px;
+    font-family: 'Alegreya Sans SC', sans-serif;
+    background-color: white;
+    cursor: pointer;
+}
+
+.home-navbar-auth .account-menu.open button:hover {
+    background-color: #f0f0f0;
+}
+
+.home-navbar-auth .account-menu.open button:active {
+    background-color: #e0e0e0;
+}
+
+@media screen and (max-width: 630px) {
+    .home-navbar-auth nav p.welcome-user {
+        display: none;
+    }
+
+    .home-navbar-auth nav a:first-child {
+        margin-right: auto;
+    }
+}

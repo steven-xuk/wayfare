@@ -1,0 +1,107 @@
+.landing-navbar nav {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    font-family: 'Alegreya Sans SC', sans-serif;
+    height: 60px;
+    width: 100%;
+    transition: color 0.5s, background-color 0.5s, box-shadow 0.5s;
+    background-color: rgba(255, 255, 255, 0);
+    color: rgba(255, 255, 255, 1);
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0);
+    padding: 0px calc(50vw - 720px);
+}
+
+.landing-navbar nav.scrolled {
+    background-color: rgba(255, 255, 255, 1);
+    color: rgba(0, 0, 0, 1);
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.5);
+}
+
+.landing-navbar nav a {
+    height: 60px;
+    font-size: 24px;
+    line-height: 24px;
+    text-decoration: none;
+    padding: 18px;
+    color: inherit;
+}
+
+.landing-navbar nav a:first-child {
+    margin-right: auto;
+    padding: 11px 15px 11px 15px;
+}
+
+.landing-navbar nav a:first-child img {
+    margin-right: auto;
+    height: 38px;
+    padding-bottom: 1px;
+}
+
+.landing-navbar nav a:first-child img.dark {
+    filter: brightness(0);
+}
+
+.landing-navbar nav button {
+    background-color: transparent;
+    border: none;
+    color: inherit;
+    font-size: 24px;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: 'Alegreya Sans SC', sans-serif;
+    padding: 12px;
+    display: none;
+}
+
+.landing-navbar nav button img {
+    height: 40px;
+}
+
+.landing-navbar nav button img.dark {
+    filter: brightness(0);
+}
+
+@media screen and (max-width: 800px) {
+    .landing-navbar nav {
+        transition: none;
+    }
+
+    .landing-navbar nav button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .landing-navbar nav.open a:first-child img {
+        filter: brightness(0);
+    }
+
+    .landing-navbar nav.open button {
+        background-color: rgba(255, 255, 255, 1);
+        width: 100%;
+        justify-content: flex-start;
+        padding-left: 15px;
+    }
+
+    .landing-navbar nav.open button img {
+        filter: brightness(0);
+    }
+
+    .landing-navbar nav a:not(:first-child) {
+        display: none;
+        background-color: rgba(255, 255, 255, 1);
+        width: 100%;
+    }
+
+    .landing-navbar nav.open {
+        flex-direction: column;
+        background-color: rgba(255, 255, 255, 1);
+        color: rgba(0, 0, 0, 1);
+        transition: none;
+    }
+
+    .landing-navbar nav.open a:not(:first-child) {
+        display: block;
+    }
+}

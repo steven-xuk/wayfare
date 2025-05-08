@@ -171,7 +171,7 @@ function CreateWalk() {
 
 
     return (
-        <div className='create-walk container'>
+        <div className='create-walk'>
             <HomeNavbarAuth shadow={true} />
             <p className="title">create a walk!</p>
     
