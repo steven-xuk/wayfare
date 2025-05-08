@@ -60,7 +60,7 @@ function CreateWalk() {
     }, [])
 
 
-    const [currentStep, setCurrentStep] = useState('making steps')
+    const [currentStep, setCurrentStep] = useState('finishing')
 
     const [stepFormData, setStepFormData] = useState({
         title: '',
@@ -73,7 +73,8 @@ function CreateWalk() {
     const [finishingForm, setFinishingForm] = useState({
         kilometers: '',
         description: '',
-        difficulty: ''
+        difficulty: '',
+        title: '',
     })
 
     const [stepImg, setStepIMG] = useState(null)
@@ -109,8 +110,11 @@ function CreateWalk() {
         }))
     }
 
-    function publishWalk(){
-        console.log(walk)
+
+    function startAddingStep(e){    
+        e.preventDefault()
+
+        setCurrentStep('making steps')
     }
 
     function handleChangeSteps(e){
@@ -131,8 +135,11 @@ function CreateWalk() {
         }));
     }
 
-    async function setFinishData(e){
-        e.preventDefault()
+
+    
+
+    async function finishWalkAndSendItToSupabaseIReallyLikeFunctions(){
+
         console.log(walk)
 
         const walkDataToUpload = {
@@ -177,22 +184,28 @@ function CreateWalk() {
                         <input name='help' type="text" value={stepFormData.help} placeholder="add a some 'help' text" onChange={e => handleChangeSteps(e)}/>
                         <button type='submit'>create step</button>
                     </form>
-                    <button onClick={() => setCurrentStep('finishing')}>finish</button>
+                    <button onClick={() => setCurrentStep('double check')}>finish</button>
                 
                 </div>}
 
             {currentStep == 'finishing' && <div>
-                    <p>add finsihing touches</p>                    
+                    <p>add some data idk</p>                    
                 
-                    <form onSubmit={setFinishData}>
+                    <form onSubmit={startAddingStep}>
                         <input placeholder='kilometers (optional)' name='kilometers' type="text" value={finishingForm.kilometers} onChange={e => handleChangesFinish(e)}/>
+                        <input placeholder='walk title' name='title' type="text" value={finishingForm.title} onChange={e => handleChangesFinish(e)}/>
                         <input placeholder='description about the trail' name='description' type="text" value={finishingForm.description} onChange={e => handleChangesFinish(e)}/>
                         <label htmlFor="slider">
                             Difficulty: {finishingForm.difficulty}
                         </label>
                         <input id='slider' placeholder='difficulty' name='difficulty' type='range' min={1} max={10} value={finishingForm.difficulty} onChange={e => handleChangesFinish(e)}/>
-                        <button type='submit'>Create your walk!</button>
+                        <button type='submit'>Create some steps for your walk!</button>
                     </form>
+                </div>}
+
+            {currentStep == 'double check' && <div>
+                    <button onClick={() => finishWalkAndSendItToSupabaseIReallyLikeFunctions()}>publish walk</button>
+                
                 </div>}
         </div>
     );
