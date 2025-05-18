@@ -59,7 +59,7 @@ export default function Landing() {
 
                 <div className='section2'>
                     <h2 className='section-header'>Today's Top Trails:</h2>
-                    <TrialPreview title='Wellington Waterfront' description='Wellington’s waterfront is a vibrant and dynamic area where the energy of urban life meets the beauty of nature. Stretching along the edge of the harbor, it offers a scenic promenade that invites both locals and visitors to stroll, cycle, or simply relax while taking in panoramic views of the water and surrounding hills.' short_description={'Wellington’s waterfront merges urban vibrancy with seaside tranquility at the harbor’s edge, offering a scenic promenade for strolling, cycling, or relaxing with panoramic water and hill views.'} image={testImg} likes={1305} creatorName='steven xu'/>
+                    <TrialPreview title='Wellington Waterfront' description='Wellington’s waterfront is a vibrant and dynamic area where the energy of urban life meets the beauty of nature. Stretching along the edge of the harbor, it offers a scenic promenade that invites both locals and visitors to stroll, cycle, or simply relax while taking in panoramic views of the water and surrounding hills.' short_description={'Wellington’s waterfront merges urban vibrancy with seaside tranquility at the harbor’s edge, offering a scenic promenade for strolling, cycling, or relaxing with panoramic water and hill views.'} image={testImg} likes={1305} creatorName='steven xu' trail_link={'/home'}/>
                 </div>
             </div>
         </div>
