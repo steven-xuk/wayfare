@@ -1,5 +1,5 @@
 import { Link, NavLink } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 //importing images
 import hikingdude from '../imgs/pexels-ozgomz-868097 (1).jpg'
@@ -8,16 +8,25 @@ import testImg from '../imgs/pexels-adrien-olichon-1257089-3709402.jpg'
 import LandingNavbar from './parts/LandingNavbar';
 
 export default function Landing() {
-    const [opacityText, setOpacityText] = useState(100);
+    const [opacityText, setOpacityText] = useState(1);
 
+    const lastOpacity = useRef(opacityText);
 
-        useEffect(() => {
-            window.addEventListener('scroll', () => {
-                const scrollPosition = window.scrollY;
-                setOpacityText(1 - (1.28 * scrollPosition / window.innerHeight))
-            })
-        }, [])
+    useEffect(() => {
+        const onScroll = () => {
+            const scrollY = window.scrollY;
+            const raw = 1 - (1.28 * scrollY / window.innerHeight);
+            const next = Math.min(1, Math.max(0, raw));
 
+            if (Math.abs(next - lastOpacity.current) >= 0.02) {
+                lastOpacity.current = next;
+                setOpacityText(next);
+            }
+        };
+
+        window.addEventListener('scroll', onScroll);
+        return () => window.removeEventListener('scroll', onScroll);
+    }, []);
 
     return (
         <div className="landing">
@@ -50,7 +59,7 @@ export default function Landing() {
 
                 <div className='section2'>
                     <h2 className='section-header'>Today's Top Trails:</h2>
-                    <TrialPreview title='Wellington Waterfront' description='Wellington’s waterfront is a vibrant and dynamic area where the energy of urban life meets the beauty of nature. Stretching along the edge of the harbor, it offers a scenic promenade that invites both locals and visitors to stroll, cycle, or simply relax while taking in panoramic views of the water and surrounding hills.' image={testImg} likes={1305} creatorName='steven xu'/>
+                    <TrialPreview title='Wellington Waterfront' description='Wellington’s waterfront is a vibrant and dynamic area where the energy of urban life meets the beauty of nature. Stretching along the edge of the harbor, it offers a scenic promenade that invites both locals and visitors to stroll, cycle, or simply relax while taking in panoramic views of the water and surrounding hills.' short_description={'Wellington’s waterfront merges urban vibrancy with seaside tranquility at the harbor’s edge, offering a scenic promenade for strolling, cycling, or relaxing with panoramic water and hill views.'} image={testImg} likes={1305} creatorName='steven xu'/>
                 </div>
             </div>
         </div>
