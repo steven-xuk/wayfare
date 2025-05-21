@@ -2,11 +2,13 @@
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.24);
     border-radius: 22px;
     margin: auto;
-    max-width: 1100px;
+    max-width: 1000px;
+    height: 100%;
 }
 
 .trail-preview .preview-title{
     font-size: 42px;
+    line-height: 1.1em;
     font-weight: normal;
     margin: 0;
     margin-bottom: 20px;
@@ -93,10 +95,6 @@
     border-radius: 0px 0px 22px 22px;
 }
 
-.trail-preview .preview-content.short {
-    display: none;
-}
-
 .trail-preview .btn{
     padding: 10px 30px;
     font-size: 1.2rem;
@@ -109,7 +107,7 @@
     background-color: var(--primary-color);
 }
 
-@media screen and (max-width: 930px) {
+@media screen and (max-width: 908px) {
     .trail-preview .preview-top{
         flex-direction: column;
     }
@@ -126,7 +124,7 @@
     .trail-preview .preview-image-container{
         margin-left: 0px;
         margin-top: 24px;
-        height: calc(24vw + 80px);
+        height: calc(24vw + 60px);
         flex-grow: 0;
     }
 
@@ -154,18 +152,50 @@
         margin-right: 0px;
     }
 
+    .trail-preview .preview-image{
+        border-radius: 20px;
+    }
+
+    .trail-preview .preview-image-container{
+        margin-top: 19px;
+        height: calc(27vw + 50px);
+    }
+
     .trail-preview .preview-title{
-        font-size: clamp(29px, calc(11px + 6vw), 38px);
+        font-size: clamp(28px, calc(9px + 6vw), 38px);
         font-weight: normal;
         margin: 0;
         margin-bottom: 10px;
     }
+}
 
-    .trail-preview .preview-content.short {
-        display: block;
+@media screen and (max-width: 420px) {
+    .trail-preview .preview-top{
+        padding: 19px;
     }
 
-    .trail-preview .preview-content.long {
-        display: none;
+    .trail-preview .preview-title{
+        line-height: 1.07em;
+    }
+
+    .trail-preview .border{
+        margin: 15px;
+    }
+
+    .trail-preview .preview-image-container{
+        margin-top: 18px;
+        height: calc(33vw + 10px);
+    }
+
+    .trail-preview .preview-image{
+        border-radius: 12px;
+    }
+
+    .trail-preview .likes-container{
+        margin-right: 0px;
+    }
+
+    .trail-preview .preview-content{
+        font-size: clamp(17px, calc(8px + 2vw), 24px);
     }
 }

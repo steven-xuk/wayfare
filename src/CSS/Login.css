@@ -48,7 +48,7 @@
     width: 82vw;
     max-width: 500px;
     background: #fff;
-    padding: 2rem;
+    padding: 32px;
     border-radius: 0.5rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
@@ -58,7 +58,7 @@
     flex-direction: row;
     align-items: center;
     font-size: 20px;
-    margin-bottom: 3px;
+    margin-bottom: 6px;
 }
 
 .login form a.home-link img {
@@ -147,4 +147,13 @@
 
 .login.pwa form, .signup.pwa form {
     margin-bottom: 24px;
+}
+
+@media screen and (max-width: 490px) {
+    .login form a.home-link {
+        margin-bottom: 16px;
+    }
+    .login form {
+        padding: 24px;
+    }
 }

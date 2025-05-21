@@ -21,7 +21,7 @@
     margin: 0;
     color: white;
     text-align: center;
-    font-size: 115px;
+    font-size: 112px;
     padding: 0;
     line-height: 0.6em;
 }
@@ -39,7 +39,7 @@
 @media screen and (max-width: 620px) {
 
     .landing .hero .hero-text .title {
-        font-size: clamp(96px, calc(70px + 8vw), 115px);
+        font-size: clamp(85px, calc(52px + 10vw), 112px);
     }   
 
     .landing .hero .hero-text .subtitle {
@@ -68,11 +68,12 @@
 
 .landing .section-header{
     font-size: 63px;
-    margin: 0px 0px 24px 0px;
+    line-height: 1em;
+    margin: 0px;
 }
 
 .landing .section-content {
-    font-size: 20px;
+    font-size: 21px;
 }
 
 .landing .section-content-container{
@@ -81,7 +82,7 @@
 
 .landing .section-content-container a {
     display: inline-block;
-    padding: 20px;
+    padding: 18px;
     background-color: rgb(230, 230, 230);
     border-radius: 8px;
     font-size: 22px;
@@ -96,7 +97,16 @@
     margin: 30px 30px 30px 0px;
 }
 
-@media screen and (max-width: 1150px) {
+.landing .section2 {
+    padding: 30px 30px 30px 30px;
+}
+
+.landing .section2 .section-header{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+@media screen and (max-width: 1083px) {
     .landing .section-header{
         font-size: 56px;
         margin: 0px 0px 15px 0px;
@@ -107,10 +117,6 @@
         line-height: 24px;
     }
     
-    .landing .section-image{
-        margin: 20px 20px 20px 0px;
-    }
-    
     .landing .section-content-container{
         padding: 20px;
     }
@@ -118,13 +124,13 @@
     .landing .section-image{
         border-radius: 22px;
         width: 360px;
-        height: 450px;
+        height: calc(800px - 36vw);
         object-fit: cover;
-        margin: 30px 30px 30px 0px;
+        margin: 30px 30px 30px 10px;
     }
 }
 
-@media screen and (max-width: 930px) {
+@media screen and (max-width: 938px) {
     .landing .section{
         flex-direction: column;
     }
@@ -134,12 +140,12 @@
     }
 
     .landing .section-header {
-        font-size: clamp(35px, calc(35px + 3vw), 56px);
-        margin: 0px 0px 15px 0px;
+        font-size: clamp(31px, calc(28px + 3vw), 56px);
+        margin: 0px 0px 1px 0px;
     }
 
     .landing .section-content {
-        font-size: 19px;
+        font-size: clamp(19px, calc(15px + 1vw), 22px);
         line-height: 24px;
     }
 
@@ -153,22 +159,48 @@
 
     .landing .section-image-container{
         width: 100%;
+        padding: 10px 20px 20px 20px;
+    }
+
+    .landing .section2{
+        padding: 20px 20px 24px 20px;
+    }
+
+    .landing .section-content-container {
         padding: 20px;
     }
 }
 
-.landing .section2 {
-    padding: 30px 30px 32px 30px;
-}
-
-.landing .section2 .section-header{
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-@media screen and (max-width: 955px) {
+@media screen and (max-width: 420px) {
     .landing .section2{
-        padding: 20px 20px 24px 20px;
+        padding: 10px 10px 28px 10px;
+    }
+
+    .landing .section-content-container {
+        padding: 10px;
+    }
+
+    .landing .section-image-container {
+        padding: 10px;
+    }
+
+    .landing .section-content {
+        font-size: clamp(17px, calc(5px + 3vw), 20px);
+        line-height: 1.1em;
+        margin-top: 0.85em;
+    }
+
+    .landing .section-image{
+        border-radius: 22px;
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        margin: 0px;
+    }
+
+    .landing .section-content-container a {
+        padding: 12px;
+        font-size: 19px;
     }
 }
 
@@ -178,7 +210,7 @@
     font-family: 'Alegreya Sans SC', sans-serif;
     position: absolute;
     left: 50%;
-    top: calc(100vh - 125px);
+    top: calc(100vh - 128px);
     transform: translateX(-50%);
     text-align: center;
 }

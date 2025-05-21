@@ -2,26 +2,31 @@ import { useEffect, useState } from 'react';
 import likesIMG from '../../imgs/like.png'
 import { Link } from 'react-router-dom';
 
-function TrialPreview({title, description, short_description, image, likes, creatorName, trail_link}) {
+function TrialPreview({title, description, image, likes, creatorName, trail_link}) {
 
-    const [shortDescriptionState, setShortDescriptionState] = useState(short_description);
+    const [descriptionState, setDescriptionState] = useState(description);
 
     useEffect(() => {
         const descriptionShortenerFunctionThingy = () => {
-            if (window.innerWidth < 462) {
-                const newShortDescriptionState = short_description.substring(0, Math.round(short_description.length * (window.innerWidth / 462))) + '... ';
-                if (Math.abs(shortDescriptionState.length - newShortDescriptionState.length) > 2) {
-                    console.log(newShortDescriptionState);
-                    setShortDescriptionState(newShortDescriptionState);
+            if (window.innerWidth <= 500) {
+                const newDescriptionState = description.substring(0, Math.round(description.length * (Math.round(100*((5*Math.E**((window.innerWidth-448)/30))/(8*(1+Math.E**((window.innerWidth-448)/30)))+0.36))/100))) + '... ';
+                console.log(newDescriptionState);
+                if (Math.abs(descriptionState.length - newDescriptionState.length) > 2) {
+                    setDescriptionState(newDescriptionState);
                 }
             }
-            if (window.innerWidth > 462 && shortDescriptionState !== short_description) {
-                setShortDescriptionState(short_description);
+
+            if (window.innerWidth > 500 && descriptionState != description) {
+                setDescriptionState(description);
             }
         }
 
         window.addEventListener('resize', descriptionShortenerFunctionThingy);
         descriptionShortenerFunctionThingy();
+
+        return () => {
+            window.removeEventListener('resize', descriptionShortenerFunctionThingy);
+        };
     }, [])
 
     return (
@@ -29,8 +34,7 @@ function TrialPreview({title, description, short_description, image, likes, crea
             <div className='preview-top'>
                 <div className='preview-content-container'>
                     <h3 className='preview-title'>{title}</h3>
-                    <p className='preview-content long'>{description}</p>
-                    <p className='preview-content short'>{shortDescriptionState}{shortDescriptionState.slice(-4, -1) === '...' ? <Link to={trail_link}>Read more</Link> : null}</p>
+                    <p className='preview-content'>{descriptionState}{descriptionState.slice(-4, -1) === '...' ? <Link to={trail_link}>Read more</Link> : null}</p>
                     {/* <a className='btn btn-primary'>EXPLORE</a> */}
                 </div>
                 <div className='preview-image-container'>

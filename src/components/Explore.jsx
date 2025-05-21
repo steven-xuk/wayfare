@@ -5,7 +5,7 @@ import TrialPreview from "./parts/TrailPreview";
 
 export default function Explore() {
 
-    const [trails, setTrails] = useState()
+    const [trails, setTrails] = useState([])
 
     const getIMG = (imgID) => {
         //all imgs are stored as IDs, so this function will take an ID and return an img
@@ -18,10 +18,7 @@ export default function Explore() {
 
         if (data){
             console.log(data)
-            setTrails(data)
-
-            //here you go, this is the data. do what you want idk what i did
-            console.log(data.map(item => JSON.parse(item.MetaData)))
+            setTrails(data.map((trail) => {return JSON.parse(trail.MetaData)}))
         }
 
         if (error){
@@ -33,11 +30,14 @@ export default function Explore() {
         getAllTrails()
     }, [])
     
+    useEffect(() => {
+        console.log(trails)
+    }, [trails])
 
     return (
         <div className="explore">
             <HomeNavbarAuth shadow={true}/>
-            {/* {trails && (trails.map(item => <TrialPreview props={JSON.parse(item.MetaData)} key={useId}/>))}  */}
+            {trails ? trails.map((trail) => {return <TrialPreview description={'asdf'}/>}) : null}
             <h1>Explore</h1>
         </div>
     );

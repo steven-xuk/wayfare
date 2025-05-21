@@ -64,7 +64,7 @@
     flex-direction: row;
     align-items: center;
     font-size: 20px;
-    margin-bottom: 6px;
+    margin-bottom: 9px;
 }
 
 .signup form a.home-link img {
@@ -120,4 +120,20 @@
 
 .signup a:hover {
     text-decoration: underline;
+}
+
+@media screen and (max-width: 490px) {
+    .signup form a.home-link {
+        margin-bottom: 16px;
+    }
+    .signup form {
+        padding: 24px;
+    }
+    .signup form h1 {
+        font-size: 45px;
+        line-height: 45px;
+        text-align: center;
+        margin: 0px 0px 20px 0px;
+        color: #2d3748;
+    }
 }

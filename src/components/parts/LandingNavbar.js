@@ -11,7 +11,7 @@ export default function LandingNavbar({isMainPage}) {
     useEffect(() => {
         window.addEventListener('scroll', () => {
             const scrollPosition = window.scrollY;
-            if (scrollPosition > 15) {
+            if (scrollPosition > 18) {
                 setIsOnTop(false);
             } else {
                 setIsOnTop(true);

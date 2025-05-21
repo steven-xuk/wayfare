@@ -98,7 +98,7 @@ export default function Signup() {
         return (
             <div className={`signup ${isPWA ? 'pwa' : ''}`}>
                 <form onSubmit={e => submitUser(e)}>
-                    <Link to='/' className="home-link"><img src={back}/><p>Home</p></Link>
+                    <Link to='/login' className="home-link"><img src={back}/><p>Back</p></Link>
                     <h2>Please check your mailbox for a confirmation email.</h2>
                     <h3>Thanks for signing up!</h3>
                     <p>Already have an account? <HashLink to='/login'>Log in here!</HashLink></p>

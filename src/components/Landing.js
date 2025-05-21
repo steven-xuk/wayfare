@@ -49,7 +49,7 @@ export default function Landing() {
                 <div className='section'>
                     <div className='section-content-container'>
                         <h2 className='section-header'>What's Wayfare?</h2>
-                        <p className='section-content'>Wayfare is a social media app designed for hikers, adventurers, and nature lovers who want to connect, share, and explore the great outdoors together. Whether you're scaling rugged peaks, strolling through forest trails, or just discovering a new walk in your neighborhood, Wayfare makes it easy to track your journey, post photos, and find new hiking spots recommended by the community. Users can log their hikes with GPS, upload trail conditions in real-time, and leave helpful tips or reviews for others. The app includes custom profiles, leaderboards, group challenges, and even badges for milestones like “100km Club” or “Sunrise Seeker.” </p>
+                        <p className='section-content'>Wayfare is a social media app designed for hikers, adventurers, and nature lovers who want to connect, share, and explore the great outdoors together. Whether you're scaling rugged peaks, strolling through forest trails, or just discovering a new walk in your neighborhood, Wayfare makes it easy to track your journey, post photos, and find new hiking spots recommended by the community. Users can log their hikes with GPS, upload trail conditions in real-time, and leave helpful tips or reviews for others. The app includes custom profiles, leaderboards, group challenges, and badges for milestones.</p>
                         <Link to='/signup'>Start Now</Link>
                     </div>
                     <div className='section-image-container'>
@@ -59,7 +59,7 @@ export default function Landing() {
 
                 <div className='section2'>
                     <h2 className='section-header'>Today's Top Trails:</h2>
-                    <TrialPreview title='Wellington Waterfront' description='Wellington’s waterfront is a vibrant and dynamic area where the energy of urban life meets the beauty of nature. Stretching along the edge of the harbor, it offers a scenic promenade that invites both locals and visitors to stroll, cycle, or simply relax while taking in panoramic views of the water and surrounding hills.' short_description={'Wellington’s waterfront merges urban vibrancy with seaside tranquility at the harbor’s edge, offering a scenic promenade for strolling, cycling, or relaxing with panoramic water and hill views.'} image={testImg} likes={1305} creatorName='steven xu' trail_link={'/home'}/>
+                    <TrialPreview title='Wellington Waterfront' description='Wellington’s waterfront is a vibrant and dynamic area where the energy of urban life meets the beauty of nature. Stretching along the edge of the harbor, it offers a scenic promenade that invites both locals and visitors to stroll, cycle, or simply relax while taking in panoramic views of the water and surrounding hills.' image={testImg} likes={1305} creatorName='steven xu' trail_link={'/home'}/>
                 </div>
             </div>
         </div>
