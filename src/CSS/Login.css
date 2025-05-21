@@ -160,3 +160,7 @@
         margin: 0px 0px 20px 0px;
     }
 }
+
+.login .thing, .signup .thing {
+    margin-bottom: 2px;
+}

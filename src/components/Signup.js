@@ -94,15 +94,15 @@ export default function Signup() {
         }));
     }
 
-    if (hasSignedUp) {
+    if (hasSignedUp || true) {
         return (
             <div className={`signup ${isPWA ? 'pwa' : ''}`}>
                 <form onSubmit={e => submitUser(e)}>
                     <Link to='/login' className="home-link"><img src={back}/><p>Back</p></Link>
                     <h2>Please check your mailbox for a confirmation email.</h2>
                     <h3>Thanks for signing up!</h3>
-                    <p>Already have an account? <HashLink to='/login'>Log in here!</HashLink></p>
-                    <p className='policies'><HashLink to='/policies#privacy-policy'>Privacy Policy</HashLink>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<HashLink to='/policies'>Terms of Service</HashLink></p>
+                    <p className='thing'>Already have an account? <HashLink to='/login'>Log in here!</HashLink></p>
+                    {/* <p className='policies'><HashLink to='/policies#privacy-policy'>Privacy Policy</HashLink>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<HashLink to='/policies'>Terms of Service</HashLink></p> */}
                 </form>
             </div>
         )
@@ -117,7 +117,7 @@ export default function Signup() {
                     <input placeholder='email' name='email' type='email' value={formData.email} onChange={e => handleChange(e)}/>
                     <input placeholder='create a password' name='password' type='password' value={formData.password} onChange={e => handleChange(e)} minLength={6}/>
                     <button type='submit'>Sign Up!</button>
-                    <p>Already have an account? <HashLink to='/login'>Log in here!</HashLink></p>
+                    <p className='thing'>Already have an account? <HashLink to='/login'>Log in here!</HashLink></p>
                     {/* <p className='policies'><HashLink to='/policies#privacy-policy'>Privacy Policy</HashLink>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<HashLink to='/policies'>Terms of Service</HashLink></p> */}
                 </form>
             </div>
