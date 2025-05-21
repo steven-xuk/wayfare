@@ -18,7 +18,7 @@ export default function Explore() {
 
         if (data){
             console.log(data)
-            setTrails(data.map((trail) => {return JSON.parse(trail.MetaData)}))
+            setTrails(data.map((trail) => {return {...trail, ...JSON.parse(trail.MetaData)}}))
         }
 
         if (error){
@@ -37,8 +37,8 @@ export default function Explore() {
     return (
         <div className="explore">
             <HomeNavbarAuth shadow={true}/>
-            {trails ? trails.map((trail) => {return <TrialPreview description={'asdf'}/>}) : null}
             <h1>Explore</h1>
+            {trails ? trails.map((trail) => {return <TrialPreview title={JSON.parse(trail.MetaData).title} description={JSON.parse(trail.MetaData).description} likes={JSON.parse(trail.MetaData).likes} key={trail.id} />}) : null}
         </div>
     );
 }

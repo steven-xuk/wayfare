@@ -16,7 +16,7 @@ function TrialPreview({title, description, image, likes, creatorName, trail_link
                 }
             }
 
-            if (window.innerWidth > 500 && descriptionState != description) {
+            if (window.innerWidth > 500) {
                 setDescriptionState(description);
             }
         }

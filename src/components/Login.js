@@ -78,7 +78,7 @@ export default function Login() {
                 <input placeholder='password' name='password' type='password' value={formData.password} onChange={e => handleChange(e)} required/>
                 <button type="submit">Login</button>
                 <p>Don't have an account? <Link to='/signup'>Sign up here!</Link></p>
-                <p className='policies'><HashLink to='/policies#privacy-policy'>Privacy Policy</HashLink>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<HashLink to='/policies'>Terms of Service</HashLink></p>
+                {/* <p className='policies'><HashLink to='/policies#privacy-policy'>Privacy Policy</HashLink>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<HashLink to='/policies'>Terms of Service</HashLink></p> */}
             </form>
         </div>
     );
