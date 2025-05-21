@@ -43,8 +43,10 @@ export default function Signup() {
                 options: {
                     data: {
                         display_name: UUID,  // Store the display name here
-                    }
+                    },
+                    emailRedirectTo: `${window.location.origin}/login`
                 }
+                
             })
             
             if (userError) {
@@ -94,7 +96,7 @@ export default function Signup() {
         }));
     }
 
-    if (hasSignedUp || true) {
+    if (hasSignedUp) {
         return (
             <div className={`signup ${isPWA ? 'pwa' : ''}`}>
                 <form onSubmit={e => submitUser(e)}>
