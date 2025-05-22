@@ -43,10 +43,8 @@ export default function Signup() {
                 options: {
                     data: {
                         display_name: UUID,  // Store the display name here
-                    },
-                    emailRedirectTo: `${window.location.origin}/login`
+                    }
                 }
-                
             })
             
             if (userError) {
