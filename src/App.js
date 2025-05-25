@@ -16,6 +16,7 @@ import './CSS/TrailPreview.css'
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
 import { useEffect } from 'react';
 import { login, logout } from './redux/slices/AuthSlice';
+import { clearUser } from './redux/slices/UserSlice.js';
 import { supabase } from './SupabaseClient.js';
 import Landing from './components/Landing';
 import Home from './components/Home';
@@ -52,6 +53,7 @@ function App() {
         dispatch(login());
       } else {
         dispatch(logout());
+        dispatch(clearUser())
       }
     });
 

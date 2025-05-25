@@ -1,4 +1,5 @@
 import { useDispatch } from 'react-redux';
+import { updateUser } from '../../redux/slices/UserSlice.js';
 import { useSelector } from 'react-redux';
 import { supabase } from '../../SupabaseClient.js';
 import { useEffect, useState } from "react";
@@ -10,11 +11,12 @@ import mountain from '../../imgs/mountain.png';
 
 export default function HomeNavbarAuth({shadow}) {
 
-  const [userDataObj, setUserDataObj] = useState()
   const [isAccountMenuOpen, setIsAccountMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const authState = useSelector((state) => state.auth);
+  const userState = useSelector((state) => state.user);
 
   useEffect(() => {
     if (authState.isLoggedIn === false && authState.updated === true) {
@@ -60,12 +62,12 @@ export default function HomeNavbarAuth({shadow}) {
     }
     
     if (userData) {
-      setUserDataObj({
+      dispatch(updateUser({
         ...userData,
-        date_joined: userData.created_at,
-        email: data.session?.user.email,
-        isAuthenticated: data.session?.user.email_confirmed_at
-      });
+          date_joined: userData.created_at,
+          email: data.session?.user.email,
+          isAuthenticated: data.session?.user.email_confirmed_at
+      }))
     } else {
       console.warn('userData is null — check UID or Users table data');
     }
@@ -80,8 +82,8 @@ export default function HomeNavbarAuth({shadow}) {
   return (
       <div className="home-navbar-auth">
         <nav style={{ boxShadow: shadow === true ? '0px 4px 4px rgba(0, 0, 0, 0.1)' : 'none'}}>
-          <NavLink to="/home"><img src={logo}/></NavLink>
-          <p className='welcome-user'>Welcome back, {userDataObj != undefined && userDataObj.username}</p>
+          <NavLink to="/home"><img src={logo} className='logo'/></NavLink>
+          <p className='welcome-user'>Welcome back, {userState.username != undefined && userState.username}</p>
           <div><img src={mountain}/><p>503 KM</p></div>
           <NavLink onClick={() => {if (isAccountMenuOpen) {setIsAccountMenuOpen(false);} else {setIsAccountMenuOpen(true);}}}><img src={profile}/></NavLink>
         </nav>

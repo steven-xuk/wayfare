@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from 'react';
+import { updateUser } from '../redux/slices/UserSlice.js';
 import { v4 as uuidv4 } from 'uuid'; 
 import { supabase } from '../SupabaseClient';
 import HomeNavbarAuth from './parts/HomeNavbarAuth';
 import { Link } from 'react-router-dom';
 import '../CSS/CreateWalk.css'
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 
 function CreateWalk() {
 
     const [WALKID, SETWALKID] = useState('')
 
-    const [userDataObj, setUserDataObj] = useState()
+    const dispatch = useDispatch();
+    const userState = useSelector((state) => state.user);
 
     async function getTokenData() {   
         const { data, error } = await supabase.auth.getSession();
@@ -32,12 +36,12 @@ function CreateWalk() {
           // console.log('Fetched row:', userData);
         }
         
-        setUserDataObj({
-          ...userData,
-          date_joined: userData.created_at,
-          email: data.session?.user.email,
-          isAuthenticated: data.session?.user.email_confirmed_at
-        })
+        dispatch(updateUser({
+            ...userData,
+            date_joined: userData.created_at,
+            email: data.session?.user.email,
+            isAuthenticated: data.session?.user.email_confirmed_at
+        }))
       }
 
     const [walk, setWalk] = useState({
@@ -158,7 +162,7 @@ function CreateWalk() {
             },
             steps: walk.steps,
             walkID: WALKID,
-            userData: userDataObj,
+            userData: userState,
         }
 
         const { data, error } = await supabase
@@ -179,13 +183,29 @@ function CreateWalk() {
 
 
     return (
-        <>
+        <div className="create-walk">
             <HomeNavbarAuth shadow={true} />
-            <p className="title">create a walk!</p>
-            <div className='create-walk container'>
-        
+            <div className='container'>
+                <div className='tabs'>
+                    <div className='tab'>
+                        <button><p>1</p></button>
+                        <p>Details</p>
+                    </div>
+                    <div className='tab'>
+                        <button><p>2</p></button>
+                        <p>Steps</p>
+                    </div>
+                    <div className='tab'>
+                        <button><p>3</p></button>
+                        <p>Publish</p>
+                    </div>
+                    <div className='tab'>
+                        <button><p>4</p></button>
+                        <p>Finish</p>
+                    </div>
+                </div>
                 {currentStep == 'making steps' && (
-                    <div className="steps-section">
+                    <div className="steps section">
                         <h2 className="section-heading">lets get started by making your first step!</h2>
         
                         <form onSubmit={e => addStep(e)} className="form">
@@ -207,8 +227,8 @@ function CreateWalk() {
                 )}
         
                 {currentStep == 'finishing' && (
-                    <div className="finishing-section">
-                        <p className="section-subtitle">add some data idk</p>
+                    <div className="finishing section">
+                        <p className="section-subtitle">Walk Details</p>
         
                         <form onSubmit={startAddingStep} className="form">
                             <input placeholder='kilometers (optional)' name='kilometers' type="text" className="input" value={finishingForm.kilometers} onChange={e => handleChangesFinish(e)} />
@@ -222,7 +242,7 @@ function CreateWalk() {
                 )}
         
                 {currentStep == 'double check' && (
-                    <div className="double-check-section">
+                    <div className="double-check section">
                         <button onClick={() => finishWalkAndSendItToSupabaseIReallyLikeFunctions()} className="button primary">
                             publish walk
                         </button>
@@ -236,7 +256,7 @@ function CreateWalk() {
                     </div>
                 )}
             </div>
-        </>
+        </div>
     );
     
 }
