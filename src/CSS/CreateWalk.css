@@ -98,7 +98,7 @@
 .create-walk .container .section h2 {
   margin: 0;
   font-size: 38px;
-  padding: 26px 26px 24px 26px;
+  padding: 26px 26px 23px 26px;
   box-shadow: 0px 0px 8px rgba(0,0,0,0.2);
   z-index: 2;
   line-height: 1;
@@ -168,6 +168,54 @@
 
 .create-walk .container .section form button.secondary {
   margin-top: 12px;
+  background-color: #f0f0f0;
+  color: #333;
+  font-weight: 500;
+  border: 1px solid #ccc;
+}
+
+.create-walk .container .double-check.section form .inputs h3 {
+  margin: 0px 0px;
+  font-size: 28px;
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 630;
+}
+
+.create-walk .container .double-check.section form .inputs p {
+  margin: 0px 0px;
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 450;
+}
+
+.create-walk .container .double-check.section form .inputs p span {
+  background-color: #e0edf3;
+  font-weight: 600;
+  padding: 0px 3px;
+}
+
+.create-walk .container .upload-success.section form .inputs p {
+  margin: 8px 0px;
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 450;
+}
+
+.create-walk .container .upload-success.section form .inputs p span {
+  background-color: #e0edf3;
+  font-weight: 600;
+  padding: 0px 3px;
+}
+
+.create-walk .container .upload-success.section form .buttons a {
+  width: 100%;
+  display: block;
+  margin-top: 0px;
+  text-decoration: none;
+  font-size: 20px;
+  font-family: 'Instrument Sans', sans-serif;
+  line-height: 1em;
+  text-align: center;
+  border-radius: 8px;
+  padding: 12px;
   background-color: #f0f0f0;
   color: #333;
   font-weight: 500;

@@ -255,20 +255,63 @@ function CreateWalk() {
                         </div>
                     )}
             
-                    {currentStep == 'double check' && (
+                    {currentStep === 'double check' && (
                         <div className="double-check section">
-                            <button onClick={() => finishWalkAndSendItToSupabaseIReallyLikeFunctions()} className="button primary">
-                                publish walk
-                            </button>
+                            {/* title bar */}
+
+                            {/* form with pinned button */}
+                            <form
+                            onSubmit={e => {
+                                e.preventDefault();
+                                finishWalkAndSendItToSupabaseIReallyLikeFunctions();
+                            }}
+                            className="form"
+                            >
+                            {/* scrollable area (you can put a summary or leave it blank) */}
+                            <h2 className="section-subtitle">Publish Walk</h2>
+                            <div className="inputs">
+                                <h3>Almost there!</h3>
+                                <p>
+                                    You’re about to publish <span>{finishingForm.title}</span>. Take a final look at your details, and when you’re happy, click “Publish Walk” below to share your route.
+                                </p>
+
+                            </div>
+
+                            {/* pinned publish button */}
+                            <div className="buttons">
+                                <button type="submit" className="button primary">
+                                Publish Walk
+                                </button>
+                            </div>
+                            </form>
                         </div>
                     )}
+
             
-                    {currentStep == 'walk uploaded' && (
-                        <div className="upload-success">
-                            <h1 className="success-message">YOU HAVE SUCSESSFULLY UPLOADED YOUR WALK!!!!! YEESSS</h1>
-                            <Link to='/home' className="link">Home</Link>
+                    {currentStep === 'walk uploaded' && (
+                        <div className="upload-success section">
+                            {/* title bar */}
+                            <h2 className="section-subtitle">Walk Published!</h2>
+
+                            {/* form wrapper to match other steps */}
+                            <form className="form">
+                            {/* scrollable message area */}
+                            <div className="inputs">
+                                <p style={{ fontSize: '20px', color: '#555', textAlign: 'center' }}>
+                                🎉 Your walk <span>{finishingForm.title}</span> has been successfully published! Thanks for sharing your route.
+                                </p>
+                            </div>
+
+                            {/* pinned button */}
+                            <div className="buttons">
+                                <Link to="/home" className="button primary">
+                                Back to Home
+                                </Link>
+                            </div>
+                            </form>
                         </div>
                     )}
+
                 </div>
             </div>
         </div>
