@@ -76,9 +76,7 @@ export default function HomeNavbarAuth({shadow}) {
   useEffect(() => {
     getTokenData()
   }, [])
-
-
-  console.log(authState);
+  
   return (
       <div className="home-navbar-auth">
         <nav style={{ boxShadow: shadow === true ? '0px 4px 4px rgba(0, 0, 0, 0.1)' : 'none'}}>
