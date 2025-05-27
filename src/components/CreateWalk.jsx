@@ -63,8 +63,12 @@ function CreateWalk() {
         getTokenData()
     }, [])
 
-
     const [currentStep, setCurrentStep] = useState('finishing')
+    const [stepsCompleted, setStepsCompleted] = useState(0)
+
+    useEffect(() => {
+
+    }, [])
 
     const [stepFormData, setStepFormData] = useState({
         title: '',
@@ -185,81 +189,87 @@ function CreateWalk() {
     return (
         <div className="create-walk">
             <HomeNavbarAuth shadow={true} />
-            <div className='container'>
-                <div className='tabs'>
-                    <div className='tab'>
-                        <button><p>1</p></button>
-                        <p>Details</p>
+            <div className='container-container'>
+                <div className='container'>
+                    <div className='tabs'>
+                        <div className='tab'>
+                            <button><p>1</p></button>
+                            <p>Details</p>
+                        </div>
+                        <div className='tab'>
+                            <button><p>2</p></button>
+                            <p>Steps</p>
+                        </div>
+                        <div className='tab'>
+                            <button><p>3</p></button>
+                            <p>Publish</p>
+                        </div>
+                        <div className='tab'>
+                            <button><p>4</p></button>
+                            <p>Finish</p>
+                        </div>
                     </div>
-                    <div className='tab'>
-                        <button><p>2</p></button>
-                        <p>Steps</p>
-                    </div>
-                    <div className='tab'>
-                        <button><p>3</p></button>
-                        <p>Publish</p>
-                    </div>
-                    <div className='tab'>
-                        <button><p>4</p></button>
-                        <p>Finish</p>
-                    </div>
-                </div>
-                {currentStep == 'making steps' && (
-                    <div className="steps section">
-                        <h2 className="section-subtitle">Add Steps</h2>
-        
-                        <form onSubmit={e => addStep(e)} className="form">
-                            <div className='inputs'>
-                                <input name='title' type="text" className="input" value={stepFormData.title} placeholder='add a title' required onChange={e => handleChangeSteps(e)} />
-                                <textarea rows="10" cols="50" name='description' className="textarea" value={stepFormData.description} placeholder='add a description' required onChange={e => handleChangeSteps(e)} />
-                                <input name='tip' type="text" className="input" value={stepFormData.tip} placeholder='add a tip' required onChange={e => handleChangeSteps(e)} />
-                                <input name='img' type="file" className="file-input" placeholder='add an image' required onChange={e => handleImgUpload(e)} accept="image/*" />
-                                <input name='pin' type='text' className="input" value={stepFormData.pin} placeholder='add a link to google maps' required onChange={e => handleChangeSteps(e)} />
-                                <input name='help' type="text" className="input" value={stepFormData.help} placeholder="add a some 'help' text" onChange={e => handleChangeSteps(e)} />
-                            </div>
-                            <button type='submit' className="button primary">create step</button>
-                            {walk.steps.length > 0 && (
-                                <button onClick={() => setCurrentStep('double check')} className="button secondary">
-                                    finish
-                                </button>
-                            )}
-                        </form>
-                    </div>
-                )}
-        
-                {currentStep == 'finishing' && (
-                    <div className="finishing section">
-        
-                        <form onSubmit={startAddingStep} className="form">
-                            <h2 className="section-subtitle">Walk Details</h2>
-                            <div className='inputs'>
-                                <input placeholder='walk title' name='title' type="text" className="input" value={finishingForm.title} onChange={e => handleChangesFinish(e)} />
-                                <textarea rows="10" cols="50" placeholder='description about the trail' name='description' type="text" className="input" value={finishingForm.description} onChange={e => handleChangesFinish(e)} />
-                                <input placeholder='kilometers (optional)' name='kilometers' type="text" className="input" value={finishingForm.kilometers} onChange={e => handleChangesFinish(e)} />
-                                <div className='difficulty'>
-                                    <label htmlFor="slider" className="label">Difficulty: {finishingForm.difficulty}</label>
-                                    <input placeholder='difficulty' name='difficulty' type='range' min={1} max={10} className="slider" value={finishingForm.difficulty} onChange={e => handleChangesFinish(e)} />
+                    {currentStep == 'making steps' && (
+                        <div className="steps section">
+                            <h2 className="section-subtitle">Add Steps</h2>
+            
+                            <form onSubmit={e => addStep(e)} className="form">
+                                <div className='inputs'>
+                                    <input name='title' type="text" className="input" value={stepFormData.title} placeholder='add a title' required onChange={e => handleChangeSteps(e)} />
+                                    <textarea rows="10" cols="50" name='description' className="textarea" value={stepFormData.description} placeholder='add a description' required onChange={e => handleChangeSteps(e)} />
+                                    <input name='tip' type="text" className="input" value={stepFormData.tip} placeholder='add a tip' required onChange={e => handleChangeSteps(e)} />
+                                    <input name='img' type="file" className="file-input" placeholder='add an image' required onChange={e => handleImgUpload(e)} accept="image/*" />
+                                    <input name='pin' type='text' className="input" value={stepFormData.pin} placeholder='add a link to google maps' required onChange={e => handleChangeSteps(e)} />
+                                    <input name='help' type="text" className="input" value={stepFormData.help} placeholder="add a some 'help' text" onChange={e => handleChangeSteps(e)} />
                                 </div>
-                            </div>
-                            <button type='submit' className="button primary">Next</button>
-                        </form>
-                    </div>
-                )}
-        
-                {currentStep == 'double check' && (
-                    <div className="double-check section">
-                        <button onClick={() => finishWalkAndSendItToSupabaseIReallyLikeFunctions()} className="button primary">
-                            publish walk
-                        </button>
-                    </div>
-                )}
-        
-                {currentStep == 'walk uploaded' && (
-                    <div className="upload-success">
-                        <h1 className="success-message">YOU HAVE SUCSESSFULLY UPLOADED YOUR WALK!!!!! YEESSS</h1>
-                        <Link to='/home' className="link">Home</Link>
-                    </div>
-                )}
+                                <div className='buttons'>
+                                    <button type='submit' className="button primary">create step</button>
+                                    {walk.steps.length > 0 && (
+                                        <button onClick={() => setCurrentStep('double check')} className="button secondary">
+                                            finish
+                                        </button>
+                                    )}
+                                </div>
+                            </form>
+                        </div>
+                    )}
+            
+                    {currentStep == 'finishing' && (
+                        <div className="finishing section">
+            
+                            <form onSubmit={startAddingStep} className="form">
+                                <h2 className="section-subtitle">Walk Details</h2>
+                                <div className='inputs'>
+                                    <input placeholder='walk title' name='title' type="text" className="input" value={finishingForm.title} onChange={e => handleChangesFinish(e)} />
+                                    <textarea rows="10" cols="50" placeholder='description about the trail' name='description' type="text" className="input" value={finishingForm.description} onChange={e => handleChangesFinish(e)} />
+                                    <input placeholder='kilometers (optional)' name='kilometers' type="text" className="input" value={finishingForm.kilometers} onChange={e => handleChangesFinish(e)} />
+                                    <div className='difficulty'>
+                                        <label htmlFor="slider" className="label">Difficulty: {finishingForm.difficulty}</label>
+                                        <input placeholder='difficulty' name='difficulty' type='range' min={1} max={10} className="slider" value={finishingForm.difficulty} onChange={e => handleChangesFinish(e)} />
+                                    </div>
+                                </div>
+                                <div className='buttons'>
+                                    <button type='submit' className="button primary">Next</button>
+                                </div>
+                            </form>
+                        </div>
+                    )}
+            
+                    {currentStep == 'double check' && (
+                        <div className="double-check section">
+                            <button onClick={() => finishWalkAndSendItToSupabaseIReallyLikeFunctions()} className="button primary">
+                                publish walk
+                            </button>
+                        </div>
+                    )}
+            
+                    {currentStep == 'walk uploaded' && (
+                        <div className="upload-success">
+                            <h1 className="success-message">YOU HAVE SUCSESSFULLY UPLOADED YOUR WALK!!!!! YEESSS</h1>
+                            <Link to='/home' className="link">Home</Link>
+                        </div>
+                    )}
+                </div>
             </div>
         </div>
     );

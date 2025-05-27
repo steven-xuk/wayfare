@@ -10,17 +10,28 @@
 
 /* === navbar at top, fixed height === */
 .create-walk .home-navbar-auth {
-  flex: 0 0 63px;              /* adjust if your navbar is taller/shorter */
+  flex: 0 0 63px;              /* adjust to your navbar height */
   background-color: white;
 }
 
-/* === container holds tabs + section, fills remaining height === */
+/* === DESKTOP: wrap+center everything under navbar === */
+.create-walk .container-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 63px);  /* fill under navbar */
+  overflow: hidden;            /* clip excess */
+}
+
 .create-walk .container {
   display: flex;
   flex-direction: column;
-  flex: 1 1 auto;
+  /* shrink‐wrap around tabs+section */
+  flex: 0 0 auto;
   width: 100%;
-  overflow: hidden;            /* ensure children must scroll internally */
+  overflow: hidden;
+  max-height: 690px;
+  padding-bottom: 25px;
 }
 
 /* === step tabs (row) === */
@@ -29,13 +40,17 @@
   flex: 0 0 auto;
   justify-content: center;
   align-items: center;
-  padding: 20px 0;
+  padding: 24px 0 20px;
 }
 
 .create-walk .container .tab {
   width: 55px;
   margin: 0 10px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .create-walk .container .tab button {
   width: 55px;
@@ -43,64 +58,71 @@
   border: 0;
   border-radius: 27px;
   background-color: white;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  box-shadow: 0 0 10px rgba(0,0,0,0.06);
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
+.create-walk .container .tab button.finished {
+  background-color: #9cb3be;
+}
+
 .create-walk .container .tab button p {
   margin: 0;
   font-size: 20px;
   font-weight: 450;
   font-family: 'Instrument Sans', sans-serif;
 }
+
 .create-walk .container .tab p {
-  margin: 6px 0px 0px 0px;
+  margin: 6px 0 0;
   font-size: 16px;
   font-weight: 500;
   font-family: 'Instrument Sans', sans-serif;
 }
 
-/* === main section === */
+/* === main “card” section === */
 .create-walk .container .section {
-  flex: 1 1 auto;             /* fill all remaining space below tabs */
   display: flex;
   flex-direction: column;
   background-color: white;
-  width: min(86vw, 500px);
+  width: min(85vw, 600px);
   margin: 0 auto;
   border-radius: 20px;
-  padding: 26px;
-  overflow: hidden;            /* clip any overflow except .inputs */
+  box-shadow: 0px 0px 12px rgba(0,0,0,0.08);
+  padding: 0;
+  overflow: hidden;            /* clip everything but .inputs */
 }
 
 .create-walk .container .section h2 {
-  margin: 0 0 20px;
+  margin: 0;
   font-size: 38px;
+  padding: 26px 26px 24px 26px;
+  box-shadow: 0px 0px 8px rgba(0,0,0,0.2);
+  z-index: 2;
   line-height: 1;
   font-weight: 600;
   text-align: center;
   font-family: 'Instrument Sans', sans-serif;
 }
 
-/* === form layout: header + inputs + button === */
+/* === form layout: scrollable inputs + pinned button === */
 .create-walk .container .section form {
-  flex: 1 1 auto;             /* fill height of .section */
   display: flex;
   flex-direction: column;
   overflow: hidden;
 }
 
-/* only this scrolls */
 .create-walk .container .section form .inputs {
-  flex: 1 1 auto;
+  flex: 1 1 auto;             /* takes all available card space */
   display: flex;
   flex-direction: column;
   gap: 12px;
-  overflow-y: auto;
+  overflow-y: auto;           /* <-- only this scrolls */
+  padding: 26px;
 }
 
-/* form controls */
 .create-walk .container .section form input,
 .create-walk .container .section form textarea {
   width: 100%;
@@ -123,46 +145,107 @@
   margin-top: 5px;
 }
 .create-walk .container .section form input.slider {
-  margin: 0;
-  padding: 0;
+  margin: 3px 0px 0px 0px;
+  padding: 0px;
 }
 
-/* keep the submit button pinned below the scrollable inputs */
+/* pinned below the scrolling inputs */
+.create-walk .container .section form .buttons {
+  padding: 26px;
+  box-shadow: 0px 0px 8px rgba(0,0,0,0.2);
+}
+
 .create-walk .container .section form button {
-  flex: 0 0 auto;
-  margin-top: 15px;
+  width: 100%;
   padding: 12px;
   border: 0;
   border-radius: 6px;
   background-color: #9cb3be;
   color: white;
-  font-size: 19px;
+  font-size: 20px;
   font-family: 'Instrument Sans', sans-serif;
 }
 
 .create-walk .container .section form button.secondary {
-  flex: 0 0 auto;
-  margin-top: 10px;
-  padding: 12px;
-  border: 0;
-  border-radius: 6px;
-  background-color: #9cb3be;
-  color: white;
-  font-size: 19px;
-  font-family: 'Instrument Sans', sans-serif;
+  margin-top: 12px;
+  background-color: #f0f0f0;
+  color: #333;
+  font-weight: 500;
+  border: 1px solid #ccc;
 }
 
-/* === mobile tweaks === */
+/* === MOBILE: <500px — fill under navbar, as before === */
 @media screen and (max-width: 500px) {
-  .create-walk .home-navbar-auth {
-    flex: 0 0 63px;
+  /* under the 63px navbar, don’t center—stretch full height */
+  .create-walk .container-container {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 63px);
+    justify-content: flex-start;
+    align-items: stretch;
+    padding: 0;
+    overflow: hidden;
   }
+
+  /* let the container fill that whole area */
+  .create-walk .container {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    width: 100%;
+    max-height: none;       /* override desktop cap */
+    padding-bottom: 0;      /* override desktop padding */
+    overflow: hidden;
+  }
+
+  /* tabs stay at top */
   .create-walk .container .tabs {
-    padding: 20px 0;
+    flex: 0 0 auto;
+    padding: 23px 0 18px 0px;
   }
+
+  /* this “card” now fills the rest of the container */
   .create-walk .container .section {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
     width: 100%;
     border-radius: 0;
-    padding: 20px;
+    overflow: hidden;
+  }
+
+  /* form stretches, inputs scroll, buttons pin */
+  .create-walk .container .section form {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    overflow: hidden;
+  }
+  .create-walk .container .section form .inputs {
+    flex: 1 1 auto;
+    overflow-y: auto;
+  }
+  .create-walk .container .section form .buttons {
+    margin-top: auto;
+    padding: 26px;         /* keep your desired padding */
+  }
+  .create-walk .container .tabs {
+    flex: 0 0 auto;
+    padding: 20px 0 15px 0px;
+  }
+  .create-walk .container .tabs .tab {
+    margin: 0 8px;
+  }
+  .create-walk .container .tab button {
+    width: 50px;
+    height: 50px;
+  }
+  .create-walk .container .tab p {
+    margin: 6px 0 0;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: 'Instrument Sans', sans-serif;
   }
 }
+
+
