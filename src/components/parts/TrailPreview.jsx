@@ -9,7 +9,9 @@ function TrialPreview({title, description, image, likes, creatorName, trail_link
     useEffect(() => {
         const descriptionShortenerFunctionThingy = () => {
             if (window.innerWidth <= 500) {
-                const newDescriptionState = description.substring(0, Math.round(description.length * (Math.round(100*((5*Math.E**((window.innerWidth-448)/30))/(8*(1+Math.E**((window.innerWidth-448)/30)))+0.36))/100))) + '... ';
+                console.log(description.length)
+                const num = Math.round(320 * (Math.round(100*((5*Math.E**((window.innerWidth-448)/30))/(8*(1+Math.E**((window.innerWidth-448)/30)))+0.36))/100))
+                const newDescriptionState = description.substring(0, num) + '... ';
                 console.log(newDescriptionState);
                 if (Math.abs(descriptionState.length - newDescriptionState.length) > 2) {
                     setDescriptionState(newDescriptionState);

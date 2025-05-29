@@ -37,8 +37,10 @@ export default function Explore() {
     return (
         <div className="explore">
             <HomeNavbarAuth shadow={true}/>
-            <h1>Explore</h1>
-            {trails ? trails.map((trail) => {return <TrialPreview title={trail.title} description={trail.description} likes={trail.likes} key={trail.id} />}) : null}
+            <div className="container">
+                <h1>Explore</h1>
+                {trails ? trails.map((trail) => {return <TrialPreview title={trail.title} description={trail.description} likes={trail.likes} key={trail.id} />}) : null}
+            </div>
         </div>
     );
 }

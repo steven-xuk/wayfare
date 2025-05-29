@@ -4,6 +4,7 @@
     margin: auto;
     max-width: 1000px;
     height: 100%;
+    font-family: 'Instrument Sans', sans-serif;
 }
 
 .trail-preview .preview-title{
@@ -30,7 +31,7 @@
     max-height: 500px;
     width: 100%;
     height: 100%;
-    border-radius: 22px;
+    border-radius: 16px;
     object-fit: cover;
 }
 
@@ -131,7 +132,7 @@
     .trail-preview .preview-image{
         width: 100%;
         height: 100%;
-        border-radius: 22px;
+        border-radius: 16px;
         object-fit: cover;
     }
 }
@@ -153,7 +154,7 @@
     }
 
     .trail-preview .preview-image{
-        border-radius: 20px;
+        border-radius: 16px;
     }
 
     .trail-preview .preview-image-container{
@@ -169,7 +170,7 @@
     }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 439px) {
     .trail-preview .preview-top{
         padding: 19px;
     }
