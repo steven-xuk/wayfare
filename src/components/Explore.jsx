@@ -10,53 +10,50 @@ export default function Explore() {
   async function getAllTrails() {
     const { data, error } = await supabase.from("trails").select("*");
     if (error) {
-      console.error("Error fetching trails:", error);
-      return;
+        console.error("Error fetching trails:", error);
+        return;
     }
 
+    const workerHost = "https://wayfare-images.xuk.workers.dev";
+
     const enriched = await Promise.all(
-      data.map(async (trail) => {
+        data.map(async (trail) => {
+        // parse metadata
         let meta = {};
         try {
-          meta = JSON.parse(trail.MetaData);
+            meta = JSON.parse(trail.MetaData);
         } catch (e) {
-          console.warn("Invalid JSON in MetaData for trail", trail.id);
+            console.warn("Invalid JSON in MetaData for trail", trail.id);
         }
 
-        // List the first file under walks/{walkID}
+        // list the first file name under walks/{walkID}
         const { data: files, error: listErr } = await supabase
-          .storage
-          .from("wayfare")
-          .list(`walks/${trail.walkID}`, { limit: 1 });
+            .storage
+            .from("wayfare")
+            .list(`walks/${trail.walkID}`, { limit: 1 });
         if (listErr) {
-          console.warn(`Error listing files for walkID=${trail.walkID}:`, listErr);
+            console.warn(`Error listing files for walkID=${trail.walkID}:`, listErr);
         }
         if (!files || files.length === 0) {
-          console.warn(`No files found for walkID=${trail.walkID}`);
-          return { ...trail, ...meta, image: null };
+            console.warn(`No files found for walkID=${trail.walkID}`);
+            return { ...trail, ...meta, image: null };
         }
 
-        // Get public URL for the first file
+        // build your Worker-backed public URL
         const firstFile = files[0].name;
-        const { data: urlData, error: urlErr } = await supabase
-          .storage
-          .from("wayfare")
-          .getPublicUrl(`walks/${trail.walkID}/${firstFile}`);
-        if (urlErr) {
-          console.error("Error getting public URL:", urlErr);
-          return { ...trail, ...meta, image: null };
-        }
+        const publicUrl = `${workerHost}/${trail.walkID}/${firstFile}`;
 
         return {
-          ...trail,
-          ...meta,
-          image: urlData.publicUrl,
+            ...trail,
+            ...meta,
+            image: publicUrl,
         };
-      })
+        })
     );
 
     setTrails(enriched);
-  }
+    }
+
 
   useEffect(() => {
     getAllTrails();
