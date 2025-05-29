@@ -1,46 +1,82 @@
-import { useEffect, useId, useState } from "react";
+import { useEffect, useState } from "react";
 import HomeNavbarAuth from "./parts/HomeNavbarAuth";
 import { supabase } from "../SupabaseClient";
 import TrialPreview from "./parts/TrailPreview";
 
 export default function Explore() {
+  const [trails, setTrails] = useState([]);
 
-    const [trails, setTrails] = useState([])
-
-    const getIMG = (imgID) => {
-        //all imgs are stored as IDs, so this function will take an ID and return an img
+  // Load all trails and their first image URL
+  async function getAllTrails() {
+    const { data, error } = await supabase.from("trails").select("*");
+    if (error) {
+      console.error("Error fetching trails:", error);
+      return;
     }
 
-    async function getAllTrails() {
-        const {data, error} = await supabase
-        .from('trails')
-        .select('*')
-
-        if (data){
-            console.log(data)
-            setTrails(data.map((trail) => {return {...trail, ...JSON.parse(trail.MetaData)}}))
+    const enriched = await Promise.all(
+      data.map(async (trail) => {
+        let meta = {};
+        try {
+          meta = JSON.parse(trail.MetaData);
+        } catch (e) {
+          console.warn("Invalid JSON in MetaData for trail", trail.id);
         }
 
-        if (error){
-            console.log(error)
+        // List the first file under walks/{walkID}
+        const { data: files, error: listErr } = await supabase
+          .storage
+          .from("wayfare")
+          .list(`walks/${trail.walkID}`, { limit: 1 });
+        if (listErr) {
+          console.warn(`Error listing files for walkID=${trail.walkID}:`, listErr);
         }
-    }
+        if (!files || files.length === 0) {
+          console.warn(`No files found for walkID=${trail.walkID}`);
+          return { ...trail, ...meta, image: null };
+        }
 
-    useEffect(() => {
-        getAllTrails()
-    }, [])
-    
-    useEffect(() => {
-        console.log(trails)
-    }, [trails])
+        // Get public URL for the first file
+        const firstFile = files[0].name;
+        const { data: urlData, error: urlErr } = await supabase
+          .storage
+          .from("wayfare")
+          .getPublicUrl(`walks/${trail.walkID}/${firstFile}`);
+        if (urlErr) {
+          console.error("Error getting public URL:", urlErr);
+          return { ...trail, ...meta, image: null };
+        }
 
-    return (
-        <div className="explore">
-            <HomeNavbarAuth shadow={true}/>
-            <div className="container">
-                <h1>Explore</h1>
-                {trails ? trails.map((trail) => {return <TrialPreview title={trail.title} description={trail.description} likes={trail.likes} key={trail.id} />}) : null}
-            </div>
-        </div>
+        return {
+          ...trail,
+          ...meta,
+          image: urlData.publicUrl,
+        };
+      })
     );
+
+    setTrails(enriched);
+  }
+
+  useEffect(() => {
+    getAllTrails();
+  }, []);
+
+  return (
+    <div className="explore">
+      <HomeNavbarAuth shadow={true} />
+      <div className="container">
+        <h1>Explore</h1>
+        {trails.map((trail) => (
+          <TrialPreview
+            key={trail.id}
+            title={trail.title}
+            description={trail.description}
+            likes={trail.likes}
+            image={trail.image}
+          />
+        ))}
+      </div>
+    </div>
+  );
 }
