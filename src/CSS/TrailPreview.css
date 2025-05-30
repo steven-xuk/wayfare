@@ -1,4 +1,4 @@
-.trail-preview {
+.trail-preview .trail-preview-content {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.24);
     border-radius: 22px;
     margin: auto;
@@ -7,7 +7,12 @@
     font-family: 'Instrument Sans', sans-serif;
 }
 
-.trail-preview .preview-title{
+.trail-preview a {
+    text-decoration: none;
+    color: black;
+}
+
+.trail-preview .trail-preview-content .preview-title{
     font-size: 42px;
     line-height: 1.1em;
     font-weight: normal;
@@ -15,19 +20,19 @@
     margin-bottom: 20px;
 }
 
-.trail-preview .preview-content{
+.trail-preview .trail-preview-content .preview-content{
     margin-top: 0;
     font-size: clamp(18px, calc(11px + 2vw), 24px);
     margin-bottom: 0;
 }
 
-.trail-preview .preview-top{
+.trail-preview .trail-preview-content .preview-top{
     padding: 28px;
     display: flex;
     flex-direction: row;
 }
 
-.trail-preview .preview-image{
+.trail-preview .trail-preview-content .preview-image{
     max-height: 500px;
     width: 100%;
     height: 100%;
@@ -35,101 +40,101 @@
     object-fit: cover;
 }
 
-.trail-preview .preview-image-container{
+.trail-preview .trail-preview-content .preview-image-container{
     margin-left: auto;
     height: auto;
     flex-grow: 1;
 }
 
-.trail-preview .preview-content-container{
+.trail-preview .trail-preview-content .preview-content-container{
     width: 90%;
     flex-grow: 1;
     margin-right: 24px;
 }
 
-.trail-preview .likes-image{
+.trail-preview .trail-preview-content .likes-image{
     width: 22px;
     height: 22px;
     margin: auto 5px;
 }
 
-.trail-preview .info{
+.trail-preview .trail-preview-content .info{
     font-size: 1.5rem;
     margin: 0;
 }
 
-.trail-preview .border{
+.trail-preview .trail-preview-content .border{
     border-radius: 8px;
     margin: 20px 23px;
 }
 
-.trail-preview .likes-container{
+.trail-preview .trail-preview-content .likes-container{
     display: flex;
     flex-direction: row;
     margin-right: 0px;
 }
-.trail-preview .difficulty-container {
+.trail-preview .trail-preview-content .difficulty-container {
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 18px 24px 18px 18px;
 }
 
-.trail-preview .difficulty-container .info {
+.trail-preview .trail-preview-content .difficulty-container .info {
     font-size: 18px;
     padding: 5px 10px;
     border-radius: 5px;
 }
 
-.trail-preview .difficulty-container .info.advanced {
+.trail-preview .trail-preview-content .difficulty-container .info.advanced {
     background-color: rgb(255, 186, 161);
 }
 
-.trail-preview .info-container {
+.trail-preview .trail-preview-content .info-container {
     margin-left: auto;
 }
 
-.trail-preview .preview-bottom{
+.trail-preview .trail-preview-content .preview-bottom{
     display: flex;
     flex-direction: row;
     background-color: #fff6ed;
     border-radius: 0px 0px 22px 22px;
 }
 
-.trail-preview .btn{
+.trail-preview .trail-preview-content .btn{
     padding: 10px 30px;
     font-size: 1.2rem;
     border-radius: 8px;
 }
 
-.trail-preview .btn-primary{
+.trail-preview .trail-preview-content .btn-primary{
     color: white;
     display: inline-block;
     background-color: var(--primary-color);
 }
 
 @media screen and (max-width: 908px) {
-    .trail-preview .preview-top{
+    .trail-preview .trail-preview-content .preview-top{
         flex-direction: column;
     }
 
-    .trail-preview .preview-content-container{
+    .trail-preview .trail-preview-content .preview-content-container{
         width: 100%;
         margin-right: 0px;
     }
 
-    .trail-preview .info-container {
+    .trail-preview .trail-preview-content .info-container {
         display: none;
     }
 
-    .trail-preview .preview-image-container{
+    .trail-preview .trail-preview-content .preview-image-container{
         margin-left: 0px;
         margin-top: 24px;
         height: calc(24vw + 60px);
         flex-grow: 0;
     }
 
-    .trail-preview .preview-image{
+    .trail-preview .trail-preview-content .preview-image{
         width: 100%;
         height: 100%;
         border-radius: 16px;
@@ -138,31 +143,31 @@
 }
 
 @media screen and (max-width: 575px) {
-    .trail-preview .preview-top{
+    .trail-preview .trail-preview-content .preview-top{
         padding: 24px;
     }
 
-    .trail-preview .border{
+    .trail-preview .trail-preview-content .border{
         border-radius: 8px;
         margin: 20px;
     }
 
-    .trail-preview .likes-container{
+    .trail-preview .trail-preview-content .likes-container{
         display: flex;
         flex-direction: row;
         margin-right: 0px;
     }
 
-    .trail-preview .preview-image{
+    .trail-preview .trail-preview-content .preview-image{
         border-radius: 16px;
     }
 
-    .trail-preview .preview-image-container{
+    .trail-preview .trail-preview-content .preview-image-container{
         margin-top: 19px;
         height: calc(27vw + 50px);
     }
 
-    .trail-preview .preview-title{
+    .trail-preview .trail-preview-content .preview-title{
         font-size: clamp(28px, calc(9px + 6vw), 38px);
         font-weight: normal;
         margin: 0;
@@ -171,32 +176,32 @@
 }
 
 @media screen and (max-width: 439px) {
-    .trail-preview .preview-top{
+    .trail-preview .trail-preview-content .preview-top{
         padding: 19px;
     }
 
-    .trail-preview .preview-title{
+    .trail-preview .trail-preview-content .preview-title{
         line-height: 1.07em;
     }
 
-    .trail-preview .border{
+    .trail-preview .trail-preview-content .border{
         margin: 15px;
     }
 
-    .trail-preview .preview-image-container{
+    .trail-preview .trail-preview-content .preview-image-container{
         margin-top: 18px;
         height: calc(33vw + 10px);
     }
 
-    .trail-preview .preview-image{
+    .trail-preview .trail-preview-content .preview-image{
         border-radius: 12px;
     }
 
-    .trail-preview .likes-container{
+    .trail-preview .trail-preview-content .likes-container{
         margin-right: 0px;
     }
 
-    .trail-preview .preview-content{
+    .trail-preview .trail-preview-content .preview-content{
         font-size: clamp(17px, calc(8px + 2vw), 24px);
     }
 }

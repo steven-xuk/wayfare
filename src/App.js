@@ -30,6 +30,7 @@ import NotFound from './components/NotFound.jsx';
 import Friends from './components/Friends.jsx';
 import Explore from './components/Explore.jsx';
 import Download from './components/Download.jsx';
+import Walk from './components/Walk.jsx';
 
 function App() {
   const dispatch = useDispatch();
@@ -77,6 +78,7 @@ function App() {
       <Route path='/policies' element={ <Policies /> }/>
       <Route path='/friends' element={ <Friends /> }/>
       <Route path='/explore' element={ <Explore /> }/>
+      <Route path='/walk/:id' element={<Walk />} />
       <Route path="*" element={ <NotFound/> }/> {/* leave this at the end of the routes */}
     </>
   ));

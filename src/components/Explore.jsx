@@ -7,51 +7,51 @@ export default function Explore() {
   const [trails, setTrails] = useState([]);
 
   // Load all trails and their first image URL
-  async function getAllTrails() {
-    const { data, error } = await supabase.from("trails").select("*");
-    if (error) {
-        console.error("Error fetching trails:", error);
-        return;
-    }
-
-    const workerHost = "https://wayfare-images.xuk.workers.dev";
-
-    const enriched = await Promise.all(
-        data.map(async (trail) => {
-        // parse metadata
-        let meta = {};
-        try {
-            meta = JSON.parse(trail.MetaData);
-        } catch (e) {
-            console.warn("Invalid JSON in MetaData for trail", trail.id);
+    async function getAllTrails() {
+        const { data, error } = await supabase.from("trails").select("*");
+        if (error) {
+            console.error("Error fetching trails:", error);
+            return;
         }
 
-        // list the first file name under walks/{walkID}
-        const { data: files, error: listErr } = await supabase
-            .storage
-            .from("wayfare")
-            .list(`walks/${trail.walkID}`, { limit: 1 });
-        if (listErr) {
-            console.warn(`Error listing files for walkID=${trail.walkID}:`, listErr);
-        }
-        if (!files || files.length === 0) {
-            console.warn(`No files found for walkID=${trail.walkID}`);
-            return { ...trail, ...meta, image: null };
-        }
+        const workerHost = "https://wayfare-images.xuk.workers.dev";
 
-        // build your Worker-backed public URL
-        const firstFile = files[0].name;
-        const publicUrl = `${workerHost}/${trail.walkID}/${firstFile}`;
+        const enriched = await Promise.all(
+            data.map(async (trail) => {
+            // parse metadata
+            let meta = {};
+            try {
+                meta = JSON.parse(trail.MetaData);
+            } catch (e) {
+                console.warn("Invalid JSON in MetaData for trail", trail.id);
+            }
 
-        return {
-            ...trail,
-            ...meta,
-            image: publicUrl,
-        };
-        })
-    );
+            // list the first file name under walks/{walkID}
+            const { data: files, error: listErr } = await supabase
+                .storage
+                .from("wayfare")
+                .list(`walks/${trail.walkID}`, { limit: 1 });
+            if (listErr) {
+                console.warn(`Error listing files for walkID=${trail.walkID}:`, listErr);
+            }
+            if (!files || files.length === 0) {
+                console.warn(`No files found for walkID=${trail.walkID}`);
+                return { ...trail, ...meta, image: null };
+            }
 
-    setTrails(enriched);
+            // build your Worker-backed public URL
+            const firstFile = files[0].name;
+            const publicUrl = `${workerHost}/${trail.walkID}/${firstFile}`;
+
+            return {
+                ...trail,
+                ...meta,
+                image: publicUrl,
+            };
+            })
+        );
+
+        setTrails(enriched);
     }
 
 

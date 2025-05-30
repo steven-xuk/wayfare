@@ -33,28 +33,32 @@ function TrialPreview({title, description, image, likes, creatorName, trail_link
 
     return (
         <div className='trail-preview'>
-            <div className='preview-top'>
-                <div className='preview-content-container'>
-                    <h3 className='preview-title'>{title}</h3>
-                    <p className='preview-content'>{descriptionState}{descriptionState.slice(-4, -1) === '...' ? <Link to={trail_link}>Read more</Link> : null}</p>
-                    {/* <a className='btn btn-primary'>EXPLORE</a> */}
+            <Link to={'/'}>
+                <div className='trail-preview-content'>
+                    <div className='preview-top'>
+                        <div className='preview-content-container'>
+                            <h3 className='preview-title'>{title}</h3>
+                            <p className='preview-content'>{descriptionState}{descriptionState.slice(-4, -1) === '...' ? <Link to={trail_link}>Read more</Link> : null}</p>
+                            {/* <a className='btn btn-primary'>EXPLORE</a> */}
+                        </div>
+                        <div className='preview-image-container'>
+                            <img className='preview-image' src={image}/>
+                        </div>
+                    </div>
+                    <div className='preview-bottom'>
+                        <div className='border likes-container'>
+                            <img src={likesIMG} className='likes-image'/>
+                            <p className='info'>{likes}</p>
+                        </div>
+                        <div className='border difficulty-container'>
+                            <p className='info advanced'>ADVANCED</p>
+                        </div>
+                        <div className='border info-container'>
+                            <p className='info'>trail by <strong>{creatorName}</strong></p>
+                        </div>
+                    </div>
                 </div>
-                <div className='preview-image-container'>
-                    <img className='preview-image' src={image}/>
-                </div>
-            </div>
-            <div className='preview-bottom'>
-                <div className='border likes-container'>
-                    <img src={likesIMG} className='likes-image'/>
-                    <p className='info'>{likes}</p>
-                </div>
-                <div className='border difficulty-container'>
-                    <p className='info advanced'>ADVANCED</p>
-                </div>
-                <div className='border info-container'>
-                    <p className='info'>trail by <strong>{creatorName}</strong></p>
-                </div>
-            </div>
+            </Link>
         </div>
     );
 }
