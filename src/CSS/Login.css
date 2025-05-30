@@ -55,6 +55,7 @@
 
 .login form a.home-link {
     display: flex;
+    width: fit-content;
     flex-direction: row;
     align-items: center;
     font-size: 20px;
