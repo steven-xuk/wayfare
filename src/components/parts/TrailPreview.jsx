@@ -38,7 +38,7 @@ function TrialPreview({title, description, image, likes, creatorName, trail_link
                     <div className='preview-top'>
                         <div className='preview-content-container'>
                             <h3 className='preview-title'>{title}</h3>
-                            <p className='preview-content'>{descriptionState}{descriptionState.slice(-4, -1) === '...' ? <Link to={trail_link}>Read more</Link> : null}</p>
+                            <p className='preview-content'>{descriptionState}{descriptionState.slice(-4, -1) === '...' ? <Link to={trail_link} className='no-color-change'>Read more</Link> : null}</p>
                             {/* <a className='btn btn-primary'>EXPLORE</a> */}
                         </div>
                         <div className='preview-image-container'>

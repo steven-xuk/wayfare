@@ -12,6 +12,11 @@
     color: black;
 }
 
+.trail-preview a.no-color-change {
+    text-decoration: underline;
+    color: #0000EE;
+}
+
 .trail-preview .trail-preview-content .preview-title{
     font-size: 42px;
     line-height: 1.1em;
