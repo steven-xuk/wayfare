@@ -33,7 +33,7 @@ function TrialPreview({title, description, image, likes, creatorName, trail_link
 
     return (
         <div className='trail-preview'>
-            <Link to={'/'}>
+            <Link to={trail_link}>
                 <div className='trail-preview-content'>
                     <div className='preview-top'>
                         <div className='preview-content-container'>

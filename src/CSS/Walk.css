@@ -1,0 +1,81 @@
+.walk .home-navbar-auth {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 10;
+    background-color: white;
+}
+
+.walk .container {
+    margin-top: 65px;
+}
+
+.walk .container .top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px;
+    background-color: rgb(240, 240, 240);
+}
+
+.walk .container .top h1 {
+    margin: 0px;
+    font-family: "Alegreya Sans SC", sans-serif;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 1em;
+}
+
+.walk .container .top .steps-counter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.walk .container .top .steps-counter p {
+    font-size: 23px;
+    font-weight: 400;
+    margin: 0px 10px;
+    font-family: "Alegreya Sans SC", sans-serif;
+    width: max-content;
+}
+
+.walk .container .top .steps-counter .progress-bar-container {
+    width: 350px;
+    height: 30px;
+    border-radius: 8px;
+    border: 3px solid black;
+}
+
+.walk .container .top .steps-counter .progress-bar-container .progress-bar {
+    height: 100%;
+    background-color: #9cb3be;
+    border-radius: 5px;
+}
+
+.walk .container .middle {
+    padding: 42px;
+}
+
+.walk .container .middle h2 {
+    font-size: 46px;
+    margin-top: 0;
+    line-height: 1em;
+    margin-bottom: 18px;
+    font-family: 'Instrument Sans', sans-serif;
+}
+
+.walk .container .middle p {
+    font-size: 22px;
+    margin: 16px 0px;
+    font-family: 'Instrument Sans', sans-serif;
+}
+
+.walk .container .middle img {
+    float: right;
+    width: 38%;
+    margin: 0px 0px 0px 24px;
+    border-radius: 8px;
+}
+

@@ -1,3 +1,7 @@
+.trail-preview {
+    max-width: 1000px;
+}
+
 .trail-preview .trail-preview-content {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.24);
     border-radius: 22px;

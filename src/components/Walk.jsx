@@ -8,6 +8,7 @@ export default function Walk() {
   const { id } = useParams();               // this is the PK in your "trails" table
   const [trail, setTrail] = useState(null);
   const [images, setImages] = useState([]);
+  const [currentStep, setCurrentStep] = useState(1)
 
   useEffect(() => {
     if (!id) return;
@@ -33,7 +34,7 @@ export default function Walk() {
         console.warn("Invalid JSON in MetaData for trail", id);
       }
 
-      setTrail({ ...data, ...meta });
+      setTrail({ ...data, ...meta, steps: JSON.parse(data.steps)});
 
       // 3) list all files under walks/{walkID}
       if (data.walkID) {
@@ -64,6 +65,13 @@ export default function Walk() {
     loadTrail();
   }, [id]);
 
+  useEffect(() => {
+    console.log(trail)
+    if (trail) {
+        console.log()
+    }
+  }, [trail])
+
   if (!trail) {
     return (
       <div className="walk">
@@ -76,29 +84,52 @@ export default function Walk() {
   }
 
   return (
-    <div className="walk">
-      <HomeNavbarAuth shadow={true} />
-      <div className="container">
-        <h1>{trail.title}</h1>
-        <p>{trail.description}</p>
-        <p><strong>Likes:</strong> {trail.likes}</p>
+    // <div className="walk">
+    //   <HomeNavbarAuth shadow={true} />
+    //   <div className="container">
+    //     <h1>{trail.title}</h1>
+    //     <p>{trail.description}</p>
+    //     <p><strong>Likes:</strong> {trail.likes}</p>
 
-        <div className="walk-gallery">
-          {images.length > 0 ? (
-            images.map((src) => (
-              <img
-                key={src}
-                src={src}
-                alt={trail.title}
-                loading="lazy"
-                style={{ maxWidth: "100%", marginBottom: "1rem" }}
-              />
-            ))
-          ) : (
-            <p>No images for this walk yet.</p>
-          )}
+    //     <div className="walk-gallery">
+    //       {images.length > 0 ? (
+    //         images.map((src) => (
+    //           <img
+    //             key={src}
+    //             src={src}
+    //             alt={trail.title}
+    //             loading="lazy"
+    //             style={{ maxWidth: "100%", marginBottom: "1rem" }}
+    //           />
+    //         ))
+    //       ) : (
+    //         <p>No images for this walk yet.</p>
+    //       )}
+    //     </div>
+    //   </div>
+    // </div>
+    <div className="walk">
+        <HomeNavbarAuth shadow={true} />
+        <div className="container">
+            <div className="top">
+                <h1>{trail.title}</h1>
+                <div className="steps-counter">
+                    <p>Step {currentStep + '/' + trail.steps.length}</p>
+                    <div className="progress-bar-container">
+                        <div className="progress-bar" style={{width: `${(trail ? Math.round((currentStep / trail.steps.length) * 100) : '') + '%'}`}}></div>
+                    </div>
+                </div>
+            </div>
+            <div className="middle">
+                <img src={images[currentStep - 1]}/>
+                <h2>{trail.steps[currentStep - 1].title}</h2>
+                <p>{trail.steps[currentStep - 1].description}</p>
+
+            </div>
+            <div className="bottom">
+
+            </div>
         </div>
-      </div>
     </div>
   );
 }

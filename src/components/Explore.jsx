@@ -64,15 +64,18 @@ export default function Explore() {
       <HomeNavbarAuth shadow={true} />
       <div className="container">
         <h1>Explore</h1>
-        {trails.map((trail) => (
-          <TrialPreview
-            key={trail.id}
-            title={trail.title}
-            description={trail.description}
-            likes={trail.likes}
-            image={trail.image}
-          />
-        ))}
+        <div className="trails">
+          {trails.map((trail) => (
+            <TrialPreview
+              key={trail.id}
+              title={trail.title}
+              description={trail.description}
+              likes={trail.likes}
+              image={trail.image}
+              trail_link={'/walk/' + trail.id}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

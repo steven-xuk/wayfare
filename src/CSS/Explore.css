@@ -1,3 +1,13 @@
 .explore .container {
     padding: 40px;
 }
+
+.explore .container .trails {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.explore .container .trails .trail-preview {
+    margin: 36px 0px;
+}
