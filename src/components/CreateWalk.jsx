@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import '../CSS/CreateWalk.css'
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 
 function CreateWalk() {
@@ -14,6 +15,7 @@ function CreateWalk() {
     const [WALKID, SETWALKID] = useState('')
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const userState = useSelector((state) => state.user);
 
     async function getTokenData() {   
@@ -164,7 +166,7 @@ function CreateWalk() {
                 likes: 0,
                 comments: [],
             },
-            steps: walk.steps,
+            steps: JSON.stringify(walk.steps),
             walkID: WALKID,
             userData: userState,
         }
@@ -219,7 +221,10 @@ function CreateWalk() {
                                     <textarea rows="10" cols="50" name='description' className="textarea" value={stepFormData.description} placeholder='add a description' required onChange={e => handleChangeSteps(e)} />
                                     <input name='tip' type="text" className="input" value={stepFormData.tip} placeholder='add a tip' required onChange={e => handleChangeSteps(e)} />
                                     <input name='img' type="file" className="file-input" placeholder='add an image' required onChange={e => handleImgUpload(e)} accept="image/*" />
-                                    <input name='pin' type='text' className="input" value={stepFormData.pin} placeholder='add a link to google maps' required onChange={e => handleChangeSteps(e)} />
+                                    <div className='google-maps-embed'>
+                                        <input name='pin' type='text' className="input" value={stepFormData.pin} placeholder='add the google maps embed link' required onChange={e => handleChangeSteps(e)} />
+                                        <button onClick={()=> {navigate('/')}}>How?</button>
+                                    </div>
                                     <input name='help' type="text" className="input" value={stepFormData.help} placeholder="add a some 'help' text" onChange={e => handleChangeSteps(e)} />
                                 </div>
                                 <div className='buttons'>

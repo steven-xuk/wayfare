@@ -205,6 +205,19 @@
   padding: 0px 3px;
 }
 
+.create-walk .container .section .google-maps-embed {
+  display: flex;
+  flex-direction: row;
+}
+
+.create-walk .container .section .google-maps-embed button {
+  width: 72px;
+  font-size: 16px;
+  margin-left: 8px;
+  padding: 8px;
+  background-color: #aab8be;
+}
+
 .create-walk .container .upload-success.section form .buttons a {
   width: 100%;
   display: block;

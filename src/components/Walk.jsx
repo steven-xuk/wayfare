@@ -3,12 +3,23 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import HomeNavbarAuth from "./parts/HomeNavbarAuth";
 import { supabase } from "../SupabaseClient";
+import tip from "../imgs/tip.png";
+import help from "../imgs/help.png";
 
 export default function Walk() {
   const { id } = useParams();               // this is the PK in your "trails" table
   const [trail, setTrail] = useState(null);
   const [images, setImages] = useState([]);
   const [currentStep, setCurrentStep] = useState(1)
+
+  function toEmbedUrl(iframeHtml) {
+    // 1) Try a simple regex pull
+    const match = iframeHtml.match(/<iframe[^>]+src="([^"]+)"/);
+    if (match && match[1]) {
+      return match[1];
+    }
+    return iframeHtml;
+  }
 
   useEffect(() => {
     if (!id) return;
@@ -84,52 +95,49 @@ export default function Walk() {
   }
 
   return (
-    // <div className="walk">
-    //   <HomeNavbarAuth shadow={true} />
-    //   <div className="container">
-    //     <h1>{trail.title}</h1>
-    //     <p>{trail.description}</p>
-    //     <p><strong>Likes:</strong> {trail.likes}</p>
-
-    //     <div className="walk-gallery">
-    //       {images.length > 0 ? (
-    //         images.map((src) => (
-    //           <img
-    //             key={src}
-    //             src={src}
-    //             alt={trail.title}
-    //             loading="lazy"
-    //             style={{ maxWidth: "100%", marginBottom: "1rem" }}
-    //           />
-    //         ))
-    //       ) : (
-    //         <p>No images for this walk yet.</p>
-    //       )}
-    //     </div>
-    //   </div>
-    // </div>
     <div className="walk">
-        <HomeNavbarAuth shadow={true} />
-        <div className="container">
-            <div className="top">
-                <h1>{trail.title}</h1>
-                <div className="steps-counter">
-                    <p>Step {currentStep + '/' + trail.steps.length}</p>
-                    <div className="progress-bar-container">
-                        <div className="progress-bar" style={{width: `${(trail ? Math.round((currentStep / trail.steps.length) * 100) : '') + '%'}`}}></div>
-                    </div>
-                </div>
-            </div>
-            <div className="middle">
-                <img src={images[currentStep - 1]}/>
-                <h2>{trail.steps[currentStep - 1].title}</h2>
-                <p>{trail.steps[currentStep - 1].description}</p>
-
-            </div>
-            <div className="bottom">
-
-            </div>
+      <HomeNavbarAuth shadow={true} />
+      <div className="container">
+        <div className="top">
+          <h1>{trail.title}</h1>
+          <div className="steps-counter">
+            <p>Step {currentStep + '/' + trail.steps.length}</p>
+            <div className="progress-bar-container">
+              <div className="progress-bar" style={{width: `${(trail ? Math.round((currentStep / trail.steps.length) * 100) : '') + '%'}`}}></div>
+           </div>
+          </div>
         </div>
+        <div className="middle">
+          <img src={images[currentStep - 1]} className="wide-layout"/>
+          <h2>{trail.steps[currentStep - 1].title}</h2>
+          <p>{trail.steps[currentStep - 1].description}</p>
+          <img src={images[currentStep - 1]} className="narrow-layout"/>
+          <div className="tip">
+            <img src={tip} />
+            <p>{trail.steps[currentStep - 1].tip}</p>
+          </div>
+          <div className="help">
+            <img src={help} />
+            <p>{trail.steps[currentStep - 1].help}</p>
+          </div>
+          <button onClick={() => {setCurrentStep(currentStep != 1 ? currentStep - 1 : 1)}}>Back</button>
+          <button onClick={() => {setCurrentStep(currentStep != trail.steps.length ? currentStep + 1 : trail.steps.length)}}>Continue</button>
+        </div>
+        <div className="bottom">
+          <h2>Google Map:</h2>
+          <div className="map-embed">
+            <iframe
+              src={toEmbedUrl(trail.steps[currentStep - 1].pin)}
+              width="100%"            // or a fixed px value
+              height="450"            // whatever height you like
+              style={{ border: 0 }}
+              loading="lazy"
+              allowFullScreen
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

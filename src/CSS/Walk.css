@@ -16,7 +16,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 24px;
-    background-color: rgb(240, 240, 240);
+    background-color: rgb(243, 243, 243);
 }
 
 .walk .container .top h1 {
@@ -74,8 +74,97 @@
 
 .walk .container .middle img {
     float: right;
-    width: 38%;
-    margin: 0px 0px 0px 24px;
+    width: 42%;
+    min-height: 280px;
+    object-fit: cover;
+    margin: 0px 0px 24px 24px;
     border-radius: 8px;
 }
 
+.walk .container .middle .tip {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 8px 0 12px 0;
+    max-width: 50%;
+}
+
+.walk .container .middle .help {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 8px 0 25px 0;
+    max-width: 50%;
+}
+
+.walk .container .middle .tip img, .walk .container .middle .help img {
+    float: none;
+    width: 46px;
+    margin: 0 8px 0px 0px;
+    border-radius: 8px;
+    min-height: auto;
+}
+
+.walk .container .middle .tip p, .walk .container .middle .help p {
+    font-size: 20px;
+    margin: 0;
+    font-family: 'Instrument Sans', sans-serif;
+}
+
+.walk .container .middle button {
+    padding: 12px 63px;
+    width: 210px;
+    border: 0;
+    border-radius: 6px;
+    margin-right: 16px;
+    background-color: #9cb3be;
+    color: white;
+    font-size: 20px;
+    font-family: 'Instrument Sans', sans-serif;
+    user-select: none;
+}
+
+.walk .container .bottom {
+    padding: 24px 42px 42px 42px;
+}
+
+.walk .container .bottom h2{
+    font-size: 38px;
+    margin-top: 0;
+    line-height: 1em;
+    text-align: center;
+    margin-bottom: 28px;
+    font-family: 'Instrument Sans', sans-serif;
+}
+
+.walk .container .bottom .map-embed{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.walk .container .bottom .map-embed iframe{
+    max-width: 1000px;
+    border-radius: 10px;
+}
+
+.walk .container .middle img.narrow-layout {
+    display: none;
+}
+
+@media screen and (max-width: 750px) {
+    .walk .wide-layout {
+        display: none;
+    }
+
+    .walk .container .middle img.narrow-layout {
+        display: block;
+        float: none;
+        width: 100%;
+        min-height: 280px;
+        max-height: 500px;
+        object-fit: cover;
+        margin: 24px 0px 20px 0px;
+        border-radius: 8px;
+    }
+}
