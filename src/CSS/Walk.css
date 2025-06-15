@@ -16,7 +16,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 24px;
-    background-color: rgb(243, 243, 243);
+    /* background-color: rgb(243, 243, 243); */
 }
 
 .walk .container .top h1 {

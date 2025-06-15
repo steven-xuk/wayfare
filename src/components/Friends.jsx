@@ -4,7 +4,7 @@ export default function Friends() {
     return (
         <div className="friends">
             <HomeNavbarAuth shadow={true}/>
-            <h1>Friends</h1>
+            <h1>Coming Soon!</h1>
         </div>
     );
 }

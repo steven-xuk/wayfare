@@ -1,4 +1,5 @@
 import React from 'react';
+import HomeNavbarAuth from './parts/HomeNavbarAuth';
 
 function CreatePost() {
 
@@ -10,7 +11,8 @@ function CreatePost() {
 
     return (
         <div className='createPost'>
-            <p>create a post!</p>
+            <HomeNavbarAuth shadow={true}/>
+            <p>Coming Soon!</p>
 
 
         </div>
