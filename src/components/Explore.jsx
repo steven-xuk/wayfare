@@ -26,6 +26,13 @@ export default function Explore() {
                 console.warn("Invalid JSON in MetaData for trail", trail.id);
             }
 
+            let userData = {};
+            try {
+                userData = JSON.parse(trail.userData);
+            } catch (e) {
+                console.warn("Invalid JSON in userData for trail", trail.id);
+            }
+
             // list the first file name under walks/{walkID}
             const { data: files, error: listErr } = await supabase
                 .storage
@@ -46,6 +53,7 @@ export default function Explore() {
             return {
                 ...trail,
                 ...meta,
+                ...userData,
                 image: publicUrl,
             };
             })
@@ -58,6 +66,10 @@ export default function Explore() {
   useEffect(() => {
     getAllTrails();
   }, []);
+
+  useEffect(() => {
+    console.log(trails);
+  }, [trails]);
 
   return (
     <div className="explore">
@@ -72,6 +84,8 @@ export default function Explore() {
               description={trail.description}
               likes={trail.likes}
               image={trail.image}
+              difficulty={Number(trail.difficulty)}
+              creatorName={trail.username}
               trail_link={'/walk/' + trail.id}
             />
           ))}

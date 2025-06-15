@@ -68,7 +68,8 @@
 }
 
 .trail-preview .trail-preview-content .info{
-    font-size: 1.5rem;
+    font-size: 22px;
+    padding-bottom: 3px;
     margin: 0;
 }
 
@@ -99,15 +100,36 @@
     background-color: rgb(255, 186, 161);
 }
 
+.trail-preview .trail-preview-content .difficulty-container .info.medium {
+    background-color: rgb(255, 241, 161);
+}
+
+.trail-preview .trail-preview-content .difficulty-container .info.easy {
+    background-color: rgb(191, 237, 186);
+}
+
 .trail-preview .trail-preview-content .info-container {
     margin-left: auto;
+    display: flex;
+    align-items: center;
 }
 
 .trail-preview .trail-preview-content .preview-bottom{
     display: flex;
     flex-direction: row;
-    background-color: #fff6ed;
     border-radius: 0px 0px 22px 22px;
+}
+
+.trail-preview .trail-preview-content .preview-bottom.advanced {
+    background-color: rgb(255, 239, 228)
+}
+
+.trail-preview .trail-preview-content .preview-bottom.medium {
+    background-color: rgb(254, 255, 228)
+}
+
+.trail-preview .trail-preview-content .preview-bottom.easy {
+    background-color: rgb(233, 251, 230)
 }
 
 .trail-preview .trail-preview-content .btn{
