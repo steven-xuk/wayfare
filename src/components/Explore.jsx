@@ -51,9 +51,9 @@ export default function Explore() {
             const publicUrl = `${workerHost}/${trail.walkID}/${firstFile}`;
 
             return {
-                ...trail,
                 ...meta,
                 ...userData,
+                ...trail,
                 image: publicUrl,
             };
             })
