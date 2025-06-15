@@ -81,6 +81,33 @@
     border-radius: 8px;
 }
 
+.walk .container .middle #google_translate_element {
+    font-size: 18px;
+    padding-bottom: 3px;
+}
+
+.walk .container .middle #google_translate_element select {
+    font-size: 18px;
+}
+
+.walk .container .middle #google_translate_element img {
+    float: none;
+    width: 56px;
+    min-height: 22px;
+    object-fit: contain;
+    margin: 0;
+    padding: 2px 0px 0px 0px;
+    border-radius: 0px;
+}
+
+.walk .container .middle #google_translate_element div {
+    font-size: 16px;
+}
+
+.walk .container .middle #google_translate_element a {
+    font-size: 16px;
+}
+
 .walk .container .middle .tip {
     display: flex;
     flex-direction: row;

@@ -5,6 +5,7 @@ import HomeNavbarAuth from "./parts/HomeNavbarAuth";
 import { supabase } from "../SupabaseClient";
 import tip from "../imgs/tip.png";
 import help from "../imgs/help.png";
+import GoogleTranslate from "./parts/GoogleTranslate";
 
 export default function Walk() {
   const { id } = useParams();               // this is the PK in your "trails" table
@@ -111,6 +112,7 @@ export default function Walk() {
           <img src={images[currentStep - 1]} className="wide-layout"/>
           <h2>{trail.steps[currentStep - 1].title}</h2>
           <p>{trail.steps[currentStep - 1].description}</p>
+          <GoogleTranslate/>
           <img src={images[currentStep - 1]} className="narrow-layout"/>
           <div className="tip">
             <img src={tip} />
