@@ -222,7 +222,7 @@ function CreateWalk() {
                                     <input name='tip' type="text" className="input" value={stepFormData.tip} placeholder='add a tip' required onChange={e => handleChangeSteps(e)} />
                                     <input name='img' type="file" className="file-input" placeholder='add an image' required onChange={e => handleImgUpload(e)} accept="image/*" />
                                     <div className='google-maps-embed'>
-                                        <input name='pin' type='text' className="input" value={stepFormData.pin} placeholder='add the google maps embed link' required onChange={e => handleChangeSteps(e)} />
+                                        <input name='pin' type='text' className="input" value={stepFormData.pin} placeholder='add the google maps embed info' required onChange={e => handleChangeSteps(e)} />
                                         <button onClick={()=> {navigate('/')}}>How?</button>
                                     </div>
                                     <input name='help' type="text" className="input" value={stepFormData.help} placeholder="add a some 'help' text" onChange={e => handleChangeSteps(e)} />

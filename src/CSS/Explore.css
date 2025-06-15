@@ -1,7 +1,41 @@
+/* Explore.css */
 .explore .container {
     padding: 40px;
 }
 
+.explore .container h1 {
+    margin: 0 0 24px 0;
+    font-size: 50px;
+    font-family: 'Instrument Sans', sans-serif;
+}
+
+/* --- New controls styling --- */
+.explore .container .controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.explore .container .controls .search-input {
+    flex: 1;
+    min-width: 200px;
+    padding: 8px 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.explore .container .controls .filter-select {
+    padding: 8px 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* --- Existing styles below --- */
 .explore .container .trails {
     display: flex;
     flex-direction: column;
@@ -9,6 +43,12 @@
 }
 
 .explore .container .trails .trail-preview {
-    margin: 36px 0px;
+    margin: 24px 0px;
     width: 100%;
+    position: relative;
+}
+
+.explore .container .trails .trail-preview:hover {
+    bottom: 2px;
+    right: 2px;
 }

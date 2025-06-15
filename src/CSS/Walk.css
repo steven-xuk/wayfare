@@ -15,12 +15,13 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 24px;
+    flex-flow: wrap;
+    padding: 24px 24px 12px 24px;
     /* background-color: rgb(243, 243, 243); */
 }
 
 .walk .container .top h1 {
-    margin: 0px;
+    margin: 0px 36px 10px 0px;
     font-family: "Alegreya Sans SC", sans-serif;
     font-weight: 400;
     font-size: 36px;
@@ -31,18 +32,22 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    padding-top: 2px;
+    margin-bottom: 10px;
+    min-width: 280px;
+    flex-grow: 1;
 }
 
 .walk .container .top .steps-counter p {
     font-size: 23px;
     font-weight: 400;
-    margin: 0px 10px;
+    margin: 0px 10px 0px 0px;
     font-family: "Alegreya Sans SC", sans-serif;
     width: max-content;
 }
 
 .walk .container .top .steps-counter .progress-bar-container {
-    width: 350px;
+    flex-grow: 1;
     height: 30px;
     border-radius: 8px;
     border: 3px solid black;
@@ -61,14 +66,14 @@
 .walk .container .middle h2 {
     font-size: 46px;
     margin-top: 0;
-    line-height: 1em;
-    margin-bottom: 18px;
+    line-height: 0.7em;
+    margin-bottom: 24px;
     font-family: 'Instrument Sans', sans-serif;
 }
 
 .walk .container .middle p {
     font-size: 22px;
-    margin: 16px 0px;
+    margin: 20px 0px;
     font-family: 'Instrument Sans', sans-serif;
 }
 
@@ -112,8 +117,13 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin: 8px 0 12px 0;
-    max-width: 50%;
+    margin: 19px 0 12px 0;
+    /* max-width: 50%; */
+    width: 100%;
+    background-color: rgb(221, 243, 255);
+    padding: 8px;
+    border: 5px solid rgb(171, 219, 245);
+    border-radius: 18px;
 }
 
 .walk .container .middle .help {
@@ -121,13 +131,26 @@
     flex-direction: row;
     align-items: center;
     margin: 8px 0 25px 0;
-    max-width: 50%;
+    /* max-width: 50%; */
+    width: 100%;
+    background-color: rgb(255, 241, 221);
+    padding: 12px;
+    border: 5px solid rgb(245, 209, 171);
+    border-radius: 18px;
 }
 
-.walk .container .middle .tip img, .walk .container .middle .help img {
+.walk .container .middle .tip img {
     float: none;
-    width: 46px;
-    margin: 0 8px 0px 0px;
+    width: 50px;
+    margin: 0 12px 0px 0px;
+    border-radius: 8px;
+    min-height: auto;
+}
+
+.walk .container .middle .help img {
+    float: none;
+    width: 45px;
+    margin: 0 12px 0px 0px;
     border-radius: 8px;
     min-height: auto;
 }
@@ -193,5 +216,29 @@
         object-fit: cover;
         margin: 24px 0px 20px 0px;
         border-radius: 8px;
+    }
+
+    .walk .container .middle .tip {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin: 21px 0 12px 0;
+        max-width: 100%;
+        background-color: rgb(221, 243, 255);
+        padding: 8px;
+        border: 5px solid rgb(171, 219, 245);
+        border-radius: 18px;
+    }
+
+    .walk .container .middle .help {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin: 8px 0 25px 0;
+        max-width: 100%;
+        background-color: rgb(255, 241, 221);
+        padding: 12px;
+        border: 5px solid rgb(245, 209, 171);
+        border-radius: 18px;
     }
 }
