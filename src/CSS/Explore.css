@@ -5,7 +5,8 @@
 
 .explore .container h1 {
     margin: 0 0 24px 0;
-    font-size: 50px;
+    text-align: center;
+    font-size: 52px;
     font-family: 'Instrument Sans', sans-serif;
 }
 
@@ -20,19 +21,20 @@
 }
 
 .explore .container .controls .search-input {
-    flex: 1;
+    flex-grow: 8;
     min-width: 200px;
-    padding: 8px 12px;
+    padding: 12px 16px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
 
 .explore .container .controls .filter-select {
-    padding: 8px 12px;
+    padding: 12px 16px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    flex-grow: 1;
 }
 
 /* --- Existing styles below --- */
@@ -49,6 +51,23 @@
 }
 
 .explore .container .trails .trail-preview:hover {
-    bottom: 2px;
-    right: 2px;
+    bottom: 3px;
+    right: 3px;
+}
+
+.explore .container .trails .trail-preview .trail-preview-content:hover {
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 560px) {
+    .explore .container {
+        padding: calc(16px + 3vw);
+    }
+    .explore .container h1 {
+        margin: 0 0 24px 0;
+        text-align: center;
+        font-size: 48px;
+        line-height: 1em;
+        font-family: 'Instrument Sans', sans-serif;
+    }
 }

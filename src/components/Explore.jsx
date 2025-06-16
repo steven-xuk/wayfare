@@ -78,7 +78,7 @@ export default function Explore() {
       <HomeNavbarAuth shadow={true} />
 
       <div className="container">
-        <h1>Explore Walks</h1>
+        <h1>Explore All Walks</h1>
 
         {/* --- New search & filter controls --- */}
         <div className="controls">

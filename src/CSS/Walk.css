@@ -7,7 +7,7 @@
 }
 
 .walk .container {
-    margin-top: 65px;
+    padding-top: 65px;
 }
 
 .walk .container .top {
@@ -21,7 +21,7 @@
 }
 
 .walk .container .top h1 {
-    margin: 0px 36px 10px 0px;
+    margin: 0px 10% 10px 0px;
     font-family: "Alegreya Sans SC", sans-serif;
     font-weight: 400;
     font-size: 36px;
@@ -66,14 +66,14 @@
 .walk .container .middle h2 {
     font-size: 46px;
     margin-top: 0;
-    line-height: 0.7em;
-    margin-bottom: 24px;
+    line-height: 1em;
+    margin-bottom: 12px;
     font-family: 'Instrument Sans', sans-serif;
 }
 
 .walk .container .middle p {
     font-size: 22px;
-    margin: 20px 0px;
+    margin: 16px 0px 20px 0px;
     font-family: 'Instrument Sans', sans-serif;
 }
 
@@ -88,7 +88,8 @@
 
 .walk .container .middle #google_translate_element {
     font-size: 18px;
-    padding-bottom: 3px;
+    padding-bottom: 2px;
+    margin-bottom: 16px;
 }
 
 .walk .container .middle #google_translate_element select {
@@ -162,11 +163,12 @@
 }
 
 .walk .container .middle button {
-    padding: 12px 63px;
+    padding: 12px 2px;
     width: 210px;
     border: 0;
     border-radius: 6px;
     margin-right: 16px;
+    margin-bottom: 8px;
     background-color: #9cb3be;
     color: white;
     font-size: 20px;
@@ -175,7 +177,7 @@
 }
 
 .walk .container .bottom {
-    padding: 24px 42px 42px 42px;
+    padding: 24px 42px 46px 42px;
 }
 
 .walk .container .bottom h2{
@@ -200,6 +202,25 @@
 
 .walk .container .middle img.narrow-layout {
     display: none;
+}
+
+.walk .container .middle .walk-stats {
+    margin-bottom: 26px;
+    display: flex;
+    width: fit-content;
+}
+
+.walk .container .middle .walk-stats p:last-child {
+    margin-left: 10px;
+}
+
+.walk .container .middle .walk-stats p {
+    margin: 0;
+    width: fit-content;
+    background-color: rgb(240, 240, 240);
+    padding: 12px;
+    border-radius: 18px;
+    text-align: center;
 }
 
 @media screen and (max-width: 750px) {
@@ -240,5 +261,25 @@
         padding: 12px;
         border: 5px solid rgb(245, 209, 171);
         border-radius: 18px;
+    }
+
+    .walk .container .middle button {
+        width: calc(50% - 8px);
+        padding: 12px 2px;
+    }
+
+    .walk .container .middle button.start-button {
+        width: calc(100%);
+        padding: 12px 2px;
+    }
+
+    .walk .container .middle button:last-child {
+        margin-right: 0;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .walk .container .middle {
+        padding: 32px;
     }
 }

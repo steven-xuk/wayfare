@@ -86,7 +86,7 @@ export default function HomeNavbarAuth({shadow}) {
           <NavLink onClick={() => {if (isAccountMenuOpen) {setIsAccountMenuOpen(false);} else {setIsAccountMenuOpen(true);}}}><img src={profile}/></NavLink>
         </nav>
         <div className={`account-menu ${isAccountMenuOpen ? 'open' : ''}`}>
-          <button onClick={() => {console.log('hi')}}>hi button</button>
+          {/* <button onClick={() => {console.log('hi')}}>hi button</button> */}
           <button onClick={handleLogout}>Logout</button>
         </div>
     </div>

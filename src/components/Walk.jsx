@@ -1,6 +1,6 @@
 // src/components/Walk.jsx
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import HomeNavbarAuth from "./parts/HomeNavbarAuth";
 import { supabase } from "../SupabaseClient";
 import tip from "../imgs/tip.png";
@@ -12,6 +12,8 @@ export default function Walk() {
   const [trail, setTrail] = useState(null);
   const [images, setImages] = useState([]);
   const [currentStep, setCurrentStep] = useState(1)
+  const [hasStarted, setHasStarted] = useState(false)
+  const navigate = useNavigate()
 
   function toEmbedUrl(iframeHtml) {
     // 1) Try a simple regex pull
@@ -95,51 +97,77 @@ export default function Walk() {
     );
   }
 
-  return (
-    <div className="walk">
-      <HomeNavbarAuth shadow={true} />
-      <div className="container">
-        <div className="top">
-          <h1>{trail.title}</h1>
-          <div className="steps-counter">
-            <p>Step {currentStep + '/' + trail.steps.length}</p>
-            <div className="progress-bar-container">
-              <div className="progress-bar" style={{width: `${(trail ? Math.round((currentStep / trail.steps.length) * 100) : '') + '%'}`}}></div>
-           </div>
+  if (hasStarted){
+    return (
+      <div className="walk">
+        <HomeNavbarAuth shadow={true} />
+        <div className="container">
+          <div className="top">
+            <h1>{trail.title}</h1>
+            <div className="steps-counter">
+              <p>Step {currentStep + '/' + trail.steps.length}</p>
+              <div className="progress-bar-container">
+                <div className="progress-bar" style={{width: `${(trail ? Math.round((currentStep / trail.steps.length) * 100) : '') + '%'}`}}></div>
+             </div>
+            </div>
           </div>
-        </div>
-        <div className="middle">
-          <img src={images[currentStep - 1]} className="wide-layout"/>
-          <h2>{trail.steps[currentStep - 1].title}</h2>
-          <p>{trail.steps[currentStep - 1].description}</p>
-          <GoogleTranslate/>
-          <img src={images[currentStep - 1]} className="narrow-layout"/>
-          <div className="tip">
-            <img src={tip} />
-            <p>{trail.steps[currentStep - 1].tip}</p>
+          <div className="middle">
+            <img src={images[currentStep - 1]} className="wide-layout"/>
+            <h2>{trail.steps[currentStep - 1].title}</h2>
+            <p>{trail.steps[currentStep - 1].description}</p>
+            <GoogleTranslate/>
+            <img src={images[currentStep - 1]} className="narrow-layout"/>
+            <div className="tip">
+              <img src={tip} />
+              <p>{trail.steps[currentStep - 1].tip}</p>
+            </div>
+            <div className="help">
+              <img src={help} />
+              <p>{trail.steps[currentStep - 1].help}</p>
+            </div>
+            <button onClick={() => {if (currentStep != 1) {setCurrentStep(currentStep != 1 ? currentStep - 1 : 1)} else {setHasStarted(false)}}}>Back</button>
+            <button onClick={() => {if (currentStep != trail.steps.length) {setCurrentStep(currentStep != trail.steps.length ? currentStep + 1 : trail.steps.length)} else {navigate('/explore')}}}>{currentStep != trail.steps.length ? 'Continue' : 'Finish Walk'}</button>
           </div>
-          <div className="help">
-            <img src={help} />
-            <p>{trail.steps[currentStep - 1].help}</p>
-          </div>
-          <button onClick={() => {setCurrentStep(currentStep != 1 ? currentStep - 1 : 1)}}>Back</button>
-          <button onClick={() => {setCurrentStep(currentStep != trail.steps.length ? currentStep + 1 : trail.steps.length)}}>Continue</button>
-        </div>
-        <div className="bottom">
-          <h2>Google Map:</h2>
-          <div className="map-embed">
-            <iframe
-              src={toEmbedUrl(trail.steps[currentStep - 1].pin)}
-              width="100%"            // or a fixed px value
-              height="450"            // whatever height you like
-              style={{ border: 0 }}
-              loading="lazy"
-              allowFullScreen
-              referrerPolicy="no-referrer-when-downgrade"
-            />
+          <div className="bottom">
+            <h2>Google Map:</h2>
+            <div className="map-embed">
+              <iframe
+                src={toEmbedUrl(trail.steps[currentStep - 1].pin)}
+                width="100%"            // or a fixed px value
+                height="450"            // whatever height you like
+                style={{ border: 0 }}
+                loading="lazy"
+                allowFullScreen
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
+  else {
+    return (
+      <div className="walk">
+        <HomeNavbarAuth shadow={true} />
+        <div className="container">
+          <div className="top">
+            <h1>{trail.title}</h1>
+          </div>
+          <div className="middle">
+            <img src={images[currentStep - 1]} className="wide-layout"/>
+            <h2>{trail.title}</h2>
+            <p>{trail.description}</p>
+            <GoogleTranslate/>
+            <div className="walk-stats">
+              <p className="difficulty">{'Difficulty: ' + trail.difficulty + '/10'}</p>
+              <p className="difficulty">{'Distance: ' + trail.kilometers + 'km'}</p>
+            </div>
+            <img src={images[currentStep - 1]} className="narrow-layout"/>
+            <button onClick={() => {setHasStarted(true)}} className="start-button">Start</button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
