@@ -1,51 +1,73 @@
 import React, { useEffect, useRef } from "react";
 
 const GoogleTranslate = () => {
-  const googleTranslateRef = useRef(null);
+  const containerRef = useRef(null);
 
   useEffect(() => {
-    // define the global callback that Google’s script will call
+    // 1) Define the global init callback
     window.googleTranslateElementInit = () => {
-      try {
-        if (
-          googleTranslateRef.current &&
-          window.google &&
-          window.google.translate
-        ) {
-          new window.google.translate.TranslateElement(
-            {
-              pageLanguage: "en",
-              includedLanguages:
-                "af,ach,ak,am,ar,az,be,bem,bg,bh,bn,br,bs,ca,chr,ckb,co,crs,cs,cy,da,de,ee,el,en,eo,es,es-419,et,eu,fa,fi,fo,fr,fy,ga,gaa,gd,gl,gn,gu,ha,haw,hi,hr,ht,hu,hy,ia,id,ig,is,it,iw,ja,jw,ka,kg,kk,km,kn,ko,kri,ku,ky,la,lg,ln,lo,loz,lt,lua,lv,mfe,mg,mi,mk,ml,mn,mo,mr,ms,mt,ne,nl,nn,no,nso,ny,nyn,oc,om,or,pa,pcm,pl,ps,pt-BR,pt-PT,qu,rm,rn,ro,ru,rw,sd,sh,si,sk,sl,sn,so,sq,sr,sr-ME,st,su,sv,sw,ta,te,tg,th,ti,tk,tl,tn,to,tr,tt,tum,tw,ug,uk,ur,uz,vi,wo,xh,yi,yo,zh-CN,zh-TW,zu",
-              layout:
-                window.google.translate.TranslateElement.InlineLayout.VERTICAL,
-            },
-            googleTranslateRef.current
-          );
-        }
-      } catch (err) {
-        console.warn("Google Translate init failed:", err);
+      console.log("🏁 googleTranslateElementInit called");
+      if (
+        containerRef.current &&
+        window.google &&
+        window.google.translate &&
+        typeof window.google.translate.TranslateElement === "function"
+      ) {
+        new window.google.translate.TranslateElement(
+          {
+            pageLanguage: "en",
+            includedLanguages:
+              "af,ar,be,ca,cs,da,de,el,en,es,et,fi,fr,he,hi,hr,hu,id,it,ja,ko,lt,lv,ms,nl,no,pl,pt,ro,ru,sk,sl,sr,sv,th,tl,tr,uk,vi,zh-CN,zh-TW",
+            layout:
+              window.google.translate.TranslateElement.InlineLayout.VERTICAL,
+          },
+          containerRef.current
+        );
+      } else {
+        console.error(
+          "⚠️ Google Translate globals not ready:",
+          window.google,
+          window.google?.translate
+        );
       }
     };
 
-    // inject the script normally—no CORS flag, so it actually executes
-    const script = document.createElement("script");
-    script.src =
-      "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
-    script.async = true;
-    script.defer = true;
-    document.body.appendChild(script);
+    // 2) Only inject once
+    const existing = document.querySelector(
+      'script[src*="translate_a/element.js"]'
+    );
+    if (!existing) {
+      const script = document.createElement("script");
+      script.src =
+        "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+      script.async = true;
+      script.defer = true;
 
-    return () => {
-      document.body.removeChild(script);
-      delete window.googleTranslateElementInit;
-    };
+      // Listen for load & error
+      script.onload = () => console.log("✅ Translate script loaded");
+      script.onerror = () =>
+        console.error("❌ Failed to load Google Translate script");
+
+      document.body.appendChild(script);
+
+      // Cleanup on unmount
+      return () => {
+        document.body.removeChild(script);
+        delete window.googleTranslateElementInit;
+        if (containerRef.current) containerRef.current.innerHTML = "";
+      };
+    } else {
+      console.log("ℹ️ Translate script already present, skipping injection");
+    }
+
+    // No cleanup needed if we didn’t inject
+    return undefined;
   }, []);
 
   return (
     <div
       id="google_translate_element"
-      ref={googleTranslateRef}
+      ref={containerRef}
       style={{ minHeight: "1em" }}
     />
   );

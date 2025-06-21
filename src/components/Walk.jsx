@@ -6,6 +6,7 @@ import { supabase } from "../SupabaseClient";
 import tip from "../imgs/tip.png";
 import help from "../imgs/help.png";
 import GoogleTranslate from "./parts/GoogleTranslate";
+import TpTripComHotelWidget from "./parts/affiliates/TpTripComHotelWidget";
 
 export default function Walk() {
   const { id } = useParams();               // this is the PK in your "trails" table
@@ -165,6 +166,12 @@ export default function Walk() {
             </div>
             <img src={images[currentStep - 1]} className="narrow-layout"/>
             <button onClick={() => {setHasStarted(true)}} className="start-button">Start</button>
+          </div>
+          <div className="bottom">
+            <h1>Need a Hotel?</h1>
+            <div className="affiliates">
+              <TpTripComHotelWidget/>
+            </div>
           </div>
         </div>
       </div>

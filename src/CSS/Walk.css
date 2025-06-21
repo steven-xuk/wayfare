@@ -223,6 +223,20 @@
     text-align: center;
 }
 
+.walk .container .bottom .affiliates {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.walk .container .bottom h1 {
+    text-align: center;
+    font-size: 46px;
+    margin: 8px 0 0 0;
+    font-family: 'Instrument Sans', sans-serif;
+}
+
 @media screen and (max-width: 750px) {
     .walk .wide-layout {
         display: none;
