@@ -10,8 +10,8 @@ export default function Home() {
             <Link to='/explore' className='card'>
               <p>Explore Walks</p>
             </Link>
-            <Link to='/friends' className='card'>
-              <p>Friends</p>
+            <Link to='/travel-guides' className='card'>
+              <p>Travel Guides</p>
             </Link>
             <Link to='/create-post' className='card'>
               <p>Create a Post</p>

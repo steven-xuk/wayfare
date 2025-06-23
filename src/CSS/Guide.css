@@ -1,0 +1,145 @@
+.guide .city .overview, .guide .city .hotels {
+    margin: 36px;
+}
+
+.guide .city .title {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    padding: calc(5vh + 5vw + 20px) 1px;
+    color: white;
+}
+
+.guide .city .title h1 {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 600;
+    font-size: 52px;
+    line-height: 1em;
+    text-align: center;
+    margin: 0;
+}
+
+.guide .city .overview {
+    padding-bottom: 12px;
+    border-bottom: 3px solid rgb(188, 188, 188);
+}
+
+.guide .city .overview::after {
+  content: "";
+  display: table;    /* creates a block formatting context */
+  clear: both;       /* clears left & right floats */
+}
+
+.guide .city .overview h2 {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 800;
+    text-align: center;
+    font-size: 42px;
+    line-height: 1em;
+    margin: 0px 0px 20px 0px;
+}
+
+.guide .city .overview p {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.guide .city .overview img.img-right.desktop {
+    float: right;
+    width: min(50%, 500px);
+    padding-top: 5px;
+    margin: 0px 0px 20px 20px;
+}
+
+.guide .city .overview img.img-right.mobile {
+    display: none;
+}
+
+@media screen and (max-width: 700px) {
+    .guide .city .overview img.img-right.desktop {
+        display: none;
+    }
+
+    .guide .city .overview img.img-right.mobile {
+        display: block;
+        float: none;
+        width: 100%;
+        padding-top: 0;
+        margin: 0px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .guide .city .overview, .guide .city .hotels {
+        margin: 30px;
+    }
+    .guide .city .overview p {
+        font-family: 'Instrument Sans', sans-serif;
+        font-weight: 400;
+        font-size: 18px;
+    }
+    .guide .city .title h1 {
+        font-size: 46px;
+    }
+    .guide .city .overview h2 {
+        font-size: 38px;
+    }
+}
+
+.guide .city .hotels h2 {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 800;
+    text-align: center;
+    font-size: 42px;
+    line-height: 1em;
+    margin: 0px 0px 20px 0px;
+}
+
+/* 1) Make the hotel row position:relative and give it a min-height */
+.guide .city .hotels .hotel {
+  position: relative;
+  display: block;       /* anchors are inline by default */
+  min-height: 160px;    /* never shrink under 160px */
+  overflow: hidden;     /* clip any overflow from the img */
+  border-radius: 16px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+}
+
+/* 2) Reserve space for the absolutely-positioned image */
+.guide .city .hotels .hotel .text {
+  /* match this to the img-container’s width */
+  margin-right: 200px;  
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+/* 3) Absolutely position the img-wrapper to fill the row’s height */
+.guide .city .hotels .hotel .img-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: auto;
+}
+
+/* 4) Make the image fill its wrapper’s height exactly */
+.guide .city .hotels .hotel .img-container img {
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;    /* crop to fill, no letterboxing */
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+
+.guide .city .hotels .hotel .text h3 {
+    margin: 0px 0px 20px 0px;
+    font-size: 28px;
+}
+
+.guide .city .hotels .hotel .text p {
+    margin: 0px;
+    font-size: 18px;
+}

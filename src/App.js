@@ -14,6 +14,8 @@ import './CSS/Policies.css'
 import './CSS/Signup.css'
 import './CSS/TrailPreview.css'
 import './CSS/Walk.css'
+import './CSS/TravelGuides.css'
+import './CSS/Guide.css'
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
 import { useEffect } from 'react';
 import { login, logout } from './redux/slices/AuthSlice';
@@ -32,6 +34,8 @@ import Friends from './components/Friends.jsx';
 import Explore from './components/Explore.jsx';
 import Download from './components/Download.jsx';
 import Walk from './components/Walk.jsx';
+import TravelGuides from './components/TravelGuides.jsx';
+import Guide from './components/Guide.jsx';
 
 function App() {
   const dispatch = useDispatch();
@@ -80,6 +84,8 @@ function App() {
       <Route path='/friends' element={ <Friends /> }/>
       <Route path='/explore' element={ <Explore /> }/>
       <Route path='/walk/:id' element={<Walk />} />
+      <Route path='/travel-guides' element={<TravelGuides />} />
+      <Route path='/guide/:city' element={<Guide />} />
       <Route path="*" element={ <NotFound/> }/> {/* leave this at the end of the routes */}
     </>
   ));
