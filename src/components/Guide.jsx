@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import HomeNavbarAuth from "./parts/HomeNavbarAuth";
+import ImageCarousel from "./parts/ImageCarousel";
 
 export default function Guide() {
     const { city } = useParams()
@@ -23,9 +24,7 @@ export default function Guide() {
                         <div className="text">
                             <h3>QT Wellington Museum Hotel</h3>
                             <p>Your Wellington hotel room is surrounded by urban hills and harbour views, landscapes of true visual indulgence. In a capital alive with expressive aesthetic, here you can let it soak in. This unusual accommodation in Wellington is your own creative hideaway.</p>
-                        </div>
-                        <div className="img-container">
-                            <img src="https://u.cubeupload.com/xuk/looknohands.png"/>
+                            <ImageCarousel images={['https://u.cubeupload.com/xuk/looknohands.png', 'https://www.w3schools.com/howto/img_mountains_wide.jpg']}/>
                         </div>
                     </a>
                 </div>

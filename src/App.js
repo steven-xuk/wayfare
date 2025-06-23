@@ -15,6 +15,7 @@ import './CSS/Signup.css'
 import './CSS/TrailPreview.css'
 import './CSS/Walk.css'
 import './CSS/TravelGuides.css'
+import './CSS/ImageCarousel.css'
 import './CSS/Guide.css'
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
 import { useEffect } from 'react';
