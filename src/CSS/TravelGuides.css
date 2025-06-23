@@ -1,0 +1,40 @@
+.travel-guides .container {
+    padding: 40px;
+}
+
+.travel-guides .container h1 {
+    margin: 0px 0px 20px;
+    font-size: 52px;
+    text-align: center;
+    font-family: 'Instrument Sans', sans-serif;
+}
+
+.travel-guides .container .city-list .city-card {
+    padding: 16px;
+    display: block;
+    background-size: cover;
+    background-position: center;
+    text-decoration: none;
+    color: white;
+    border-radius: 12px;
+}
+
+.travel-guides .container .city-list .city-card h3 {
+    margin: 20px 0px;
+    font-size: 32px;
+    text-align: center;
+    font-family: 'Instrument Sans', sans-serif;
+}
+
+@media screen and (max-width: 560px) {
+    .travel-guides .container {
+        padding: calc(16px + 3vw);
+    }
+    .travel-guides .container h1 {
+        margin: 0 0 24px 0;
+        text-align: center;
+        font-size: 48px;
+        line-height: 1em;
+        font-family: 'Instrument Sans', sans-serif;
+    }
+}

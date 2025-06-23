@@ -38,7 +38,16 @@ export default function Guide() {
         return () => roots.forEach(r => r.unmount());
     }, [data]);
 
-    if (!data) return <p>Loading…</p>;
+    if (!data) {
+        return (
+            <div className="guide">
+                <HomeNavbarAuth shadow={true} />
+                <div className="container">
+                    <p>Loading…</p>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className="guide">

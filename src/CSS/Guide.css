@@ -126,6 +126,7 @@
 }
 
 .guide .city .hotels .hotel {
+    position: relative;
     text-decoration: none;
     color: black;
     display: block;
@@ -136,6 +137,12 @@
     margin: 36px calc(10vw + 10px) 0px;
     font-family: 'Instrument Sans', sans-serif;
     max-width: 900px;
+}
+
+.guide .city .hotels .hotel:hover {
+    bottom: 3px;
+    right: 3px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
 }
 
 .guide .city .hotels .hotel h3 {

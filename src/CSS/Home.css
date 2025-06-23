@@ -39,7 +39,7 @@
 }
 
 .home .content .grid .card:nth-child(2) {
-    background-image: linear-gradient(rgba(150, 150, 150, 0.6), rgba(150, 150, 150, 0.6)), url(../imgs/pexels-lastly-572689.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../imgs/pexels-lastly-572689.jpg);
     background-position: 50% 52%;
 }
 
