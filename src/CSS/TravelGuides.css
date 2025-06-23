@@ -3,7 +3,7 @@
 }
 
 .travel-guides .container h1 {
-    margin: 0px 0px 20px;
+    margin: 0px 0px 24px;
     font-size: 52px;
     text-align: center;
     font-family: 'Instrument Sans', sans-serif;
@@ -17,14 +17,34 @@
     text-decoration: none;
     color: white;
     border-radius: 12px;
+    margin-bottom: 24px;
 }
 
 .travel-guides .container .city-list .city-card h3 {
     margin: 20px 0px;
-    font-size: 32px;
+    font-size: 36px;
     text-align: center;
     font-family: 'Instrument Sans', sans-serif;
 }
+
+.travel-guides .container .controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.travel-guides .container .controls .search-input {
+    flex-grow: 8;
+    min-width: 200px;
+    padding: 12px 16px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
 
 @media screen and (max-width: 560px) {
     .travel-guides .container {

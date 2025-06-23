@@ -6,6 +6,7 @@ import HomeNavbarAuth from "./parts/HomeNavbarAuth";
 export default function TravelGuides() {
     const [manifest, setManifest] = useState(null);
     const [error, setError] = useState(null);
+    const [searchTerm, setSearchTerm] = useState("");
 
     useEffect(() => {
         fetch("https://travel-guides.xuk.workers.dev/api/manifests/cities")
@@ -42,27 +43,47 @@ export default function TravelGuides() {
         );
     }
 
+    // filter cities by name or description
+    const filtered = manifest.cities.filter(city => {
+        // const hay = (city.name + " " + city.description).toLowerCase();
+        const hay = (city.name).toLowerCase();
+        return hay.includes(searchTerm.toLowerCase());
+    });
+
     return (
         <div className="travel-guides">
             <HomeNavbarAuth shadow={true} />
             <div className="container">
                 <h1>Travel Guides</h1>
+
+                {/* search input */}
+                <div className="controls">
+                    <input
+                        type="text"
+                        className="search-input"
+                        placeholder="Search cities..."
+                        value={searchTerm}
+                        onChange={e => setSearchTerm(e.target.value)}
+                    />
+                </div>
+
                 <div className="city-list">
-                    {manifest.cities.map(city => (
-                        <Link
-                            key={city.slug}
-                            to={`/guide/${city.slug}`}
-                            className="city-card"
-                            style={{backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.38), rgba(0, 0, 0, 0.38)), url('${city.mainImage}')`}}
-                        >
-                            {/* <img
-                                src={city.mainImage}
-                                alt={city.name}
-                            /> */}
-                            <h3>{city.name}</h3>
-                            {/* <p>{city.description}</p> */}
-                        </Link>
-                    ))}
+                    {filtered.length > 0 ? (
+                        filtered.map(city => (
+                            <Link
+                                key={city.slug}
+                                to={`/guide/${city.slug}`}
+                                className="city-card"
+                                style={{
+                                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.38), rgba(0, 0, 0, 0.38)), url('${city.mainImage}')`
+                                }}
+                            >
+                                <h3>{city.name}</h3>
+                            </Link>
+                        ))
+                    ) : (
+                        <p>No cities match your search.</p>
+                    )}
                 </div>
             </div>
         </div>
