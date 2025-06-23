@@ -23,8 +23,8 @@
 
 .guide .city .title h1 {
     font-family: 'Instrument Sans', sans-serif;
-    font-weight: 600;
-    font-size: 52px;
+    font-weight: 690;
+    font-size: 56px;
     line-height: 1em;
     text-align: center;
     margin: 0;
@@ -46,7 +46,7 @@
     font-family: 'Instrument Sans', sans-serif;
     font-weight: 800;
     text-align: center;
-    font-size: 42px;
+    font-size: 46px;
     line-height: 1em;
     margin: 0px 0px 20px 0px;
 }
@@ -76,7 +76,7 @@
     font-family: 'Instrument Sans', sans-serif;
     font-weight: 800;
     text-align: center;
-    font-size: 42px;
+    font-size: 46px;
     line-height: 1em;
     margin: 0px 0px 0px 0px;
 }
@@ -133,12 +133,15 @@
     padding: 32px;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
     border-radius: 20px;
-    margin: 33px calc(10vw + 10px) 0px;
+    margin: 36px calc(10vw + 10px) 0px;
+    font-family: 'Instrument Sans', sans-serif;
     max-width: 900px;
 }
 
 .guide .city .hotels .hotel h3 {
-    font-size: 32px;
+    font-size: 35px;
+    padding-bottom: 18px;
+    border-bottom: 3px solid rgb(188, 188, 188);
     margin: 0;
 }
 
@@ -151,6 +154,10 @@
     .guide .city .hotels .hotel {
         margin: 33px 20px 0px;
         padding: 28px;
+    }
+    .guide .city .hotels .hotel h3 {
+        font-size: 32px;
+        margin: 0;
     }
 
     .guide .city .hotels .hotel .image-carousel {
