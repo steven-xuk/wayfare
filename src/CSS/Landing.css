@@ -1,6 +1,7 @@
 .landing .hero {
     background-image: url('../imgs/hero-image.png');
     height: 100vh;
+    height: 100svh;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 66% 30%;
@@ -211,6 +212,7 @@
     position: absolute;
     left: 50%;
     top: calc(100vh - 128px);
+    top: calc(100svh - 128px);
     transform: translateX(-50%);
     text-align: center;
 }

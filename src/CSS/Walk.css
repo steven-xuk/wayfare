@@ -296,4 +296,18 @@
     .walk .container .middle {
         padding: 32px;
     }
+    .walk .container .bottom {
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .walk .container .middle {
+        padding: 30px;
+    }
+    .walk .container .bottom {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
 }

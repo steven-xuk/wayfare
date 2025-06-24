@@ -1,5 +1,5 @@
 // src/components/TpTripComHotelWidget.jsx
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 export default function TpTripComHotelWidget({
     style = {},        // your custom container styles
@@ -8,6 +8,23 @@ export default function TpTripComHotelWidget({
     className = '',    // any extra CSS classes
 }) {
     const wrapperRef = useRef(null);
+    const [isNarrow, setIsNarrow] = useState(
+        typeof window !== 'undefined' && window.innerWidth < 460
+    );
+
+    // listen for viewport changes to toggle margin
+    useEffect(() => {
+        if (typeof window === 'undefined') return;
+
+        const mq = window.matchMedia('(max-width: 460px)');
+        const onChange = e => setIsNarrow(e.matches);
+
+        mq.addListener(onChange);
+        // initialize
+        setIsNarrow(mq.matches);
+
+        return () => mq.removeListener(onChange);
+    }, []);
 
     // default dimensions for each layout
     const defaultLayoutDimensions = {
@@ -21,8 +38,9 @@ export default function TpTripComHotelWidget({
     // your existing inline container styles + overflow hidden
     const containerStyles = {
         maxWidth:     '530px',
-        width:        '80%',
-        margin:       '2rem',
+        width:        isNarrow ? '100%' : '80%',
+        // horizontal margin is 0 when viewport < 460px
+        margin:       isNarrow ? '2rem 0' : '2rem',
         borderRadius: '12px',
         background:   '#f9f9f9',
         boxShadow:    '0px 0px 16px rgba(0, 0, 0, 0.2)',
@@ -34,10 +52,8 @@ export default function TpTripComHotelWidget({
         const el = wrapperRef.current;
         if (!el) return;
 
-        // clear out anything that was there
         el.innerHTML = '';
 
-        // build the Trip.com content.js URL
         const src = [
             'https://tpwgts.com/content',
             `?trs=426760`,
@@ -49,34 +65,28 @@ export default function TpTripComHotelWidget({
             `&promo_id=4038`
         ].join('');
 
-        // inject their script
         const script = document.createElement('script');
         script.async   = true;
         script.src     = src;
         script.charset = 'utf-8';
         el.appendChild(script);
 
-        // once the script loads and injects the iframe, adjust its sizing & radius
         script.addEventListener('load', () => {
             const iframe = el.querySelector('iframe');
             if (!iframe) return;
 
-            // remove Trip.com's hardcoded width/height
             iframe.style.removeProperty('width');
             iframe.style.removeProperty('height');
-
-            // apply 100% width, correct height, and rounded corners
             iframe.style.width        = '100%';
             const { height } =
                 defaultLayoutDimensions[layout] ||
                 defaultLayoutDimensions.default;
             iframe.style.height       = height;
-            iframe.style.borderRadius = '12px';  // ← match container
+            iframe.style.borderRadius = '12px';
             iframe.style.display      = 'block';
             iframe.style.margin       = '0 auto';
         });
 
-        // cleanup on unmount
         return () => {
             if (wrapperRef.current) {
                 wrapperRef.current.innerHTML = '';
