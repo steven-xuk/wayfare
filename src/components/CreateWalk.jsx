@@ -8,15 +8,20 @@ import '../CSS/CreateWalk.css'
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-
+import close from '../imgs/close.png'
 
 function CreateWalk() {
 
     const [WALKID, SETWALKID] = useState('')
+    const [isPopupOpen, setIsPopupOpen] = useState(false)
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const userState = useSelector((state) => state.user);
+
+    function openNewTab(path) {
+        window.open(path, "_blank", "noopener");
+    }
 
     async function getTokenData() {   
         const { data, error } = await supabase.auth.getSession();
@@ -223,7 +228,7 @@ function CreateWalk() {
                                     <input name='img' type="file" className="file-input" placeholder='add an image' required onChange={e => handleImgUpload(e)} accept="image/*" />
                                     <div className='google-maps-embed'>
                                         <input name='pin' type='text' className="input" value={stepFormData.pin} placeholder='add the google maps embed info' required onChange={e => handleChangeSteps(e)} />
-                                        <button onClick={()=> {navigate('/')}}>How?</button>
+                                        <button type="button" onClick={() => {setIsPopupOpen(true)}}>How?</button>
                                     </div>
                                     <input name='help' type="text" className="input" value={stepFormData.help} placeholder="add a some 'help' text" onChange={e => handleChangeSteps(e)} />
                                 </div>
@@ -316,7 +321,23 @@ function CreateWalk() {
                             </form>
                         </div>
                     )}
+                    {isPopupOpen === true && (
+                        <div className='popup-container'>
+                            <div className='popup'>
+                                <div className='close-container'>
+                                    <img src={close} onClick={() => {setIsPopupOpen(false)}}/>
+                                </div>
+                                <p>
+                                    Go to https://maps.google.com and search for your step location.<br/><br/>
+                                    Click the Share button (three dots connected with lines) in the sidebar.<br/><br/>
+                                    Switch to the “Embed a map” tab.<br/><br/>
+                                    Click “Copy HTML” to copy the iframe code.<br/><br/>
+                                    Paste the iframe snippet into the box.
+                                </p>
 
+                            </div>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>

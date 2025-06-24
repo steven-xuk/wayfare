@@ -30,8 +30,9 @@
   flex: 0 0 auto;
   width: 100%;
   overflow: hidden;
-  max-height: 690px;
-  padding-bottom: 25px;
+  max-height: clamp(500px, 90vh, 690px);
+  padding-bottom: 36px;
+  padding-top: 10px;
 }
 
 /* === step tabs (row) === */
@@ -309,4 +310,48 @@
   }
 }
 
+.create-walk .container .popup-container {
+  position: fixed;
+  z-index: 12;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  height: 100vh;
+  height: 100lvh;
+  width: 100vw;
+  background-color: rgba(0,0,0,0.28);
+}
 
+.create-walk .container .popup-container .popup {
+  width: clamp(240px, calc(138px + 36vw), 500px);
+  padding: 22px;
+  background-color: rgb(255,255,255);
+  border-radius: 16px;
+}
+
+.create-walk .container .popup-container .popup .close-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: end;
+}
+
+.create-walk .container .popup-container .popup .close-container img {
+  width: 20px;
+}
+
+.create-walk .container .popup-container .popup p {
+  font-size: clamp(17px, calc(12px + 1vw), 20px);
+  margin: 20px 3px 3px 3px;
+  line-height: 1.1em;
+  font-family: 'Instrument Sans', sans-serif;
+}
+
+@media screen and (max-width: 380px) {
+  .create-walk .container .popup-container .popup {
+    padding: 18px;
+  }
+}

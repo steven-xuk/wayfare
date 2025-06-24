@@ -211,8 +211,8 @@
     font-family: 'Alegreya Sans SC', sans-serif;
     position: absolute;
     left: 50%;
-    top: calc(100vh - 128px);
-    top: calc(100svh - 128px);
+    top: calc(100vh - 60px - 9vh);
+    top: calc(100svh - 60px - 9svh);
     transform: translateX(-50%);
     text-align: center;
 }
