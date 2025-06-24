@@ -10,7 +10,7 @@ export default function Guide() {
     const [data, setData] = useState(null);
     const hostRef = useRef(null);
 
-    // 1) Fetch the city JSON on mount / when slug changes
+    // 1) Fetch the city JSON
     useEffect(() => {
         fetch(`https://travel-guides.xuk.workers.dev/api/cities/${city}`)
             .then(res => {
@@ -21,21 +21,29 @@ export default function Guide() {
             .catch(console.error);
     }, [city]);
 
-    // 2) Once `data.html` is injected, mount each carousel
+    // 2) Once HTML is in, mount each carousel into its placeholder
     useEffect(() => {
         if (!data) return;
         const host = hostRef.current;
         if (!host) return;
 
-        const roots = [];
-        host.querySelectorAll(".carousel-placeholder").forEach(el => {
+        const roots = Array.from(
+            host.querySelectorAll(".carousel-placeholder")
+        ).map(el => {
             const images = JSON.parse(el.getAttribute("data-carousel-images"));
             const root = ReactDOM.createRoot(el);
             root.render(<ImageCarousel images={images} />);
-            roots.push(root);
+            return root;
         });
 
-        return () => roots.forEach(r => r.unmount());
+        // defer unmounts to the next tick so we don't unmount mid-render
+        return () => {
+            roots.forEach(root => {
+                setTimeout(() => {
+                    try { root.unmount(); } catch {}
+                }, 0);
+            });
+        };
     }, [data]);
 
     if (!data) {
@@ -52,12 +60,10 @@ export default function Guide() {
     return (
         <div className="guide">
             <HomeNavbarAuth shadow={true} />
-
             <div className="container">
-                {/* replace the entire static .city block with this */}
+                {/* inject the entire .city HTML in one go */}
                 <div
                     ref={hostRef}
-                    className="city"
                     dangerouslySetInnerHTML={{ __html: data.html }}
                 />
             </div>

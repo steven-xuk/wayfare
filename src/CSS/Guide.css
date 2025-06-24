@@ -2,13 +2,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    max-width: 100%;
 }
 
 .guide .city .overview {
     margin: 38px;
+    width: calc(100% - 76px);
 }
 .guide .city .hotels {
     margin: 0px 38px 38px 38px;
+    width: calc(100% - 76px);
 }
 
 .guide .city .title {
@@ -103,9 +107,33 @@
 
     .guide .city .overview {
         margin: 30px;
+        width: calc(100% - 60px);
     }
     .guide .city .hotels {
         margin: 0px 30px 30px 30px;
+        width: calc(100% - 60px);
+    }
+    .guide .city .overview p {
+        font-family: 'Instrument Sans', sans-serif;
+        font-weight: 400;
+        font-size: 18px;
+    }
+    .guide .city .title h1 {
+        font-size: 46px;
+    }
+    .guide .city .overview h2, .guide .city .hotels h2 {
+        font-size: 38px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .guide .city .overview {
+        margin: 22px;
+        width: calc(100% - 46px);
+    }
+    .guide .city .hotels {
+        margin: 0px 22px 22px 22px;
+        width: calc(100% - 46px);
     }
     .guide .city .overview p {
         font-family: 'Instrument Sans', sans-serif;
@@ -123,6 +151,8 @@
 .guide .city .hotels {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    padding-bottom: 8px;
 }
 
 .guide .city .hotels .hotel {
@@ -134,9 +164,10 @@
     padding: 32px;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
     border-radius: 20px;
-    margin: 36px calc(10vw + 10px) 0px;
+    margin: 36px 0px 0px;
     font-family: 'Instrument Sans', sans-serif;
     max-width: 900px;
+    width: 100%;
 }
 
 .guide .city .hotels .hotel:hover {
@@ -158,6 +189,13 @@
 }
 
 @media screen and (max-width: 700px) {
+
+    .guide .city .hotels {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 0px;
+    }
     .guide .city .hotels .hotel {
         margin: 33px 20px 0px;
         padding: 28px;
@@ -179,6 +217,7 @@
     }
     .guide .city .hotels .hotel h3 {
         font-size: 30px;
+        overflow-wrap: break-word;
         margin: 0;
     }
 
@@ -189,5 +228,13 @@
 
     .guide .city .hotels .hotel .image-carousel .container .arrow {
         padding: 8px 12px 10px 12px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .guide .city .hotels .hotel h3 {
+        font-size: 29px;
+        overflow-wrap: break-word;
+        margin: 0;
     }
 }
