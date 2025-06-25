@@ -66,7 +66,7 @@
 }
 
 .create-walk .container .tab button.finished {
-  background-color: #9cb3be;
+  background-color: #92b2c0;
 }
 
 .create-walk .container .tab button p {
@@ -161,7 +161,7 @@
   padding: 12px;
   border: 0;
   border-radius: 6px;
-  background-color: #9cb3be;
+  background-color: #92b2c0;
   color: white;
   font-size: 20px;
   font-family: 'Instrument Sans', sans-serif;

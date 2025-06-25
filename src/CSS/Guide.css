@@ -6,13 +6,13 @@
     max-width: 100%;
 }
 
-.guide .city .overview {
-    margin: 38px;
-    width: calc(100% - 76px);
+/* Replace margins on overview and hotels with padding on their containers */
+.guide .city .overview-container {
+    padding: 38px;
 }
-.guide .city .hotels {
-    margin: 0px 38px 38px 38px;
-    width: calc(100% - 76px);
+.guide .city .hotels-container {
+    padding: 0px 38px 38px 38px;
+    width: 100%;
 }
 
 .guide .city .title {
@@ -34,6 +34,7 @@
     margin: 0;
 }
 
+/* Overview now sits inside overview-container, so no external margins here */
 .guide .city .overview {
     padding-bottom: 33px;
     border-bottom: 3px solid rgb(188, 188, 188);
@@ -41,9 +42,9 @@
 }
 
 .guide .city .overview::after {
-  content: "";
-  display: table;    /* creates a block formatting context */
-  clear: both;       /* clears left & right floats */
+    content: "";
+    display: table;    /* creates a block formatting context */
+    clear: both;       /* clears left & right floats */
 }
 
 .guide .city .overview h2 {
@@ -52,7 +53,7 @@
     text-align: center;
     font-size: 46px;
     line-height: 1em;
-    margin: 0px 0px 27px 0px;
+    margin: 0 0 27px 0;
 }
 
 .guide .city .overview p {
@@ -69,11 +70,18 @@
     float: right;
     width: min(50%, 500px);
     padding-top: 5px;
-    margin: 0px 0px 20px 20px;
+    margin: 0 0 20px 20px;
 }
 
 .guide .city .overview img.img-right.mobile {
     display: none;
+}
+
+.guide .city .hotels {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 8px;
 }
 
 .guide .city .hotels h2 {
@@ -82,77 +90,7 @@
     text-align: center;
     font-size: 46px;
     line-height: 1em;
-    margin: 0px 0px 0px 0px;
-}
-
-@media screen and (max-width: 700px) {
-    .guide .city .overview img.img-right.desktop {
-        display: none;
-    }
-
-    .guide .city .overview img.img-right.mobile {
-        display: block;
-        float: none;
-        width: 100%;
-        padding-top: 0;
-        margin: 0px;
-    }
-}
-
-@media screen and (max-width: 420px) {
-    .guide .city .overview {
-        padding-bottom: 28px;
-        border-bottom: 3px solid rgb(188, 188, 188);
-    }
-
-    .guide .city .overview {
-        margin: 30px;
-        width: calc(100% - 60px);
-    }
-    .guide .city .hotels {
-        margin: 0px 30px 30px 30px;
-        width: calc(100% - 60px);
-    }
-    .guide .city .overview p {
-        font-family: 'Instrument Sans', sans-serif;
-        font-weight: 400;
-        font-size: 18px;
-    }
-    .guide .city .title h1 {
-        font-size: 46px;
-    }
-    .guide .city .overview h2, .guide .city .hotels h2 {
-        font-size: 38px;
-    }
-}
-
-@media screen and (max-width: 350px) {
-    .guide .city .overview {
-        margin: 22px;
-        width: calc(100% - 46px);
-    }
-    .guide .city .hotels {
-        margin: 0px 22px 22px 22px;
-        width: calc(100% - 46px);
-    }
-    .guide .city .overview p {
-        font-family: 'Instrument Sans', sans-serif;
-        font-weight: 400;
-        font-size: 18px;
-    }
-    .guide .city .title h1 {
-        font-size: 46px;
-    }
-    .guide .city .overview h2, .guide .city .hotels h2 {
-        font-size: 38px;
-    }
-}
-
-.guide .city .hotels {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: 8px;
+    margin: 0;
 }
 
 .guide .city .hotels .hotel {
@@ -164,9 +102,9 @@
     padding: 32px;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
     border-radius: 20px;
-    margin: 36px 0px 0px;
+    margin: 36px 0 0;
     font-family: 'Instrument Sans', sans-serif;
-    max-width: 900px;
+    max-width: min(calc(690px + 11vw), 900px);
     width: 100%;
 }
 
@@ -188,23 +126,30 @@
     margin-bottom: 1.18em;
 }
 
+/* Responsive adjustments */
 @media screen and (max-width: 700px) {
+    .guide .city .overview img.img-right.desktop {
+        display: none;
+    }
+    .guide .city .overview img.img-right.mobile {
+        display: block;
+        float: none;
+        width: 100%;
+        padding-top: 0;
+        margin: 0;
+    }
 
     .guide .city .hotels {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding-bottom: 0px;
+        padding-bottom: 0;
     }
     .guide .city .hotels .hotel {
-        margin: 33px 20px 0px;
+        margin: 33px 20px 0;
         padding: 28px;
     }
     .guide .city .hotels .hotel h3 {
         font-size: 32px;
         margin: 0;
     }
-
     .guide .city .hotels .hotel .image-carousel {
         padding: 0;
     }
@@ -212,7 +157,7 @@
 
 @media screen and (max-width: 460px) {
     .guide .city .hotels .hotel {
-        margin: 33px 0px 0px;
+        margin: 33px 0 0;
         padding: 20px;
     }
     .guide .city .hotels .hotel h3 {
@@ -220,14 +165,37 @@
         overflow-wrap: break-word;
         margin: 0;
     }
-
     .guide .city .hotels .hotel p {
         font-size: 18px;
         margin-bottom: 1.18em;
     }
-
     .guide .city .hotels .hotel .image-carousel .container .arrow {
         padding: 8px 12px 10px 12px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    /* Switch margin overrides to container padding */
+    .guide .city .overview-container {
+        padding: 30px;
+    }
+    .guide .city .hotels-container {
+        padding: 0px 30px 30px 30px;
+    }
+
+    .guide .city .overview {
+        padding-bottom: 28px;
+        border-bottom: 3px solid rgb(188, 188, 188);
+    }
+    .guide .city .overview p {
+        font-size: 18px;
+    }
+    .guide .city .title h1 {
+        font-size: 46px;
+    }
+    .guide .city .overview h2,
+    .guide .city .hotels h2 {
+        font-size: 38px;
     }
 }
 
@@ -236,5 +204,30 @@
         font-size: 29px;
         overflow-wrap: break-word;
         margin: 0;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    /* Final smaller breakpoints adjust container padding */
+    .guide .city .overview-container {
+        padding: 22px 22px 32px;
+    }
+    .guide .city .hotels-container {
+        padding: 0px 22px 22px 22px;
+    }
+
+    .guide .city .overview p {
+        font-size: 18px;
+    }
+    .guide .city .title h1 {
+        font-size: 46px;
+    }
+    .guide .city .overview h2,
+    .guide .city .hotels h2 {
+        font-size: 38px;
+    }
+    /* Remove old width calc since padding handles spacing */
+    .guide .city .hotels .hotel {
+        width: 100%;
     }
 }

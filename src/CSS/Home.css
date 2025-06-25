@@ -45,7 +45,7 @@
 }
 
 .home .content .grid .card:nth-child(3) {
-    background-image: linear-gradient(rgba(150, 150, 150, 0.6), rgba(150, 150, 150, 0.6)), url(../imgs/pexels-mali-142497.jpg);
+    background-image: linear-gradient(rgba(150, 150, 150, 0.6), rgba(169, 169, 169, 0.69)), url(../imgs/pexels-mali-142497.jpg);
     background-position: 50% 52%;
 }
 

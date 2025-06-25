@@ -68,7 +68,7 @@
     top: 60px;
     width: 204px;
     background-color: white;
-    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.24);
 }
 
 .home-navbar-auth .account-menu.open {

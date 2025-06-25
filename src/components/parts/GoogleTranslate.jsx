@@ -41,7 +41,6 @@ const GoogleTranslate = () => {
       script.src =
         "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
       script.async = true;
-      script.defer = true;
 
       // Listen for load & error
       script.onload = () => console.log("✅ Translate script loaded");
