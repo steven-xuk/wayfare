@@ -27,6 +27,7 @@
     justify-content: center;
     flex-direction: row;
     margin-right: 5px;
+    visibility: hidden;
 }
 
 .home-navbar-auth nav div img {
